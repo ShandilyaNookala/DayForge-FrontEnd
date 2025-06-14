@@ -1,0 +1,12 @@
+.sortableContainer {
+  background-color: #2b7a78;
+}
+
+.draggable {
+  background-color: #3aa3a9;
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}

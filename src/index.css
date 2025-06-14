@@ -1,0 +1,151 @@
+:root {
+  --color-background-for-all-pages: #def2f1;
+
+  --color-text-for-all-headers: #feffff;
+  --color-text-for-all-footers: #17252a;
+  --background-color-for-all-headers: #2b7a78;
+
+  --color-text-for-btn-login: #feffff;
+  --color-border-for-btn-login: #2b7a78;
+  --color-box-shadow-for-btn-login: #3aafa9;
+  --color-background-for-btn-login: #3aafa9;
+  --color-hover-box-shadow-for-btn-login: #3aafa9;
+
+  --color-box-shadow-for-pulsate: #3aafa9;
+
+  --color-background-for-login-modal: #def2f1;
+  --color-background-for-btn-close-in-modal: #feffff;
+
+  --color-border-for-datagrid-cell-studenttasks: #feffff;
+  --color-background-for-datagrid-cell-studenttasks: #3aafa9;
+  --color-text-for-datagrid-cell-studenttasks: #feffff;
+  --color-border-right-for-datagrid-cell-studenttasks: #feffff;
+
+  --color-border-right-dataGrid-columnHeader-studenttasks: #feffff;
+  --color-background-dataGrid-columnHeader-studenttasks: #2b7a78;
+  --color-text-dataGrid-columnHeader-studenttasks: #feffff;
+
+  --color-circular-progress: #3aafa9;
+
+  --color-primary: #2b7a78;
+  --color-secondary: #3aafa9;
+  --color-light: #feffff;
+  --color-text: #17252a;
+  --color-border: #c1c8e4;
+}
+
+::selection {
+  background-color: #3aafa9;
+  color: #17252a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--color-background-for-all-pages) !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
+  border-color: var(--color-border-for-datagrid-cell-studenttasks) !important;
+  background-color: var(
+    --color-background-for-datagrid-cell-studenttasks
+  ) !important;
+  color: var(--color-text-for-datagrid-cell-studenttasks) !important;
+  border-right: 2px solid
+    var(--color-border-right-for-datagrid-cell-studenttasks) !important;
+  text-align: center !important;
+  font-size: 18px;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+.dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
+  border-right: 2px solid
+    var(--color-border-right-dataGrid-columnHeader-studenttasks) !important;
+  background-color: var(
+    --color-background-dataGrid-columnHeader-studenttasks
+  ) !important;
+  color: var(--color-text-dataGrid-columnHeader-studenttasks);
+  font-size: 20px;
+}
+
+.dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer {
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+
+button,
+.btn {
+  background-color: #3aafa9 !important;
+  color: #feffff !important;
+  transition: all 0.3s !important;
+  text-decoration: none;
+  padding: 0.5rem;
+  display: inline-block;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #feffff !important;
+  color: #3aafa9 !important;
+  box-shadow: 0 0 20px #3aafa9, 0 0 40px #3aafa9 !important;
+}
+
+.MuiCheckbox-root {
+  color: var(--color-text-dataGrid-columnHeader-studenttasks) !important;
+}
+
+.table {
+  background-color: #2b7a78 !important;
+  color: #feffff !important;
+}
+
+.table-cell {
+  color: #feffff !important;
+}
+
+.default-text-field fieldset {
+  border: 1px solid #feffff !important;
+}
+
+.default-text-field textarea,
+input,
+label {
+  color: #feffff !important;
+}
+
+.MuiTable-root {
+  background-color: #2b7a78 !important;
+}
+
+.MuiPickersLayout-root button {
+  background-color: #feffff !important;
+  color: #3aa3a9 !important;
+}
+
+.MuiPickersLayout-root .Mui-selected {
+  background-color: #3aa3a9 !important;
+  color: #feffff !important;
+}

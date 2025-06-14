@@ -1,0 +1,8 @@
+.addOrSeeRulesContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveAndCloseButton {
+  margin-top: 2rem;
+}

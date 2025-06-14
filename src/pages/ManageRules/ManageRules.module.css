@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container :global(.MuiDataGrid-cell) {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px !important;
+}
+
+.addRule {
+  align-self: center;
+  margin: 1rem;
+  padding: 1rem !important;
+  font-size: 18px;
+}
+
+.container .ruleLink {
+  background-color: #2b7a78 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}

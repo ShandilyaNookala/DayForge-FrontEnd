@@ -1,0 +1,47 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modalText {
+  background-color: #3aafa9;
+  padding: 2rem 6rem;
+  color: #feffff;
+}
+
+.outlet {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editButton {
+  background-color: #2b7a78 !important;
+  margin-right: 1rem !important;
+}
+
+.taskNavigation {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.previousTask,
+.nextTask {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  min-width: max-content;
+  padding: 0.5rem 1rem;
+}

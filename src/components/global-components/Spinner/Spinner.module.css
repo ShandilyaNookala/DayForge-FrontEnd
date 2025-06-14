@@ -1,0 +1,8 @@
+.spinnerContainer {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.spinner {
+  color: var(--color-circular-progress) !important;
+}

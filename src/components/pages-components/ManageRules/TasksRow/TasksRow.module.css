@@ -1,0 +1,22 @@
+.tasks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addTaskButton {
+  background-color: #2b7a78 !important;
+  max-height: 50px;
+  align-self: center;
+}
+
+.taskAutocomplete {
+  width: 25% !important;
+  align-self: center;
+}
+
+.tasksGroup {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+}

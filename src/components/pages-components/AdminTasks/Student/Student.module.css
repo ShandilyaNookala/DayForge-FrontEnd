@@ -1,0 +1,16 @@
+.personRow {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.name {
+  margin: 0 1rem;
+  font-size: 36px;
+  display: inline-block;
+}
+
+.tasks {
+  display: flex;
+}
