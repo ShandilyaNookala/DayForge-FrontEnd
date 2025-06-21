@@ -3,13 +3,7 @@ import { sendAPI } from "../../utils/helpers";
 import { baseUrl } from "../../utils/config";
 import StartButton from "../../components/pages-components/StudentTimer/StartButton/StartButton";
 import Stop from "../../components/pages-components/StudentTimer/Stop/Stop";
-import {
-  Container,
-  Table,
-  TableContainer,
-  TableBody,
-  Box,
-} from "@mui/material";
+import { Table, TableContainer, TableBody, Box } from "@mui/material";
 import { useNavigate, useParams } from "react-router";
 import styles from "./StudentTimer.module.css";
 import StartTime from "../../components/pages-components/StudentTimer/StartTime/StartTime";
@@ -62,7 +56,7 @@ function StudentTimer() {
         <Spinner />
       ) : (
         <>
-          <Container className={styles.container}>
+          <Box className={styles.container}>
             {user.isAdmin ? (
               <Box className={styles.adminMessage}>
                 You are not allowed to access this page as an admin.
@@ -97,7 +91,7 @@ function StudentTimer() {
                 </TableContainer>
               </>
             )}
-          </Container>
+          </Box>
         </>
       )}
     </>

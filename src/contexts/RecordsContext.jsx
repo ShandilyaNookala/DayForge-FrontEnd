@@ -20,7 +20,6 @@ function RecordsProvider({ children }) {
           const recordsData = (
             await sendAPI("GET", `${baseUrl}/records/${taskId}`)
           ).data;
-          console.log(recordsData);
           if (!recordsData) {
             setRecordsData([]);
           }

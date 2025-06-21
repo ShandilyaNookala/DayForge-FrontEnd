@@ -1,0 +1,15 @@
+.summaryContainer {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  width: 100%;
+}
+
+.summaryBox {
+  border: 5px solid;
+  border-color: grey.300;
+  border-radius: 2;
+  box-shadow: 1;
+  min-width: 25%;
+  padding: 1rem;
+}

@@ -11,7 +11,6 @@ export function AuthProvider({ children }) {
   useEffect(function () {
     async function fetchUser() {
       try {
-        console.log("Checking if user is logged in...");
         const user = await sendAPI("POST", `${baseUrl}/auth/is-logged-in`);
         if (user.status === "fail") setUser(null);
         else if (user.status === "success") setUser(user.data);

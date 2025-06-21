@@ -9,7 +9,6 @@ import NextWork from "../../components/pages-components/Results/NextWork/NextWor
 import {
   Box,
   Button,
-  Container,
   Table,
   TableBody,
   TableCell,
@@ -179,7 +178,7 @@ function Results() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <Container className={styles.resultsContainer}>
+        <Box className={styles.resultsContainer}>
           {!user.isAdmin ? (
             <Box>You are not authorized to view this page.</Box>
           ) : (
@@ -231,7 +230,7 @@ function Results() {
               </Box>
             </>
           )}
-        </Container>
+        </Box>
       )}
     </>
   );

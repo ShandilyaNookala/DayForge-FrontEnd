@@ -19,6 +19,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ThresholdPoints from "../../components/pages-components/Course/ThresholdPoints/ThresholdPoints.jsx";
 import { useAuth } from "../../contexts/AuthContext.jsx";
+import Summary from "../../components/pages-components/Course/Summary/Summary.jsx";
 
 const Transition = forwardRef(function Transition(props, _) {
   return <Slide {...props} />;
@@ -189,10 +190,11 @@ export default function Course() {
               <ThresholdPoints isAdmin={isAdmin} />
             </Box>
           </Header>
-          <Box className={styles.outlet}>
-            <Outlet />
-          </Box>
           <Container className="dataGrid">
+            <Summary />
+            <Box className={styles.outlet}>
+              <Outlet />
+            </Box>
             <BackButton url="/home" />
             <Box className={styles.taskNavigation}>
               <Box>
