@@ -142,8 +142,6 @@ export default function AddOrSeeRule() {
     navigate(-1);
   }
 
-  if (!user.isAdmin) return <Box>You are not authorized to view this page</Box>;
-
   return (
     <>
       {isLoading ? (
@@ -153,56 +151,62 @@ export default function AddOrSeeRule() {
           <Header>{id ? `See rules for ${ruleName}` : "Add Rule"}</Header>
           <Container className={styles.addOrSeeRulesContainer}>
             <BackButton url={-1} />
-            <Box>
-              {ruleCategories.map((ruleCategory, i) => (
-                <RuleCategory
-                  ruleCategoryName={ruleCategory}
-                  ruleInputs={ruleInputs}
-                  onSaveRuleInput={handleSaveRuleInput}
-                  onSaveRuleCategory={handleSaveRuleCategory}
-                  key={i}
-                  index={i}
-                />
-              ))}
-              {ruleCategoryShowing && (
-                <ChangedRuleCategory
-                  onSaveRuleCategory={handleSaveRuleCategory}
-                  defaultRuleCategory=""
-                  handleStopRuleCategoryShowing={() =>
-                    setRuleCategoryShowing(false)
-                  }
-                  index={-1}
-                />
-              )}
-              <br />
-              <Button onClick={handleRuleCategoryShowing}>
-                + Add Rule Category
-              </Button>
-            </Box>
-            <Box>
-              <InfoCard>
+            {user.isAdmin ? (
+              <>
                 <Box>
-                  Rule Name:{" "}
-                  <TextField
-                    value={ruleName}
-                    onChange={(e) => setRuleName(e.target.value)}
-                    className="default-text-field"
-                  />
-                </Box>
-                <Box>
-                  <Button
-                    className={styles.saveAndCloseButton}
-                    onClick={handleSaveAndCloseRules}
-                  >
-                    Save all rules and close
+                  {ruleCategories.map((ruleCategory, i) => (
+                    <RuleCategory
+                      ruleCategoryName={ruleCategory}
+                      ruleInputs={ruleInputs}
+                      onSaveRuleInput={handleSaveRuleInput}
+                      onSaveRuleCategory={handleSaveRuleCategory}
+                      key={i}
+                      index={i}
+                    />
+                  ))}
+                  {ruleCategoryShowing && (
+                    <ChangedRuleCategory
+                      onSaveRuleCategory={handleSaveRuleCategory}
+                      defaultRuleCategory=""
+                      handleStopRuleCategoryShowing={() =>
+                        setRuleCategoryShowing(false)
+                      }
+                      index={-1}
+                    />
+                  )}
+                  <br />
+                  <Button onClick={handleRuleCategoryShowing}>
+                    + Add Rule Category
                   </Button>
                 </Box>
-              </InfoCard>
-            </Box>
-            <ChangeRuleOrder
-              ruleInputs={validRuleInputs}
-              onChangeOrder={handleChangeOrder}
-            />
+                <Box>
+                  <InfoCard>
+                    <Box>
+                      Rule Name:{" "}
+                      <TextField
+                        value={ruleName}
+                        onChange={(e) => setRuleName(e.target.value)}
+                        className="default-text-field"
+                      />
+                    </Box>
+                    <Box>
+                      <Button
+                        className={styles.saveAndCloseButton}
+                        onClick={handleSaveAndCloseRules}
+                      >
+                        Save all rules and close
+                      </Button>
+                    </Box>
+                  </InfoCard>
+                </Box>
+                <ChangeRuleOrder
+                  ruleInputs={validRuleInputs}
+                  onChangeOrder={handleChangeOrder}
+                />
+              </>
+            ) : (
+              <Box>You are not authorized to view this page.</Box>
+            )}
           </Container>
           <Footer />
         </>

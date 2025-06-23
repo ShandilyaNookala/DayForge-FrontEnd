@@ -65,8 +65,6 @@ function ManageRules() {
     fetchData();
   }, []);
 
-  if (!user.isAdmin) return <Box>You are not authorized to view this page</Box>;
-
   return (
     <>
       {!isLoading ? (
@@ -74,14 +72,20 @@ function ManageRules() {
           <Header>Manage Rules</Header>
           <Container className={`dataGrid ${styles.container}`}>
             <BackButton url="/home" />
-            <Link to="/rules/add-rule" className={`btn ${styles.addRule}`}>
-              Add New Rule
-            </Link>
-            <DataGrid
-              getRowHeight={() => "auto"}
-              columns={columns}
-              rows={data.rows}
-            />
+            {user.isAdmin ? (
+              <>
+                <Link to="/rules/add-rule" className={`btn ${styles.addRule}`}>
+                  Add New Rule
+                </Link>
+                <DataGrid
+                  getRowHeight={() => "auto"}
+                  columns={columns}
+                  rows={data.rows}
+                />
+              </>
+            ) : (
+              <Box>You are not authorized to view this page</Box>
+            )}
           </Container>
           <Footer />
         </>
