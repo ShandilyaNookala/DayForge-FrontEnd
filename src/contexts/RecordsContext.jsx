@@ -65,6 +65,27 @@ function RecordsProvider({ children }) {
     });
   }
 
+  async function updateRuleForTask(ruleId) {
+    if (!ruleId) return;
+    setIsLoading(true);
+
+    await sendAPI(
+      "PATCH",
+      `${baseUrl}/records/update-rule-for-task/${taskId}`,
+      {
+        ruleId,
+      }
+    );
+    setIsLoading(false);
+
+    setRecordsData((recordsData) => {
+      return {
+        ...recordsData,
+        rule: ruleId,
+      };
+    });
+  }
+
   return (
     <RecordsContext.Provider
       value={{
@@ -75,6 +96,7 @@ function RecordsProvider({ children }) {
         setIsLoading,
         setChangedRecordData,
         updateThresholdPoints,
+        updateRuleForTask,
       }}
     >
       {children}

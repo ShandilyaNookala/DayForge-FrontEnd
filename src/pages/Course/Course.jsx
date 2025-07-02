@@ -20,6 +20,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ThresholdPoints from "../../components/pages-components/Course/ThresholdPoints/ThresholdPoints.jsx";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 import Summary from "../../components/pages-components/Course/Summary/Summary.jsx";
+import AddNewRuleForTask from "../../components/pages-components/Course/AddNewRuleForTask/AddNewRuleForTask.jsx";
 
 const Transition = forwardRef(function Transition(props, _) {
   return <Slide {...props} />;
@@ -185,6 +186,7 @@ export default function Course() {
                 Manage Rules for this Task
               </Link>
             )}
+            {isAdmin && !recordsData?.rule && <AddNewRuleForTask />}
             <Box>
               <Box>{recordsData?.taskName}</Box>
               <ThresholdPoints isAdmin={isAdmin} />
