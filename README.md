@@ -1,52 +1,44 @@
-# Scheduler Frontend
+# DayForge Frontend
 
-This is the frontend application for the Scheduler project. It is built using modern web technologies to provide a seamless user experience for scheduling tasks and events.
+DayForge is a task management system used to organise student work and record results. This repository contains the React based frontend built with [Vite](https://vitejs.dev/).
 
 ## Features
 
-- User-friendly interface for scheduling tasks
-- Calendar view to see all scheduled events
-- Integration with backend API for data persistence
+- Authentication with separate interfaces for students and administrators
+- View and manage tasks with drag and drop ordering
+- Timer interface for students to track work time
+- Record results and grades for each task
+- Administration pages for rule management and task configuration
 
-## Technologies Used
+## Getting Started
 
-- React
-- React Router
+### Prerequisites
 
-## Installation
+- [Node.js](https://nodejs.org/) (v18 or later)
+- npm (comes with Node.js)
 
-1. Clone the repository:
+### Installation
 
-```bash
-git clone git@github.com:ShandilyaNookala/Scheduler.git
-```
+1. Install dependencies:
 
-2. Navigate to the project directory:
+   ```bash
+   npm install
+   ```
 
-```bash
-cd Scheduler
-```
+2. Copy `example.env` to `.env` and update `VITE_API_URL` to point to your backend API.
 
-3. Install dependencies:
+### Scripts
 
-```bash
-npm install
-```
+- `npm start` – run the development server
+- `npm run build` – create a production build
+- `npm run preview` – preview the production build locally
 
-## Usage
+## Project Structure
 
-1. Start the development server:
-
-```bash
-npm start
-```
-
-2. Open your browser and navigate to `http://localhost:3000`.
+- `src/` – React components, pages and context providers
+- `public/` – static assets served as-is
+- `vite.config.js` – Vite configuration
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-## Contact
-
-For any questions or feedback, please contact [shandilya.nookala@gmail.com](mailto:shandilya.nookala@gmail.com).
+Contributions are welcome! Please open an issue or submit a pull request if you'd like to help improve DayForge. Alternatively, you can email [shandilya.nookala@gmail.com](mailto:shandilya.nookala@gmail.com) for access.
