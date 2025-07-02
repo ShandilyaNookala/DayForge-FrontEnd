@@ -131,8 +131,8 @@ button:hover,
 }
 
 .default-text-field textarea,
-input,
-label {
+.default-text-field input,
+.default-text-field label {
   color: #feffff !important;
 }
 

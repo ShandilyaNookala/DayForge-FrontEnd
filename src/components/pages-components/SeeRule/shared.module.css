@@ -1,0 +1,16 @@
+.ruleTextField fieldset {
+  border: 1px solid #17252a !important;
+}
+
+.ruleTextField input {
+  color: #17252a !important;
+}
+
+.ruleTextField label {
+  color: #17252a !important;
+}
+
+.typography {
+  display: inline-block !important;
+  margin-right: 1rem !important;
+}

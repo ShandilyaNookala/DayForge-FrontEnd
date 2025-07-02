@@ -11,6 +11,7 @@ import Spinner from "../../components/global-components/Spinner/Spinner";
 import InfoCard from "../../components/global-components/InfoCard/InfoCard";
 import { useRecords } from "../../contexts/RecordsContext.jsx";
 import { useAuth } from "../../contexts/AuthContext.jsx";
+import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized.jsx";
 
 function StudentTimer() {
   const { taskId, recordId } = useParams();
@@ -58,9 +59,7 @@ function StudentTimer() {
         <>
           <Box className={styles.container}>
             {user.isAdmin ? (
-              <Box className={styles.adminMessage}>
-                You are not allowed to access this page as an admin.
-              </Box>
+              <NotAuthorized />
             ) : (
               <>
                 <InfoCard>

@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import Footer from "../../components/global-components/Footer/Footer";
 import Header from "../../components/global-components/Header/Header";
 import { useEffect, useMemo, useState } from "react";
@@ -11,11 +11,14 @@ import TasksRow from "../../components/pages-components/ManageRules/TasksRow/Tas
 import { Link } from "react-router";
 import BackButton from "../../components/global-components/BackButton/BackButton";
 import { useAuth } from "../../contexts/AuthContext";
+import AddNewRule from "../../components/pages-components/ManageRules/AddNewRule/AddNewRule";
+import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized";
 
 function ManageRules() {
   const [isLoading, setIsLoading] = useState(true);
   const [ruleWithTasksDropdown, setRuleWithTasksDropdown] = useState(null);
   const [data, setData] = useState({});
+  const [isAddNewRuleShowing, setIsAddNewRuleShowing] = useState(false);
 
   const { user } = useAuth();
 
@@ -65,6 +68,10 @@ function ManageRules() {
     fetchData();
   }, []);
 
+  function showAddNewRule() {
+    setIsAddNewRuleShowing(true);
+  }
+
   return (
     <>
       {!isLoading ? (
@@ -74,9 +81,17 @@ function ManageRules() {
             <BackButton url="/home" />
             {user.isAdmin ? (
               <>
-                <Link to="/rules/add-rule" className={`btn ${styles.addRule}`}>
-                  Add New Rule
-                </Link>
+                {!isAddNewRuleShowing ? (
+                  <Button
+                    to="add-rule"
+                    className={`btn ${styles.addRule}`}
+                    onClick={showAddNewRule}
+                  >
+                    Add New Rule
+                  </Button>
+                ) : (
+                  <AddNewRule />
+                )}
                 <DataGrid
                   getRowHeight={() => "auto"}
                   columns={columns}
@@ -84,7 +99,7 @@ function ManageRules() {
                 />
               </>
             ) : (
-              <Box>You are not authorized to view this page</Box>
+              <NotAuthorized />
             )}
           </Container>
           <Footer />

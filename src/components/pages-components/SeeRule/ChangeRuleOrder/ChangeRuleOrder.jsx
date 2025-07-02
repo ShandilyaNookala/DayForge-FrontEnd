@@ -10,16 +10,11 @@ function ChangeRuleOrder({ ruleInputs, onChangeOrder }) {
       className={styles.sortableContainer}
       animation={150}
     >
-      {ruleInputs
-        // .filter((ruleInput) => ruleInput.name)
-        .map((ruleInput, index) => (
-          <Box
-            key={ruleInput._id || ruleInput.id || index}
-            className={styles.draggable}
-          >
-            {ruleInput.name}
-          </Box>
-        ))}
+      {ruleInputs.map((ruleInput) => (
+        <Box key={ruleInput._id} className={styles.draggable}>
+          {ruleInput.name}
+        </Box>
+      ))}
     </ReactSortable>
   );
 }

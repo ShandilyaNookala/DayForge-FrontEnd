@@ -1,0 +1,28 @@
+.addNewRuleBox {
+  display: flex;
+  justify-content: center;
+}
+
+.addNewRuleTextField fieldset {
+  border: 1px solid #17252a !important;
+}
+
+.addNewRuleTextField input,
+.addNewRuleTextField label,
+.addNewRuleTextField span,
+.addNewRuleTextField textarea {
+  color: #17252a !important;
+}
+
+.addNewRuleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 45%;
+}
+
+.addRuleButton {
+  height: 100%;
+}

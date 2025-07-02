@@ -1,0 +1,15 @@
+.seeRuleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.saveAndCloseButton {
+  margin-top: 2rem;
+}

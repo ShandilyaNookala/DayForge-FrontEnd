@@ -11,6 +11,7 @@ import Spinner from "../../components/global-components/Spinner/Spinner";
 
 import styles from "./StudentTasks.module.css";
 import { useAuth } from "../../contexts/AuthContext";
+import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized";
 
 export default function StudentTasks() {
   const navigate = useNavigate();
@@ -60,12 +61,7 @@ export default function StudentTasks() {
     [markedObsolete]
   );
 
-  if (user.isAdmin)
-    return (
-      <Box>
-        You are not a student and do not have permission to view this page.
-      </Box>
-    );
+  if (user.isAdmin) return <NotAuthorized />;
 
   async function handleObsolete() {
     setIsLoading(true);

@@ -19,6 +19,7 @@ import { useNavigate, useParams } from "react-router";
 import { useRecords } from "../../contexts/RecordsContext.jsx";
 import styles from "./Results.module.css";
 import { useAuth } from "../../contexts/AuthContext.jsx";
+import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized.jsx";
 
 const initialState = {
   mistakes: null,
@@ -180,7 +181,7 @@ function Results() {
       ) : (
         <Box className={styles.resultsContainer}>
           {!user.isAdmin ? (
-            <Box>You are not authorized to view this page.</Box>
+            <NotAuthorized />
           ) : (
             <>
               <Table>
