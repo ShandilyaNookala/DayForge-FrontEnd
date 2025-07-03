@@ -24,7 +24,7 @@ export default function AdminTasks() {
               Manage Rules
             </Link>
             {data.map((student) => (
-              <Student student={student} key={student.assignedTo}></Student>
+              <Student student={student} key={student.studentId}></Student>
             ))}
           </Container>
           <Footer />

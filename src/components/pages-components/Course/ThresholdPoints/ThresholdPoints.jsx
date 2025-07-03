@@ -14,7 +14,7 @@ function ThresholdPoints({ isAdmin }) {
   function handleChange(e, setterFunction) {
     const val = e.target.value;
     if (/^\d*\.?\d*$/.test(val)) {
-      setterFunction(val);
+      setterFunction(+val);
     }
   }
 
@@ -36,7 +36,13 @@ function ThresholdPoints({ isAdmin }) {
         className="default-text-field"
         slotProps={{ htmlInput: { min: 0 } }}
       />
-      <Button onClick={() => updateThresholdPoints(threshold, noOfProblems)}>
+      <Button
+        onClick={() => updateThresholdPoints(threshold, noOfProblems)}
+        disabled={
+          threshold === recordsData?.threshold &&
+          noOfProblems === recordsData?.noOfProblems
+        }
+      >
         Save
       </Button>
     </Box>
