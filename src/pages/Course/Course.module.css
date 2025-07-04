@@ -45,3 +45,9 @@
   min-width: max-content;
   padding: 0.5rem 1rem;
 }
+
+.ruleLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

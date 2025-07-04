@@ -86,6 +86,19 @@ function RecordsProvider({ children }) {
     });
   }
 
+  async function updateSkippedRuleCategories(skippedCategoryIds) {
+    setIsLoading(true);
+    const response = await sendAPI(
+      "PATCH",
+      `${baseUrl}/records/update-skipped-rule-categories/${taskId}`,
+      {
+        skippedRuleCategories: skippedCategoryIds,
+      }
+    );
+    setIsLoading(false);
+    setRecordsData(response.data);
+  }
+
   return (
     <RecordsContext.Provider
       value={{
@@ -97,6 +110,7 @@ function RecordsProvider({ children }) {
         setChangedRecordData,
         updateThresholdPoints,
         updateRuleForTask,
+        updateSkippedRuleCategories,
       }}
     >
       {children}

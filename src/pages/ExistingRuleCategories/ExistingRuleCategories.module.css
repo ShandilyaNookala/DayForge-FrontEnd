@@ -1,0 +1,14 @@
+.existingRuleCategories {
+  background-color: #2b7a78 !important;
+  display: flex;
+}
+
+.existingRuleCategoriesColumns {
+  border-right: 1px solid #feffff;
+  color: #feffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 1rem;
+}
