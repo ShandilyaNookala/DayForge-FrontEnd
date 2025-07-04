@@ -9,6 +9,7 @@ import ManageRules from "./pages/ManageRules/ManageRules.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/global-components/ProtectedRoute/ProtectedRoute.jsx";
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
+import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
             >
               <Route path="timer/:recordId" element={<StudentTimer />} />
               <Route path="results/:recordId" element={<Results />} />
+              <Route
+                path="existing-rule-categories"
+                element={<ExistingRuleCategories />}
+              />
             </Route>
 
             <Route path="/rules">

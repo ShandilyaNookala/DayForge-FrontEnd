@@ -182,9 +182,17 @@ export default function Course() {
         <>
           <Header>
             {isAdmin && recordsData?.rule && (
-              <Link to={`/rules/see-rule/${recordsData.rule}`} className="btn">
-                Manage Rules for this Task
-              </Link>
+              <Box className={styles.ruleLinks}>
+                <Link
+                  to={`/rules/see-rule/${recordsData.rule}`}
+                  className="btn"
+                >
+                  Manage Rules for this Task
+                </Link>
+                <Link to="existing-rule-categories" className="btn">
+                  See Existing Rule Categories
+                </Link>
+              </Box>
             )}
             {isAdmin && !recordsData?.rule && <AddNewRuleForTask />}
             <Box>
