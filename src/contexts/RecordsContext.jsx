@@ -88,7 +88,7 @@ function RecordsProvider({ children }) {
 
   async function updateSkippedRuleCategories(skippedCategoryIds) {
     setIsLoading(true);
-    const response = await sendAPI(
+    await sendAPI(
       "PATCH",
       `${baseUrl}/records/update-skipped-rule-categories/${taskId}`,
       {
@@ -96,7 +96,6 @@ function RecordsProvider({ children }) {
       }
     );
     setIsLoading(false);
-    setRecordsData(response.data);
   }
 
   return (
