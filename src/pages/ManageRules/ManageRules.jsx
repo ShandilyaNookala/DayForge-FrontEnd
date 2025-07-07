@@ -1,4 +1,4 @@
-import { Box, Button, Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import Footer from "../../components/global-components/Footer/Footer";
 import Header from "../../components/global-components/Header/Header";
 import { useEffect, useMemo, useState } from "react";

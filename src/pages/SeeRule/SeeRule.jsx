@@ -109,9 +109,14 @@ export default function SeeRule() {
     setRule((rule) => {
       return { ...rule, ruleInputs: newRuleInputs };
     });
+  }
+
+  async function handleSaveRuleInputOrder() {
+    setIsLoading(true);
     await sendAPI("PATCH", `${rulesBaseUrl}/change-rule-input-order`, {
-      newRuleInputs,
+      newRuleInputs: rule.ruleInputs,
     });
+    setIsLoading(false);
   }
 
   return (
@@ -168,6 +173,7 @@ export default function SeeRule() {
             <ChangeRuleOrder
               ruleInputs={rule.ruleInputs}
               onChangeOrder={handleChangeOrder}
+              onSaveRuleInputOrder={handleSaveRuleInputOrder}
             />
           </Container>
           <Footer />
