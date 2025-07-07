@@ -9,7 +9,7 @@ function ChangedRuleInput({
 }) {
   const [ruleInputValue, setRuleInputValue] = useState(ruleInput?.name || "");
   const [ruleInputPoints, setRuleInputPoints] = useState(
-    ruleInput?.points || standardPoints
+    +ruleInput?.points || +standardPoints
   );
 
   async function handleSaveRuleInput() {
@@ -35,7 +35,7 @@ function ChangedRuleInput({
       <TextField
         type="number"
         value={ruleInputPoints}
-        onChange={(e) => setRuleInputPoints(e.target.value)}
+        onChange={(e) => setRuleInputPoints(+e.target.value)}
         label="Points"
         className={sharedStyles.ruleTextField}
       />
