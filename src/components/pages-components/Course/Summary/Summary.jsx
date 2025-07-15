@@ -7,7 +7,8 @@ function Summary() {
   const { recordsData } = useRecords();
 
   if (!recordsData) return null;
-  const { totalAttemptedProblems, totalProblems, mistakes } = recordsData;
+  const { totalAttemptedProblems, totalProblems, mistakes, endDate } =
+    recordsData;
 
   if (
     totalAttemptedProblems === null ||
@@ -33,6 +34,14 @@ function Summary() {
           <SummaryItem
             label="Percentage Correct"
             value={`${percentageCorrect}%`}
+          />
+          <SummaryItem
+            label="End Date"
+            value={new Intl.DateTimeFormat(navigator.language || "en-US", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            }).format(new Date(endDate))}
           />
         </Stack>
       </Box>
