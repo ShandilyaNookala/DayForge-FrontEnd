@@ -69,7 +69,7 @@ function RecordsProvider({ children }) {
     if (!ruleId) return;
     setIsLoading(true);
 
-    await sendAPI(
+    const response = await sendAPI(
       "PATCH",
       `${baseUrl}/records/update-rule-for-task/${taskId}`,
       {
@@ -78,17 +78,12 @@ function RecordsProvider({ children }) {
     );
     setIsLoading(false);
 
-    setRecordsData((recordsData) => {
-      return {
-        ...recordsData,
-        rule: ruleId,
-      };
-    });
+    setRecordsData(response.data);
   }
 
   async function updateSkippedRuleCategories(skippedCategoryIds) {
     setIsLoading(true);
-    await sendAPI(
+    const response = await sendAPI(
       "PATCH",
       `${baseUrl}/records/update-skipped-rule-categories/${taskId}`,
       {
@@ -96,6 +91,7 @@ function RecordsProvider({ children }) {
       }
     );
     setIsLoading(false);
+    setRecordsData(response.data);
   }
 
   return (

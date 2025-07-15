@@ -7,7 +7,8 @@ function Summary() {
   const { recordsData } = useRecords();
 
   if (!recordsData) return null;
-  const { totalAttemptedProblems, totalProblems, mistakes } = recordsData;
+  const { totalAttemptedProblems, totalProblems, mistakes, endDate } =
+    recordsData;
 
   if (
     totalAttemptedProblems === null ||
@@ -16,7 +17,7 @@ function Summary() {
   )
     return null;
 
-  const percentageCorrect = Math.floor(
+  const percentageCorrect = Math.round(
     100 - (mistakes / totalAttemptedProblems) * 100
   );
 
@@ -30,10 +31,22 @@ function Summary() {
             value={totalAttemptedProblems}
           />
           <SummaryItem label="Mistakes" value={mistakes} />
-          <SummaryItem
-            label="Percentage Correct"
-            value={`${percentageCorrect}%`}
-          />
+          {totalAttemptedProblems > 0 ? (
+            <SummaryItem
+              label="Percentage Correct"
+              value={`${percentageCorrect}%`}
+            />
+          ) : null}
+          {endDate ? (
+            <SummaryItem
+              label="End Date"
+              value={new Intl.DateTimeFormat(navigator.language || "en-US", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              }).format(new Date(endDate))}
+            />
+          ) : null}
         </Stack>
       </Box>
     </Box>
