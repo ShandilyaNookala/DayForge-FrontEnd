@@ -39,7 +39,7 @@ function PositionsProvider({ children }) {
     } else {
       positionsData = await sendAPI(
         "PATCH",
-        `${baseUrl}/records/${changedTask.taskId}`,
+        `${baseUrl}/records/update-task-name/${changedTask.taskId}`,
         {
           taskName,
         }
