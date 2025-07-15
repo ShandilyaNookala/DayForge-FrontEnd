@@ -10,7 +10,7 @@ import styles from "./AddNewRuleForTask.module.css";
 
 function AddNewRuleForTask() {
   const [isAdding, setIsAdding] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedRule, setSelectedRule] = useState(null);
   const [allRules, setAllRules] = useState([]);
 
