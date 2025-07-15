@@ -31,7 +31,7 @@ function Summary() {
             value={totalAttemptedProblems}
           />
           <SummaryItem label="Mistakes" value={mistakes} />
-          {percentageCorrect ? (
+          {totalAttemptedProblems > 0 ? (
             <SummaryItem
               label="Percentage Correct"
               value={`${percentageCorrect}%`}
