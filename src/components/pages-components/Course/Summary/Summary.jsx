@@ -7,8 +7,13 @@ function Summary() {
   const { recordsData } = useRecords();
 
   if (!recordsData) return null;
-  const { totalAttemptedProblems, totalProblems, mistakes, endDate } =
-    recordsData;
+  const {
+    totalAttemptedProblems,
+    totalProblems,
+    mistakes,
+    endDate,
+    percentageCorrect,
+  } = recordsData;
 
   if (
     totalAttemptedProblems === null ||
@@ -16,10 +21,6 @@ function Summary() {
     mistakes === null
   )
     return null;
-
-  const percentageCorrect = Math.round(
-    100 - (mistakes / totalAttemptedProblems) * 100
-  );
 
   return (
     <Box className={styles.summaryContainer}>
@@ -34,7 +35,7 @@ function Summary() {
           {totalAttemptedProblems > 0 ? (
             <SummaryItem
               label="Percentage Correct"
-              value={`${percentageCorrect}%`}
+              value={`${Math.round(percentageCorrect)}%`}
             />
           ) : null}
           {endDate ? (
