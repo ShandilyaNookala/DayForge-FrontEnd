@@ -201,42 +201,40 @@ export default function Course() {
             </Box>
           </Header>
           <Container className="dataGrid">
-            <Summary />
+            <Box className={styles.backButtonAndSummary}>
+              <BackButton />
+              <Summary />
+            </Box>
             <Box className={styles.outlet}>
               <Outlet />
             </Box>
-            <BackButton url="/home" />
+
             <Box className={styles.taskNavigation}>
-              <Box>
-                {recordsData?.previousTask ? (
-                  <Link
-                    to={`/course/${recordsData?.previousTask}`}
-                    className={`btn ${styles.previousTask}`}
-                  >
-                    <ArrowBackIcon />
-                    Previous Task
-                  </Link>
-                ) : (
-                  <Box />
-                )}
-              </Box>
-              <Box>
-                {recordsData?.nextTask && (
-                  <Link
-                    to={`/course/${recordsData?.nextTask}`}
-                    className={`btn ${styles.nextTask}`}
-                  >
-                    <ArrowForwardIcon />
-                    Next Task
-                  </Link>
-                )}
-              </Box>
+              {recordsData?.previousTask && (
+                <Link
+                  to={`/course/${recordsData?.previousTask}`}
+                  className={`btn ${styles.previousTask}`}
+                >
+                  <ArrowBackIcon />
+                  Previous Task
+                </Link>
+              )}
+
+              {isAdmin && !changedRecordData && (
+                <Button onClick={showAddNewRecord}>Add New Record</Button>
+              )}
+
+              {recordsData?.nextTask && (
+                <Link
+                  to={`/course/${recordsData?.nextTask}`}
+                  className={`btn ${styles.nextTask}`}
+                >
+                  Next Task
+                  <ArrowForwardIcon />
+                </Link>
+              )}
             </Box>
-            {isAdmin && !changedRecordData && (
-              <Button className="btn" onClick={showAddNewRecord}>
-                Add New Record
-              </Button>
-            )}
+
             {changedRecordData && <ChangedRecord taskId={taskId} />}
             <DataGrid
               rows={rows}

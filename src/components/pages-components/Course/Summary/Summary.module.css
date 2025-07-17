@@ -1,15 +1,17 @@
 .summaryContainer {
   display: flex;
-  align-items: right;
-  justify-content: right;
+  justify-content: center;
   width: 100%;
 }
 
 .summaryBox {
-  border: 5px solid;
-  border-color: grey.300;
-  border-radius: 2;
-  box-shadow: 1;
-  min-width: 25%;
-  padding: 1rem;
+  border: 5px solid grey;
+  padding: 0.5rem;
+  border-radius: 2px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  column-gap: 0.3rem;
+  margin-top: 0.5rem;
 }
