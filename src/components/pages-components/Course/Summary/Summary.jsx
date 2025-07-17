@@ -1,18 +1,21 @@
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import { useRecords } from "../../../../contexts/RecordsContext";
 import styles from "./Summary.module.css";
 import SummaryItem from "../SummaryItem/SummaryItem";
 
 function Summary() {
   const { recordsData } = useRecords();
-
   if (!recordsData) return null;
+
   const {
     totalAttemptedProblems,
     totalProblems,
     mistakes,
     endDate,
     percentageCorrect,
+    totalPoints,
+    totalPointsAttempted,
+    mistakePoints,
   } = recordsData;
 
   if (
@@ -25,30 +28,39 @@ function Summary() {
   return (
     <Box className={styles.summaryContainer}>
       <Box className={styles.summaryBox}>
-        <Stack spacing={1}>
-          <SummaryItem label="Total Problems" value={totalProblems} />
-          <SummaryItem
-            label="Attempted Problems"
-            value={totalAttemptedProblems}
-          />
-          <SummaryItem label="Mistakes" value={mistakes} />
-          {totalAttemptedProblems > 0 ? (
-            <SummaryItem
-              label="Percentage Correct"
-              value={`${Math.round(percentageCorrect)}%`}
-            />
-          ) : null}
-          {endDate ? (
-            <SummaryItem
-              label="End Date"
-              value={new Intl.DateTimeFormat(navigator.language || "en-US", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              }).format(new Date(endDate))}
-            />
-          ) : null}
-        </Stack>
+        <SummaryItem label="Total Problems" value={totalProblems} />
+        <SummaryItem
+          label="Attempted Problems"
+          value={totalAttemptedProblems}
+        />
+        <SummaryItem label="Mistakes" value={mistakes} />
+        <SummaryItem
+          label="Percentage Correct"
+          value={
+            totalAttemptedProblems > 0
+              ? `${Math.round(percentageCorrect)}%`
+              : "N/A"
+          }
+        />
+        <SummaryItem
+          label="End Date"
+          value={
+            endDate
+              ? new Intl.DateTimeFormat(navigator.language || "en-US", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                }).format(new Date(endDate))
+              : "N/A"
+          }
+        />
+        <SummaryItem label="Total Points" value={totalPoints} isPoints />
+        <SummaryItem
+          label="Points Attempted"
+          value={totalPointsAttempted}
+          isPoints
+        />
+        <SummaryItem label="Mistake Points" value={mistakePoints} isPoints />
       </Box>
     </Box>
   );
