@@ -26,7 +26,6 @@ const initialState = {
   comments: "",
   nextWork: null,
   grade: 5,
-  isLoading: true,
 };
 
 function reducer(state, action) {
@@ -86,13 +85,15 @@ function reducer(state, action) {
 
 function Results() {
   const { user } = useAuth();
-  const [{ mistakes, comments, nextWork, grade, isLoading }, dispatch] =
-    useReducer(reducer, initialState);
+  const [{ mistakes, comments, nextWork, grade }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   const navigate = useNavigate();
   const { taskId, recordId } = useParams();
 
-  const { recordsData, setRecordsData } = useRecords();
+  const { recordsData, setRecordsData, isLoading, setIsLoading } = useRecords();
 
   const currentRecord = useMemo(
     function () {
@@ -153,7 +154,7 @@ function Results() {
   );
 
   async function handleResults() {
-    dispatch({ type: "setIsLoading", payload: true });
+    setIsLoading(true);
     const newWork = Array.isArray(nextWork)
       ? nextWork.filter((el) => el.checked === true).map((el) => el.id)
       : nextWork;
@@ -171,6 +172,7 @@ function Results() {
       }
     );
     setRecordsData(newRecordsData.data);
+    setIsLoading(false);
     navigate(`/course/${taskId}`);
   }
 

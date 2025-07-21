@@ -150,6 +150,7 @@ export default function SeeRule() {
                 {rule?.ruleCategories.map((ruleCategory) => (
                   <RuleCategory
                     ruleCategory={ruleCategory}
+                    ruleId={rule._id}
                     ruleInputs={rule?.ruleInputs.filter(
                       (ruleInput) =>
                         ruleInput.ruleCategoryId === ruleCategory._id
@@ -157,6 +158,8 @@ export default function SeeRule() {
                     key={ruleCategory._id}
                     onEditRuleCategory={handleSaveRuleCategory}
                     onSaveRuleInput={handleSaveRuleInput}
+                    setRule={setRule}
+                    setIsLoading={setIsLoading}
                   />
                 ))}
                 {isAddingRuleCategory ? (
