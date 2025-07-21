@@ -5,16 +5,22 @@ import { Edit } from "@mui/icons-material";
 import sharedStyles from "../shared.module.css";
 import ChangedRuleInput from "../ChangedRuleInput/ChangedRuleInput";
 import ChangedRuleCategory from "../ChangedRuleCategory/ChangedRuleCategory";
+import { sendAPI } from "../../../../utils/helpers";
+import { baseUrl } from "../../../../utils/config";
 
 function RuleCategory({
   ruleCategory,
   ruleInputs,
   onEditRuleCategory,
   onSaveRuleInput,
+  ruleId,
+  setRule,
+  setIsLoading,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isAddingRuleInput, setIsAddingRuleInput] = useState(false);
   const [standardPoints, setStandardPoints] = useState(0);
+  const [bulkEditPoints, setBulkEditPoints] = useState(0);
 
   async function handleEditRuleCategory(...params) {
     await onEditRuleCategory(...params);
@@ -24,6 +30,24 @@ function RuleCategory({
   async function handleSaveRuleInput(...params) {
     await onSaveRuleInput(...params, ruleCategory._id);
     setIsAddingRuleInput(false);
+  }
+
+  async function handleSaveBulkEditPoints() {
+    if (bulkEditPoints < 0) {
+      alert("Points cannot be negative.");
+      return;
+    }
+    setIsLoading(true);
+    const rule = await sendAPI(
+      "PATCH",
+      `${baseUrl}/rules/${ruleId}/bulk-edit-points/${ruleCategory._id}`,
+      {
+        bulkEditPoints,
+      }
+    );
+    setRule(rule.data);
+    setBulkEditPoints(0);
+    setIsLoading(false);
   }
 
   return (
@@ -42,6 +66,13 @@ function RuleCategory({
             value={standardPoints}
             onChange={(e) => setStandardPoints(e.target.value)}
           />
+          <TextField
+            label="Bulk Edit Points"
+            className={sharedStyles.ruleTextField}
+            value={bulkEditPoints}
+            onChange={(e) => setBulkEditPoints(e.target.value)}
+          />
+          <Button onClick={handleSaveBulkEditPoints}>Save</Button>
         </>
       ) : (
         <ChangedRuleCategory
