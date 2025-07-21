@@ -43,6 +43,21 @@ function Summary() {
           }
         />
         <SummaryItem
+          label="Total Points"
+          value={+totalPoints.toFixed(10)}
+          isPoints
+        />
+        <SummaryItem
+          label="Attempted Points"
+          value={+totalPointsAttempted.toFixed(10)}
+          isPoints
+        />
+        <SummaryItem
+          label="Mistake Points"
+          value={+mistakePoints.toFixed(10)}
+          isPoints
+        />
+        <SummaryItem
           label="End Date"
           value={
             endDate
@@ -54,13 +69,6 @@ function Summary() {
               : "N/A"
           }
         />
-        <SummaryItem label="Total Points" value={totalPoints} isPoints />
-        <SummaryItem
-          label="Points Attempted"
-          value={totalPointsAttempted}
-          isPoints
-        />
-        <SummaryItem label="Mistake Points" value={mistakePoints} isPoints />
       </Box>
     </Box>
   );
