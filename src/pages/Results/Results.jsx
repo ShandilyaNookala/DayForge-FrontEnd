@@ -37,6 +37,8 @@ function reducer(state, action) {
               checked: false,
               id: work._id,
               name: work.name,
+              shouldRepeat: true,
+              addMistakes: false,
             };
           })
         : null;
@@ -68,6 +70,26 @@ function reducer(state, action) {
           i === action.payload ? { ...work, checked: !work.checked } : work
         ),
       };
+    case "toggleShouldRepeat": {
+      return {
+        ...state,
+        mistakes: state.mistakes.map((mistake) =>
+          mistake.id === action.payload
+            ? { ...mistake, shouldRepeat: !mistake.shouldRepeat }
+            : mistake
+        ),
+      };
+    }
+    case "toggleAddMistakes": {
+      return {
+        ...state,
+        mistakes: state.mistakes.map((mistake) =>
+          mistake.id === action.payload
+            ? { ...mistake, addMistakes: !mistake.addMistakes }
+            : mistake
+        ),
+      };
+    }
     case "resultsValText":
       return { ...state, mistakes: action.payload };
     case "commentsValText":
@@ -118,7 +140,14 @@ function Results() {
     function () {
       async function getResultsData() {
         dispatch({ type: "setIsLoading", payload: true });
-        const data = (
+        let data;
+        const addMistakes = mistakes
+          ?.filter((mistake) => mistake.addMistakes && mistake.shouldRepeat)
+          ?.map((mistake) => mistake.id);
+        const noAddMistakes = mistakes
+          ?.filter((mistake) => !mistake.addMistakes && mistake.shouldRepeat)
+          ?.map((mistake) => mistake.id);
+        data = (
           await sendAPI(
             "POST",
             `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
@@ -130,6 +159,13 @@ function Results() {
             }
           )
         ).data;
+
+        data.work = data.work.map((work) => {
+          if (addMistakes?.includes(work._id)) {
+            return { ...work, checked: true };
+          }
+        });
+        console.log("data.work", data.work);
 
         dispatch({
           type: "setNextWorkAndGrade",
@@ -192,7 +228,9 @@ function Results() {
                     <TableCell>Results</TableCell>
                     <TableCell>
                       {Array.isArray(mistakes) ? (
-                        <Mistakes mistakes={mistakes} dispatch={dispatch} />
+                        <>
+                          <Mistakes mistakes={mistakes} dispatch={dispatch} />
+                        </>
                       ) : (
                         <TextResults
                           value={mistakes}
@@ -202,19 +240,10 @@ function Results() {
                       )}
                     </TableCell>
                   </TableRow>
+
                   <TableRow>
-                    <TableCell>Comments</TableCell>
-                    <TableCell>
-                      <TextResults
-                        value={comments}
-                        dispatch={dispatch}
-                        type="comments"
-                      />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Grades</TableCell>
-                    <TableCell>
+                    <TableCell className={styles.labelCell}>Grades</TableCell>
+                    <TableCell colSpan={2} className={styles.valueCell}>
                       <SelectOption grade={grade} dispatch={dispatch} />
                     </TableCell>
                   </TableRow>
