@@ -47,7 +47,7 @@ function RecordsProvider({ children }) {
       return;
     setIsLoading(true);
 
-    await sendAPI(
+    const newRecordsData = await sendAPI(
       "PATCH",
       `${baseUrl}/records/update-threshold-points/${taskId}`,
       {
@@ -56,13 +56,7 @@ function RecordsProvider({ children }) {
       }
     );
     setIsLoading(false);
-    setRecordsData((recordsData) => {
-      return {
-        ...recordsData,
-        threshold,
-        noOfProblems,
-      };
-    });
+    setRecordsData(newRecordsData.data);
   }
 
   async function updateRuleForTask(ruleId) {
