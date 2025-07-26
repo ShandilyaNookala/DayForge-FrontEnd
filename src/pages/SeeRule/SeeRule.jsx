@@ -21,6 +21,7 @@ export default function SeeRule() {
   const [isLoading, setIsLoading] = useState(true);
   const [ruleName, setRuleName] = useState("");
   const [isAddingRuleCategory, setIsAddingRuleCategory] = useState(false);
+  const [hasDragged, setHasDragged] = useState(false);
 
   const { id } = useParams();
 
@@ -117,6 +118,7 @@ export default function SeeRule() {
       newRuleInputs: rule.ruleInputs,
     });
     setIsLoading(false);
+    setHasDragged(false);
   }
 
   return (
@@ -145,7 +147,7 @@ export default function SeeRule() {
             <BackButton url={-1} />
             {!user?.isAdmin ? (
               <NotAuthorized />
-            ) : (
+            ) : hasDragged ? null : (
               <Box>
                 {rule?.ruleCategories.map((ruleCategory) => (
                   <RuleCategory
@@ -177,6 +179,8 @@ export default function SeeRule() {
               ruleInputs={rule.ruleInputs}
               onChangeOrder={handleChangeOrder}
               onSaveRuleInputOrder={handleSaveRuleInputOrder}
+              hasDragged={hasDragged}
+              setHasDragged={setHasDragged}
             />
           </Container>
           <Footer />
