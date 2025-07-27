@@ -26,6 +26,7 @@ const initialState = {
   comments: "",
   nextWork: null,
   grade: 5,
+  isLoading: true,
 };
 
 function reducer(state, action) {
@@ -37,6 +38,8 @@ function reducer(state, action) {
               checked: false,
               id: work._id,
               name: work.name,
+              shouldRepeat: false,
+              addMistakes: false,
             };
           })
         : null;
@@ -56,7 +59,11 @@ function reducer(state, action) {
         ...state,
         mistakes: state.mistakes.map((mistake) =>
           mistake.id === action.payload
-            ? { ...mistake, checked: !mistake.checked }
+            ? {
+                ...mistake,
+                checked: !mistake.checked,
+                shouldRepeat: mistake.checked ? false : true,
+              }
             : mistake
         ),
       };
@@ -68,6 +75,26 @@ function reducer(state, action) {
           i === action.payload ? { ...work, checked: !work.checked } : work
         ),
       };
+    case "toggleShouldRepeat": {
+      return {
+        ...state,
+        mistakes: state.mistakes.map((mistake) =>
+          mistake.id === action.payload
+            ? { ...mistake, shouldRepeat: !mistake.shouldRepeat }
+            : mistake
+        ),
+      };
+    }
+    case "toggleAddMistakes": {
+      return {
+        ...state,
+        mistakes: state.mistakes.map((mistake) =>
+          mistake.id === action.payload
+            ? { ...mistake, addMistakes: !mistake.addMistakes }
+            : mistake
+        ),
+      };
+    }
     case "resultsValText":
       return { ...state, mistakes: action.payload };
     case "commentsValText":
@@ -85,15 +112,18 @@ function reducer(state, action) {
 
 function Results() {
   const { user } = useAuth();
-  const [{ mistakes, comments, nextWork, grade }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ mistakes, comments, nextWork, grade, isLoading }, dispatch] =
+    useReducer(reducer, initialState);
 
   const navigate = useNavigate();
   const { taskId, recordId } = useParams();
 
-  const { recordsData, setRecordsData, isLoading, setIsLoading } = useRecords();
+  const {
+    recordsData,
+    setRecordsData,
+    isLoading: isLoadingEntirePage,
+    setIsLoading: setIsLoadingEntirePage,
+  } = useRecords();
 
   const currentRecord = useMemo(
     function () {
@@ -118,15 +148,13 @@ function Results() {
     function () {
       async function getResultsData() {
         dispatch({ type: "setIsLoading", payload: true });
-        const data = (
+        let data;
+        data = (
           await sendAPI(
             "POST",
             `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
             {
-              mistakes:
-                mistakes
-                  ?.filter((mistake) => mistake.checked)
-                  ?.map((mistake) => mistake.id) ?? [],
+              mistakes: mistakes?.filter((el) => el.checked === true),
             }
           )
         ).data;
@@ -154,7 +182,7 @@ function Results() {
   );
 
   async function handleResults() {
-    setIsLoading(true);
+    setIsLoadingEntirePage(true);
     const newWork = Array.isArray(nextWork)
       ? nextWork.filter((el) => el.checked === true).map((el) => el.id)
       : nextWork;
@@ -172,27 +200,29 @@ function Results() {
       }
     );
     setRecordsData(newRecordsData.data);
-    setIsLoading(false);
+    setIsLoadingEntirePage(false);
     navigate(`/course/${taskId}`);
   }
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || isLoadingEntirePage ? (
         <Spinner />
       ) : (
         <Box className={styles.resultsContainer}>
           {!user.isAdmin ? (
             <NotAuthorized />
           ) : (
-            <>
+            <Box className={styles.resultsBox}>
               <Table>
                 <TableBody>
                   <TableRow>
                     <TableCell>Results</TableCell>
                     <TableCell>
                       {Array.isArray(mistakes) ? (
-                        <Mistakes mistakes={mistakes} dispatch={dispatch} />
+                        <>
+                          <Mistakes mistakes={mistakes} dispatch={dispatch} />
+                        </>
                       ) : (
                         <TextResults
                           value={mistakes}
@@ -202,19 +232,10 @@ function Results() {
                       )}
                     </TableCell>
                   </TableRow>
+
                   <TableRow>
-                    <TableCell>Comments</TableCell>
-                    <TableCell>
-                      <TextResults
-                        value={comments}
-                        dispatch={dispatch}
-                        type="comments"
-                      />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Grades</TableCell>
-                    <TableCell>
+                    <TableCell className={styles.labelCell}>Grades</TableCell>
+                    <TableCell colSpan={2} className={styles.valueCell}>
                       <SelectOption grade={grade} dispatch={dispatch} />
                     </TableCell>
                   </TableRow>
@@ -231,7 +252,7 @@ function Results() {
                   Submit
                 </Button>
               </Box>
-            </>
+            </Box>
           )}
         </Box>
       )}

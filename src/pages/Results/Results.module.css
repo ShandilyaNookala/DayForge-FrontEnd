@@ -1,3 +1,4 @@
-.resultsContainer {
+.resultsBox {
   display: flex;
+  gap: 16px;
 }
