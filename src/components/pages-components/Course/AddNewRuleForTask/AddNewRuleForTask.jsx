@@ -22,7 +22,6 @@ function AddNewRuleForTask() {
       async function fetchAllRules() {
         setIsLoading(true);
         const response = await sendAPI("GET", `${baseUrl}/rules/get-all-rules`);
-        console.log(response);
         setAllRules(response.data);
         setIsLoading(false);
       }

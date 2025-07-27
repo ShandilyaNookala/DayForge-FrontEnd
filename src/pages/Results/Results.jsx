@@ -149,29 +149,15 @@ function Results() {
       async function getResultsData() {
         dispatch({ type: "setIsLoading", payload: true });
         let data;
-        const addMistakes = mistakes
-          ?.filter((mistake) => mistake.addMistakes && mistake.shouldRepeat)
-          ?.map((mistake) => mistake.id);
-        const noAddMistakes = mistakes
-          ?.filter((mistake) => !mistake.addMistakes && mistake.shouldRepeat)
-          ?.map((mistake) => mistake.id);
-        console.log(noAddMistakes, addMistakes, mistakes);
         data = (
           await sendAPI(
             "POST",
             `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
             {
-              mistakes: noAddMistakes,
+              mistakes: mistakes?.filter((el) => el.checked === true),
             }
           )
         ).data;
-
-        data.work = data.work.map((work) => {
-          if (addMistakes?.includes(work.id)) {
-            return { ...work, checked: true };
-          }
-          return work;
-        });
 
         dispatch({
           type: "setNextWorkAndGrade",
@@ -227,7 +213,7 @@ function Results() {
           {!user.isAdmin ? (
             <NotAuthorized />
           ) : (
-            <>
+            <Box className={styles.resultsBox}>
               <Table>
                 <TableBody>
                   <TableRow>
@@ -266,7 +252,7 @@ function Results() {
                   Submit
                 </Button>
               </Box>
-            </>
+            </Box>
           )}
         </Box>
       )}
