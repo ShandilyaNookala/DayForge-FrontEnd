@@ -1,26 +1,20 @@
 :root {
-  /* ---------- Headers ---------- */
   --header-background: #2b7a78;
   --header-text: #feffff;
 
-  /* ---------- Footers ---------- */
   --footer-text: #17252a;
 
-  /* ---------- Login Components ---------- */
   --login-button-background: #3aafa9;
   --login-button-text: #feffff;
   --login-button-border: #2b7a78;
   --login-button-shadow: #3aafa9;
 
-  /* ---------- Info Cards ---------- */
   --info-card-background: #2b7a78;
   --info-card-text: #feffff;
 
-  /* ---------- Modals ---------- */
   --login-modal-background: #def2f1;
   --modal-close-button-background: #feffff;
 
-  /* ---------- DataGrid ---------- */
   --datagrid-cell-border: #feffff;
   --datagrid-cell-background: #3aafa9;
   --datagrid-cell-text: #feffff;
@@ -29,27 +23,21 @@
   --datagrid-header-background: #2b7a78;
   --datagrid-header-text: #feffff;
 
-  /* ---------- Input Date ---------- */
   --input-date-text: #feffff;
   --input-date-border: #3aafa9;
   --input-date-fieldset-border: #feffff;
 
-  /* ---------- Manage Rules ---------- */
   --manage-rules-border: #17252a;
   --manage-rules-text: #17252a;
 
-  /* ---------- Change Rule Order ---------- */
   --sortable-container-background: #2b7a78;
   --draggable-background: #3aa3a9;
 
-  /* ---------- Tasks List ---------- */
   --tasks-list-background: #2b7878;
 
-  /* ---------- Student Tasks Header ---------- */
   --student-tasks-header-background: #2b7a78;
   --student-tasks-header-text: #feffff;
 
-  /* ---------- Misc ---------- */
   --page-background: #def2f1;
   --primary-color: #2b7a78;
   --secondary-color: #3aafa9;
