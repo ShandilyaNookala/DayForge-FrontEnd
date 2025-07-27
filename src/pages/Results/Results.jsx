@@ -26,6 +26,7 @@ const initialState = {
   comments: "",
   nextWork: null,
   grade: 5,
+  isLoading: true,
 };
 
 function reducer(state, action) {
@@ -37,7 +38,7 @@ function reducer(state, action) {
               checked: false,
               id: work._id,
               name: work.name,
-              shouldRepeat: true,
+              shouldRepeat: false,
               addMistakes: false,
             };
           })
@@ -58,7 +59,11 @@ function reducer(state, action) {
         ...state,
         mistakes: state.mistakes.map((mistake) =>
           mistake.id === action.payload
-            ? { ...mistake, checked: !mistake.checked }
+            ? {
+                ...mistake,
+                checked: !mistake.checked,
+                shouldRepeat: mistake.checked ? false : true,
+              }
             : mistake
         ),
       };
@@ -107,15 +112,18 @@ function reducer(state, action) {
 
 function Results() {
   const { user } = useAuth();
-  const [{ mistakes, comments, nextWork, grade }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ mistakes, comments, nextWork, grade, isLoading }, dispatch] =
+    useReducer(reducer, initialState);
 
   const navigate = useNavigate();
   const { taskId, recordId } = useParams();
 
-  const { recordsData, setRecordsData, isLoading, setIsLoading } = useRecords();
+  const {
+    recordsData,
+    setRecordsData,
+    isLoading: isLoadingEntirePage,
+    setIsLoading: setIsLoadingEntirePage,
+  } = useRecords();
 
   const currentRecord = useMemo(
     function () {
@@ -147,25 +155,23 @@ function Results() {
         const noAddMistakes = mistakes
           ?.filter((mistake) => !mistake.addMistakes && mistake.shouldRepeat)
           ?.map((mistake) => mistake.id);
+        console.log(noAddMistakes, addMistakes, mistakes);
         data = (
           await sendAPI(
             "POST",
             `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
             {
-              mistakes:
-                mistakes
-                  ?.filter((mistake) => mistake.checked)
-                  ?.map((mistake) => mistake.id) ?? [],
+              mistakes: noAddMistakes,
             }
           )
         ).data;
 
         data.work = data.work.map((work) => {
-          if (addMistakes?.includes(work._id)) {
+          if (addMistakes?.includes(work.id)) {
             return { ...work, checked: true };
           }
+          return work;
         });
-        console.log("data.work", data.work);
 
         dispatch({
           type: "setNextWorkAndGrade",
@@ -190,7 +196,7 @@ function Results() {
   );
 
   async function handleResults() {
-    setIsLoading(true);
+    setIsLoadingEntirePage(true);
     const newWork = Array.isArray(nextWork)
       ? nextWork.filter((el) => el.checked === true).map((el) => el.id)
       : nextWork;
@@ -208,13 +214,13 @@ function Results() {
       }
     );
     setRecordsData(newRecordsData.data);
-    setIsLoading(false);
+    setIsLoadingEntirePage(false);
     navigate(`/course/${taskId}`);
   }
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || isLoadingEntirePage ? (
         <Spinner />
       ) : (
         <Box className={styles.resultsContainer}>
