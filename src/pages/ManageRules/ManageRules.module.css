@@ -17,7 +17,7 @@
 }
 
 .container .ruleLink {
-  background-color: #2b7a78 !important;
+  background-color: var(--header-background) !important;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;

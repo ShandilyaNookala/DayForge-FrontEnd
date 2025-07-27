@@ -1,11 +1,11 @@
 .existingRuleCategories {
-  background-color: #2b7a78 !important;
+  background-color: var(--header-background) !important;
   display: flex;
 }
 
 .existingRuleCategoriesColumns {
-  border-right: 1px solid #feffff;
-  color: #feffff;
+  border-right: 1px solid var(--light-color);
+  color: var(--light-color);
   display: flex;
   justify-content: center;
   align-items: center;
