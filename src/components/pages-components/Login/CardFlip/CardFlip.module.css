@@ -1,5 +1,5 @@
 .heading {
-  color: #feffff !important;
+  color: var(--login-button-text) !important;
   font-weight: bold;
   text-align: center;
   margin-top: 2rem;
@@ -24,9 +24,9 @@
 }
 
 .login {
-  background-color: #2b7a78 !important;
-  color: var(--color-text-for-btn-login) !important;
-  box-shadow: 0 0 20px var(--color-box-shadow-for-btn-login) !important;
+  background-color: var(--header-background) !important;
+  color: var(--login-button-text) !important;
+  box-shadow: 0 0 20px var(--login-button-shadow) !important;
   width: 80%;
   max-width: 400px;
   font-weight: bold;
@@ -38,9 +38,9 @@
 }
 
 .cardFront {
-  background-color: var(--color-background-for-btn-login) !important;
-  color: var(--color-text-for-btn-login) !important;
-  box-shadow: 0 0 20px var(--color-box-shadow-for-btn-login) !important;
+  background-color: var(--login-button-background) !important;
+  color: var(--login-button-text) !important;
+  box-shadow: 0 0 20px var(--login-button-shadow) !important;
   font-weight: bold;
   font-size: 24px !important;
   text-align: center;
@@ -62,7 +62,7 @@
 }
 
 .cardBack {
-  background-color: var(--color-background-for-btn-login);
+  background-color: var(--login-button-background);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@
 }
 
 .backLink {
-  color: var(--color-text-for-all-headers-and-footers) !important;
+  color: var(--header-text) !important;
   font-size: 30px !important;
   font-weight: bold;
   text-decoration: none;

@@ -1,42 +1,69 @@
 :root {
-  --color-background-for-all-pages: #def2f1;
+  /* ---------- Headers ---------- */
+  --header-background: #2b7a78;
+  --header-text: #feffff;
 
-  --color-text-for-all-headers: #feffff;
-  --color-text-for-all-footers: #17252a;
-  --background-color-for-all-headers: #2b7a78;
+  /* ---------- Footers ---------- */
+  --footer-text: #17252a;
 
-  --color-text-for-btn-login: #feffff;
-  --color-border-for-btn-login: #2b7a78;
-  --color-box-shadow-for-btn-login: #3aafa9;
-  --color-background-for-btn-login: #3aafa9;
-  --color-hover-box-shadow-for-btn-login: #3aafa9;
+  /* ---------- Login Components ---------- */
+  --login-button-background: #3aafa9;
+  --login-button-text: #feffff;
+  --login-button-border: #2b7a78;
+  --login-button-shadow: #3aafa9;
 
-  --color-box-shadow-for-pulsate: #3aafa9;
+  /* ---------- Info Cards ---------- */
+  --info-card-background: #2b7a78;
+  --info-card-text: #feffff;
 
-  --color-background-for-login-modal: #def2f1;
-  --color-background-for-btn-close-in-modal: #feffff;
+  /* ---------- Modals ---------- */
+  --login-modal-background: #def2f1;
+  --modal-close-button-background: #feffff;
 
-  --color-border-for-datagrid-cell-studenttasks: #feffff;
-  --color-background-for-datagrid-cell-studenttasks: #3aafa9;
-  --color-text-for-datagrid-cell-studenttasks: #feffff;
-  --color-border-right-for-datagrid-cell-studenttasks: #feffff;
+  /* ---------- DataGrid ---------- */
+  --datagrid-cell-border: #feffff;
+  --datagrid-cell-background: #3aafa9;
+  --datagrid-cell-text: #feffff;
+  --datagrid-cell-border-right: #feffff;
+  --datagrid-header-border-right: #feffff;
+  --datagrid-header-background: #2b7a78;
+  --datagrid-header-text: #feffff;
 
-  --color-border-right-dataGrid-columnHeader-studenttasks: #feffff;
-  --color-background-dataGrid-columnHeader-studenttasks: #2b7a78;
-  --color-text-dataGrid-columnHeader-studenttasks: #feffff;
+  /* ---------- Input Date ---------- */
+  --input-date-text: #feffff;
+  --input-date-border: #3aafa9;
+  --input-date-fieldset-border: #feffff;
 
-  --color-circular-progress: #3aafa9;
+  /* ---------- Manage Rules ---------- */
+  --manage-rules-border: #17252a;
+  --manage-rules-text: #17252a;
 
-  --color-primary: #2b7a78;
-  --color-secondary: #3aafa9;
-  --color-light: #feffff;
-  --color-text: #17252a;
-  --color-border: #c1c8e4;
+  /* ---------- Change Rule Order ---------- */
+  --sortable-container-background: #2b7a78;
+  --draggable-background: #3aa3a9;
+
+  /* ---------- Tasks List ---------- */
+  --tasks-list-background: #2b7878;
+
+  /* ---------- Student Tasks Header ---------- */
+  --student-tasks-header-background: #2b7a78;
+  --student-tasks-header-text: #feffff;
+
+  /* ---------- Misc ---------- */
+  --page-background: #def2f1;
+  --primary-color: #2b7a78;
+  --secondary-color: #3aafa9;
+  --light-color: #feffff;
+  --dark-color: #17252a;
+  --border-color: #c1c8e4;
+  --progress-color: #3aafa9;
+  --selection-background: #3aafa9;
+  --selection-text: #17252a;
 }
 
 ::selection {
-  background-color: #3aafa9;
-  color: #17252a;
+  background-color: var(--selection-background);
+  color: var(--selection-text);
 }
 
 * {
@@ -51,7 +78,7 @@ html {
 }
 
 body {
-  background-color: var(--color-background-for-all-pages) !important;
+  background-color: var(--page-background) !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -64,13 +91,10 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
-  border-color: var(--color-border-for-datagrid-cell-studenttasks) !important;
-  background-color: var(
-    --color-background-for-datagrid-cell-studenttasks
-  ) !important;
-  color: var(--color-text-for-datagrid-cell-studenttasks) !important;
-  border-right: 2px solid
-    var(--color-border-right-for-datagrid-cell-studenttasks) !important;
+  border-color: var(--datagrid-cell-border) !important;
+  background-color: var(--datagrid-cell-background) !important;
+  color: var(--datagrid-cell-text) !important;
+  border-right: 2px solid var(--datagrid-cell-border-right) !important;
   text-align: center !important;
   font-size: 18px;
   text-overflow: ellipsis !important;
@@ -79,12 +103,9 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
-  border-right: 2px solid
-    var(--color-border-right-dataGrid-columnHeader-studenttasks) !important;
-  background-color: var(
-    --color-background-dataGrid-columnHeader-studenttasks
-  ) !important;
-  color: var(--color-text-dataGrid-columnHeader-studenttasks);
+  border-right: 2px solid var(--datagrid-header-border-right) !important;
+  background-color: var(--datagrid-header-background) !important;
+  color: var(--datagrid-header-text);
   font-size: 20px;
 }
 
@@ -96,8 +117,8 @@ body {
 
 button,
 .btn {
-  background-color: #3aafa9 !important;
-  color: #feffff !important;
+  background-color: var(--login-button-background) !important;
+  color: var(--login-button-text) !important;
   transition: all 0.3s !important;
   text-decoration: none;
   padding: 0.5rem;
@@ -108,44 +129,45 @@ button,
 
 button:hover,
 .btn:hover {
-  background-color: #feffff !important;
-  color: #3aafa9 !important;
-  box-shadow: 0 0 20px #3aafa9, 0 0 40px #3aafa9 !important;
+  background-color: var(--login-button-text) !important;
+  color: var(--login-button-background) !important;
+  box-shadow: 0 0 20px var(--login-button-shadow),
+    0 0 40px var(--login-button-shadow) !important;
 }
 
 .MuiCheckbox-root {
-  color: var(--color-text-dataGrid-columnHeader-studenttasks) !important;
+  color: var(--datagrid-header-text) !important;
 }
 
 .table {
-  background-color: #2b7a78 !important;
-  color: #feffff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--light-color) !important;
 }
 
 .table-cell {
-  color: #feffff !important;
+  color: var(--light-color) !important;
 }
 
 .default-text-field fieldset {
-  border: 1px solid #feffff !important;
+  border: 1px solid var(--input-date-fieldset-border) !important;
 }
 
 .default-text-field textarea,
 .default-text-field input,
 .default-text-field label {
-  color: #feffff !important;
+  color: var(--light-color) !important;
 }
 
 .MuiTable-root {
-  background-color: #2b7a78 !important;
+  background-color: var(--primary-color) !important;
 }
 
 .MuiPickersLayout-root button {
-  background-color: #feffff !important;
-  color: #3aa3a9 !important;
+  background-color: var(--light-color) !important;
+  color: var(--draggable-background) !important;
 }
 
 .MuiPickersLayout-root .Mui-selected {
-  background-color: #3aa3a9 !important;
-  color: #feffff !important;
+  background-color: var(--draggable-background) !important;
+  color: var(--light-color) !important;
 }

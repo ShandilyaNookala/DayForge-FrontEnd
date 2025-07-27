@@ -1,9 +1,9 @@
 .sortableContainer {
-  background-color: #2b7a78;
+  background-color: var(--sortable-container-background);
 }
 
 .draggable {
-  background-color: #3aa3a9;
+  background-color: var(--draggable-background);
   color: white;
   padding: 1rem;
   margin: 1rem;

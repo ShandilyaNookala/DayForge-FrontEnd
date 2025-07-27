@@ -1,13 +1,13 @@
 .ruleTextField fieldset {
-  border: 1px solid #17252a !important;
+  border: 1px solid var(--manage-rules-border) !important;
 }
 
 .ruleTextField input {
-  color: #17252a !important;
+  color: var(--manage-rules-text) !important;
 }
 
 .ruleTextField label {
-  color: #17252a !important;
+  color: var(--manage-rules-text) !important;
 }
 
 .typography {

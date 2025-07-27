@@ -6,9 +6,9 @@
 }
 
 .modalText {
-  background-color: #3aafa9;
+  background-color: var(--login-button-background);
   padding: 2rem 6rem;
-  color: #feffff;
+  color: var(--light-color);
 }
 
 .outlet {
@@ -28,7 +28,7 @@
 }
 
 .editButton {
-  background-color: #2b7a78 !important;
+  background-color: var(--header-background) !important;
   margin-right: 1rem !important;
 }
 

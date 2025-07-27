@@ -4,5 +4,5 @@
 }
 
 .spinner {
-  color: var(--color-circular-progress) !important;
+  color: var(--progress-color) !important;
 }

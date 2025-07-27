@@ -1,6 +1,6 @@
 .todoHeader {
-  background-color: #2b7a78;
-  color: #feffff;
+  background-color: var(--student-tasks-header-background);
+  color: var(--student-tasks-header-text);
   text-align: center;
   padding: 20px;
   font-size: 24px;

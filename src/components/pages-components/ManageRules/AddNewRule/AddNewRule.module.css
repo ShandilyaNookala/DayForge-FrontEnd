@@ -4,14 +4,14 @@
 }
 
 .addNewRuleTextField fieldset {
-  border: 1px solid #17252a !important;
+  border: 1px solid var(--manage-rules-border) !important;
 }
 
 .addNewRuleTextField input,
 .addNewRuleTextField label,
 .addNewRuleTextField span,
 .addNewRuleTextField textarea {
-  color: #17252a !important;
+  color: var(--manage-rules-text) !important;
 }
 
 .addNewRuleContainer {

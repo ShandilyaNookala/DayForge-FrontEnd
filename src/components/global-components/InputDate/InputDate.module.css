@@ -4,17 +4,17 @@
 
 .inputDate :global(.MuiOutlinedInput-root),
 .inputDate :global(.MuiInputLabel-root) {
-  color: #feffff !important;
+  color: var(--input-date-text) !important;
 }
 
 .inputDate :global(.MuiOutlinedInput-notchedOutline) {
-  border-color: #3aafa9 !important;
+  border-color: var(--input-date-border) !important;
 }
 
 .inputDate :global(.MuiInputLabel-root) {
-  color: #feffff !important;
+  color: var(--input-date-text) !important;
 }
 
 .inputDate :global(.MuiOutlineInput-notchedOutline) {
-  border: 1px solid #feffff !important;
+  border: 1px solid var(--input-date-fieldset-border) !important;
 }
