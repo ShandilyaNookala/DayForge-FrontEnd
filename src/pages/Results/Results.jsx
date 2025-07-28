@@ -232,7 +232,16 @@ function Results() {
                       )}
                     </TableCell>
                   </TableRow>
-
+                  <TableRow>
+                    <TableCell>Comments</TableCell>
+                    <TableCell>
+                      <TextResults
+                        value={comments}
+                        dispatch={dispatch}
+                        type="comments"
+                      />
+                    </TableCell>
+                  </TableRow>
                   <TableRow>
                     <TableCell className={styles.labelCell}>Grades</TableCell>
                     <TableCell colSpan={2} className={styles.valueCell}>
