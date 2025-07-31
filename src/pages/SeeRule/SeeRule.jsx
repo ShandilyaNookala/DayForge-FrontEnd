@@ -147,41 +147,47 @@ export default function SeeRule() {
             <BackButton url={-1} />
             {!user?.isAdmin ? (
               <NotAuthorized />
-            ) : hasDragged ? null : (
-              <Box>
-                {rule?.ruleCategories.map((ruleCategory) => (
-                  <RuleCategory
-                    ruleCategory={ruleCategory}
-                    ruleId={rule._id}
-                    ruleInputs={rule?.ruleInputs.filter(
-                      (ruleInput) =>
-                        ruleInput.ruleCategoryId === ruleCategory._id
-                    )}
-                    key={ruleCategory._id}
-                    onEditRuleCategory={handleSaveRuleCategory}
-                    onSaveRuleInput={handleSaveRuleInput}
-                    setRule={setRule}
-                    setIsLoading={setIsLoading}
-                  />
-                ))}
-                {isAddingRuleCategory ? (
-                  <ChangedRuleCategory
-                    onSaveRuleCategory={handleSaveRuleCategory}
-                  />
-                ) : (
-                  <Button onClick={() => setIsAddingRuleCategory(true)}>
-                    + Add Rule Category
-                  </Button>
-                )}
-              </Box>
+            ) : (
+              <>
+                <Box className={styles.ruleCategoriesBox}>
+                  {hasDragged ? null : (
+                    <>
+                      {rule?.ruleCategories.map((ruleCategory) => (
+                        <RuleCategory
+                          ruleCategory={ruleCategory}
+                          ruleId={rule._id}
+                          ruleInputs={rule?.ruleInputs.filter(
+                            (ruleInput) =>
+                              ruleInput.ruleCategoryId === ruleCategory._id
+                          )}
+                          key={ruleCategory._id}
+                          onEditRuleCategory={handleSaveRuleCategory}
+                          onSaveRuleInput={handleSaveRuleInput}
+                          setRule={setRule}
+                          setIsLoading={setIsLoading}
+                        />
+                      ))}
+                      {isAddingRuleCategory ? (
+                        <ChangedRuleCategory
+                          onSaveRuleCategory={handleSaveRuleCategory}
+                        />
+                      ) : (
+                        <Button onClick={() => setIsAddingRuleCategory(true)}>
+                          + Add Rule Category
+                        </Button>
+                      )}
+                    </>
+                  )}
+                </Box>
+                <ChangeRuleOrder
+                  ruleInputs={rule.ruleInputs}
+                  onChangeOrder={handleChangeOrder}
+                  onSaveRuleInputOrder={handleSaveRuleInputOrder}
+                  hasDragged={hasDragged}
+                  setHasDragged={setHasDragged}
+                />
+              </>
             )}
-            <ChangeRuleOrder
-              ruleInputs={rule.ruleInputs}
-              onChangeOrder={handleChangeOrder}
-              onSaveRuleInputOrder={handleSaveRuleInputOrder}
-              hasDragged={hasDragged}
-              setHasDragged={setHasDragged}
-            />
           </Container>
           <Footer />
         </>
