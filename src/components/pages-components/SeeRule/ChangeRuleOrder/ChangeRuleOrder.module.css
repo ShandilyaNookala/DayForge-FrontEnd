@@ -12,7 +12,9 @@
 }
 
 .saveButton {
+  width: 10rem;
   height: 3rem;
   margin-top: 1rem !important;
   margin-left: 1rem !important;
+  white-space: nowrap;
 }

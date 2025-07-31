@@ -27,6 +27,7 @@ const initialState = {
   nextWork: null,
   grade: 5,
   isLoading: true,
+  hasChanged: false,
 };
 
 function reducer(state, action) {
@@ -66,6 +67,7 @@ function reducer(state, action) {
               }
             : mistake
         ),
+        hasChanged: true,
       };
     }
     case "changeNextWork":
@@ -95,6 +97,12 @@ function reducer(state, action) {
         ),
       };
     }
+    case "fetchTomorrowWork": {
+      return {
+        ...state,
+        hasChanged: false,
+      };
+    }
     case "resultsValText":
       return { ...state, mistakes: action.payload };
     case "commentsValText":
@@ -112,8 +120,10 @@ function reducer(state, action) {
 
 function Results() {
   const { user } = useAuth();
-  const [{ mistakes, comments, nextWork, grade, isLoading }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { mistakes, comments, nextWork, grade, isLoading, hasChanged },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const navigate = useNavigate();
   const { taskId, recordId } = useParams();
@@ -147,6 +157,7 @@ function Results() {
   useEffect(
     function () {
       async function getResultsData() {
+        if (hasChanged) return;
         dispatch({ type: "setIsLoading", payload: true });
         let data;
         data = (
@@ -178,7 +189,14 @@ function Results() {
         dispatch({ type: "setIsLoading", payload: false });
       }
     },
-    [taskId, recordId, currentRecord?.work, recordsData?.rule, mistakes]
+    [
+      taskId,
+      recordId,
+      currentRecord?.work,
+      recordsData?.rule,
+      mistakes,
+      hasChanged,
+    ]
   );
 
   async function handleResults() {
@@ -248,7 +266,9 @@ function Results() {
                       <SelectOption grade={grade} dispatch={dispatch} />
                     </TableCell>
                   </TableRow>
-                  <TableRow>
+                  <TableRow
+                    className={`${hasChanged ? styles.blurNextWork : ""}`}
+                  >
                     <TableCell>Work for Tomorrow</TableCell>
                     <TableCell>
                       <NextWork nextWork={nextWork} dispatch={dispatch} />
@@ -257,9 +277,18 @@ function Results() {
                 </TableBody>
               </Table>
               <Box className="btn-container">
-                <Button className="btn results-btn" onClick={handleResults}>
-                  Submit
-                </Button>
+                {hasChanged ? (
+                  <Button
+                    className="btn results-btn"
+                    onClick={() => dispatch({ type: "fetchTomorrowWork" })}
+                  >
+                    Fetch Tomorrow's Work
+                  </Button>
+                ) : (
+                  <Button className="btn results-btn" onClick={handleResults}>
+                    Submit
+                  </Button>
+                )}
               </Box>
             </Box>
           )}

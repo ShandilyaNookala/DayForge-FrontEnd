@@ -2,3 +2,8 @@
   display: flex;
   gap: 16px;
 }
+
+.blurNextWork {
+  filter: blur(2.5rem);
+  pointer-events: none;
+}
