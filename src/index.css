@@ -1,52 +1,52 @@
 :root {
-  --header-background: #2b7a78;
-  --header-text: #feffff;
+  --header-background: #003135;
+  --header-text: #AFDDE5;
 
-  --footer-text: #17252a;
+  --footer-text: #003135;
 
-  --login-button-background: #3aafa9;
-  --login-button-text: #feffff;
-  --login-button-border: #2b7a78;
-  --login-button-shadow: #3aafa9;
+  --login-button-background: #024950;
+  --login-button-text: #AFDDE5;
+  --login-button-border: #003135;
+  --login-button-shadow: #964734;
 
-  --info-card-background: #2b7a78;
-  --info-card-text: #feffff;
+  --info-card-background: #003135;
+  --info-card-text: #AFDDE5;
 
-  --login-modal-background: #def2f1;
-  --modal-close-button-background: #feffff;
+  --login-modal-background: #AFDDE5;
+  --modal-close-button-background: #964734;
 
-  --datagrid-cell-border: #feffff;
-  --datagrid-cell-background: #3aafa9;
-  --datagrid-cell-text: #feffff;
-  --datagrid-cell-border-right: #feffff;
-  --datagrid-header-border-right: #feffff;
-  --datagrid-header-background: #2b7a78;
-  --datagrid-header-text: #feffff;
+  --datagrid-cell-border: #AFDDE5;
+  --datagrid-cell-background: #024950;
+  --datagrid-cell-text: #AFDDE5;
+  --datagrid-cell-border-right: #AFDDE5;
+  --datagrid-header-border-right: #AFDDE5;
+  --datagrid-header-background: #003135;
+  --datagrid-header-text: #AFDDE5;
 
-  --input-date-text: #feffff;
-  --input-date-border: #3aafa9;
-  --input-date-fieldset-border: #feffff;
+  --input-date-text: #AFDDE5;
+  --input-date-border: #024950;
+  --input-date-fieldset-border: #AFDDE5;
 
-  --manage-rules-border: #17252a;
-  --manage-rules-text: #17252a;
+  --manage-rules-border: #003135;
+  --manage-rules-text: #003135;
 
-  --sortable-container-background: #2b7a78;
-  --draggable-background: #3aa3a9;
+  --sortable-container-background: #003135;
+  --draggable-background: #0FA4AF;
 
-  --tasks-list-background: #2b7878;
+  --tasks-list-background: #024950;
 
-  --student-tasks-header-background: #2b7a78;
-  --student-tasks-header-text: #feffff;
+  --student-tasks-header-background: #003135;
+  --student-tasks-header-text: #AFDDE5;
 
-  --page-background: #def2f1;
-  --primary-color: #2b7a78;
-  --secondary-color: #3aafa9;
-  --light-color: #feffff;
-  --dark-color: #17252a;
-  --border-color: #c1c8e4;
-  --progress-color: #3aafa9;
-  --selection-background: #3aafa9;
-  --selection-text: #17252a;
+  --page-background: #AFDDE5;
+  --primary-color: #003135;
+  --secondary-color: #024950;
+  --light-color: #AFDDE5;
+  --dark-color: #003135;
+  --border-color: #964734;
+  --progress-color: #0FA4AF;
+  --selection-background: #0FA4AF;
+  --selection-text: #003135;
 }
 
 ::selection {
