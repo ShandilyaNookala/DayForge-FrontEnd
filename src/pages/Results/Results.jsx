@@ -85,6 +85,7 @@ function reducer(state, action) {
             ? { ...mistake, shouldRepeat: !mistake.shouldRepeat }
             : mistake
         ),
+        hasChanged: true,
       };
     }
     case "toggleAddMistakes": {
@@ -95,6 +96,7 @@ function reducer(state, action) {
             ? { ...mistake, addMistakes: !mistake.addMistakes }
             : mistake
         ),
+        hasChanged: true,
       };
     }
     case "fetchTomorrowWork": {
@@ -260,14 +262,20 @@ function Results() {
                       />
                     </TableCell>
                   </TableRow>
-                  <TableRow>
+                  <TableRow
+                    className={`${
+                      hasChanged ? styles.blurGradeAndNextWork : ""
+                    }`}
+                  >
                     <TableCell className={styles.labelCell}>Grades</TableCell>
                     <TableCell colSpan={2} className={styles.valueCell}>
                       <SelectOption grade={grade} dispatch={dispatch} />
                     </TableCell>
                   </TableRow>
                   <TableRow
-                    className={`${hasChanged ? styles.blurNextWork : ""}`}
+                    className={`${
+                      hasChanged ? styles.blurGradeAndNextWork : ""
+                    }`}
                   >
                     <TableCell>Work for Tomorrow</TableCell>
                     <TableCell>
