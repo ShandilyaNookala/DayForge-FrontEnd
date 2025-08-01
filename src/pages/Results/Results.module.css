@@ -3,7 +3,7 @@
   gap: 16px;
 }
 
-.blurNextWork {
+.blurGradeAndNextWork {
   filter: blur(2.5rem);
   pointer-events: none;
 }
