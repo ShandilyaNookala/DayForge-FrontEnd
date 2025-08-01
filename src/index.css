@@ -1,13 +1,13 @@
 :root {
-  --header-background: #2b7a78;
-  --header-text: #feffff;
+  --header-background: #3a506b;
+  --header-text: #ffffff;
 
-  --footer-text: #17252a;
+  --footer-text: #e5e5e5;
 
-  --login-button-background: #3aafa9;
-  --login-button-text: #feffff;
-  --login-button-border: #2b7a78;
-  --login-button-shadow: #3aafa9;
+  --login-button-background: #3a506b;
+  --login-button-text: #e5e5e5;
+  --login-button-border: #1c2541;
+  --login-button-shadow: #1c2541;
 
   --info-card-background: #2b7a78;
   --info-card-text: #feffff;
@@ -15,13 +15,15 @@
   --login-modal-background: #def2f1;
   --modal-close-button-background: #feffff;
 
-  --datagrid-cell-border: #feffff;
-  --datagrid-cell-background: #3aafa9;
-  --datagrid-cell-text: #feffff;
-  --datagrid-cell-border-right: #feffff;
-  --datagrid-header-border-right: #feffff;
-  --datagrid-header-background: #2b7a78;
-  --datagrid-header-text: #feffff;
+  --datagrid-cell-border: #e5e5e5;
+  --datagrid-cell-background-1: #1c2541;
+  --datagrid-cell-background-2: #3a506b;
+
+  --datagrid-cell-text: #ffffff;
+  --datagrid-cell-border-right: #e5e5e5;
+  --datagrid-header-border-right: #e5e5e5;
+  --datagrid-header-background: #3a506b;
+  --datagrid-header-text: #e5e5e5;
 
   --input-date-text: #feffff;
   --input-date-border: #3aafa9;
@@ -35,16 +37,17 @@
 
   --tasks-list-background: #2b7878;
 
-  --student-tasks-header-background: #2b7a78;
-  --student-tasks-header-text: #feffff;
+  --student-tasks-header-background: #1c2541;
+  --student-tasks-header-text: #e5e5e5;
 
-  --page-background: #def2f1;
-  --primary-color: #2b7a78;
+  --page-background: #0b132b;
+  --page-color: #e5e5e5;
+  --primary-color: #3a506b;
   --secondary-color: #3aafa9;
   --light-color: #feffff;
   --dark-color: #17252a;
   --border-color: #c1c8e4;
-  --progress-color: #3aafa9;
+  --progress-color: #e5e5e5;
   --selection-background: #3aafa9;
   --selection-text: #17252a;
 }
@@ -67,6 +70,7 @@ html {
 
 body {
   background-color: var(--page-background) !important;
+  color: var(--page-color) !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -80,7 +84,6 @@ body {
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
   border-color: var(--datagrid-cell-border) !important;
-  background-color: var(--datagrid-cell-background) !important;
   color: var(--datagrid-cell-text) !important;
   border-right: 2px solid var(--datagrid-cell-border-right) !important;
   text-align: center !important;
@@ -88,6 +91,13 @@ body {
   text-overflow: ellipsis !important;
   overflow: hidden !important;
   white-space: nowrap !important;
+}
+
+.dataGrid .MuiDataGrid-root .MuiDataGrid-row:nth-child(odd) {
+  background-color: var(--datagrid-cell-background-1) !important;
+}
+.dataGrid .MuiDataGrid-root .MuiDataGrid-row:nth-child(even) {
+  background-color: var(--datagrid-cell-background-2) !important;
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
