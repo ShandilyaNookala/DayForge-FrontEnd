@@ -16,12 +16,12 @@
   --modal-close-button-background: #964734;
 
   --datagrid-cell-border: #AFDDE5;
-  --datagrid-cell-background: #0FA4AF;
+  --datagrid-cell-background: #AFDDE5;
   --datagrid-cell-text: #003135;
   --datagrid-cell-border-right: #AFDDE5;
   --datagrid-header-border-right: #AFDDE5;
-  --datagrid-header-background: #024950;
-  --datagrid-header-text: #AFDDE5;
+  --datagrid-header-background: #0FA4AF;
+  --datagrid-header-text: #003135;
 
   --input-date-text: #AFDDE5;
   --input-date-border: #024950;
@@ -33,7 +33,7 @@
   --sortable-container-background: #003135;
   --draggable-background: #0FA4AF;
 
-  --tasks-list-background: #024950;
+  --tasks-list-background: #AFDDE5;
 
   --student-tasks-header-background: #003135;
   --student-tasks-header-text: #AFDDE5;
@@ -127,13 +127,14 @@ button:hover,
   color: var(--datagrid-header-text) !important;
 }
 
+
 .table {
-  background-color: var(--primary-color) !important;
-  color: var(--light-color) !important;
+  background-color: var(--light-color) !important;
+  color: var(--dark-color) !important;
 }
 
 .table-cell {
-  color: var(--light-color) !important;
+  color: var(--dark-color) !important;
 }
 
 .default-text-field fieldset {
@@ -147,7 +148,8 @@ button:hover,
 }
 
 .MuiTable-root {
-  background-color: var(--primary-color) !important;
+  background-color: var(--light-color) !important;
+  color: var(--dark-color) !important;
 }
 
 .MuiPickersLayout-root button {
