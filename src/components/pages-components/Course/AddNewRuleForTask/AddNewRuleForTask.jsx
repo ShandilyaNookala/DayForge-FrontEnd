@@ -27,7 +27,7 @@ function AddNewRuleForTask() {
       }
       if (isAdding) fetchAllRules();
     },
-    [isAdding]
+    [isAdding],
   );
 
   function handleStopPropagation(e) {

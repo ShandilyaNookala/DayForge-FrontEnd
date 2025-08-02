@@ -42,7 +42,7 @@ function PositionsProvider({ children }) {
         `${baseUrl}/records/update-task-name/${changedTask.taskId}`,
         {
           taskName,
-        }
+        },
       );
     }
 
@@ -52,7 +52,7 @@ function PositionsProvider({ children }) {
 
   async function handleChangePosition(studentId) {
     const tasksForStudent = data.find(
-      (student) => student.studentId === studentId
+      (student) => student.studentId === studentId,
     );
     await sendAPI("PATCH", `${baseUrl}/positions`, tasksForStudent);
   }
@@ -66,11 +66,11 @@ function PositionsProvider({ children }) {
               positions: student.positions.map((position) =>
                 position.position === positionName
                   ? { ...position, tasks: newTasks }
-                  : position
+                  : position,
               ),
             }
-          : student
-      )
+          : student,
+      ),
     );
   }
 

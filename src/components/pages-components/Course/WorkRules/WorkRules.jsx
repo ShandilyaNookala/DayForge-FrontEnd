@@ -6,8 +6,8 @@ function WorkRules({ work, setWork }) {
       work.map((checkedStatus, i) =>
         i === index
           ? { ...checkedStatus, checked: newCheckedStatusValue }
-          : checkedStatus
-      )
+          : checkedStatus,
+      ),
     );
   }
   return (

@@ -43,7 +43,7 @@ function RuleCategory({
       `${baseUrl}/rules/${ruleId}/bulk-edit-points/${ruleCategory._id}`,
       {
         bulkEditPoints,
-      }
+      },
     );
     setRule(rule.data);
     setBulkEditPoints(0);

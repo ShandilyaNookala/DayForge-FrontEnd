@@ -42,7 +42,7 @@ export default function TasksList({ position, studentId, setDragging }) {
               <ChangedTask key={task._id} defaultValue={task.taskName} />
             ) : (
               <Task key={task._id} index={i} task={task} />
-            )
+            ),
           )}
         </ReactSortable>
         {position.position === "currentTasks" &&

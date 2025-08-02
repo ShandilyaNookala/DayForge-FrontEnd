@@ -26,17 +26,17 @@ function ExistingRuleCategories() {
         setIsLoading(true);
         const response = await sendAPI(
           "GET",
-          `${baseUrl}/rules/get-existing-rule-categories/${recordsData._id}`
+          `${baseUrl}/rules/get-existing-rule-categories/${recordsData._id}`,
         );
         setExistingRuleCategories(response.data);
         originalSkippedRuleCategories.current = getSkippedCategoryIds(
-          response.data
+          response.data,
         );
         setIsLoading(false);
       }
       if (recordsData?._id) fetchExistingRuleCategories();
     },
-    [recordsData?._id]
+    [recordsData?._id],
   );
 
   const skippedCategoryIds = getSkippedCategoryIds(existingRuleCategories);
@@ -52,8 +52,8 @@ function ExistingRuleCategories() {
       prevCategories.map((category) =>
         category.id === id
           ? { ...category, checked: !category.checked }
-          : category
-      )
+          : category,
+      ),
     );
   }
 
@@ -94,7 +94,7 @@ function ExistingRuleCategories() {
                     originalSkippedRuleCategories.current.length &&
                   skippedCategoryIds.every(
                     (value, index) =>
-                      value === originalSkippedRuleCategories.current[index]
+                      value === originalSkippedRuleCategories.current[index],
                   )
                 }
                 onClick={handleSaveSkippedCategories}

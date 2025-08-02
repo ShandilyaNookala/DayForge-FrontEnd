@@ -1,7 +1,7 @@
 export const sendAPI = async function (
   typeOfRequest,
   url,
-  data = { nothing: null }
+  data = { nothing: null },
 ) {
   try {
     let dataReturned;

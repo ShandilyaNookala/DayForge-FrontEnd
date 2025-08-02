@@ -35,7 +35,7 @@ function RecordsProvider({ children }) {
       }
       if (taskId) getRecord();
     },
-    [taskId]
+    [taskId],
   );
 
   async function updateThresholdPoints(threshold, noOfProblems) {
@@ -53,7 +53,7 @@ function RecordsProvider({ children }) {
       {
         threshold,
         noOfProblems,
-      }
+      },
     );
     setIsLoading(false);
     setRecordsData(newRecordsData.data);
@@ -68,7 +68,7 @@ function RecordsProvider({ children }) {
       `${baseUrl}/records/update-rule-for-task/${taskId}`,
       {
         ruleId,
-      }
+      },
     );
     setIsLoading(false);
 
@@ -82,7 +82,7 @@ function RecordsProvider({ children }) {
       `${baseUrl}/records/update-skipped-rule-categories/${taskId}`,
       {
         skippedRuleCategories: skippedCategoryIds,
-      }
+      },
     );
     setIsLoading(false);
     setRecordsData(response.data);

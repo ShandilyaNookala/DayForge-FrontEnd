@@ -11,7 +11,7 @@ export default function ChangedRecord({ taskId }) {
   const { changedRecordData, setRecordsData, setChangedRecordData } =
     useRecords();
   const [inputDate, setInputDate] = useState(
-    new Date(changedRecordData?.nextDate)
+    new Date(changedRecordData?.nextDate),
   );
   const [work, setWork] = useState(changedRecordData?.work);
 
@@ -26,7 +26,7 @@ export default function ChangedRecord({ taskId }) {
       {
         date: new Date(inputDate),
         work: newWork,
-      }
+      },
     );
 
     setRecordsData(data.data);

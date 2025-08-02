@@ -23,7 +23,7 @@ function TasksRow({
       {
         taskIds,
         ruleId,
-      }
+      },
     );
     setData(data.data);
     setRuleWithTasksDropdown(null);

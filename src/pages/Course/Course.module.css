@@ -28,7 +28,7 @@
 }
 
 .editButton {
-  background-color: var(--header-background) !important;
+  background: var(--header-bg) !important;
   margin-right: 1rem !important;
 }
 

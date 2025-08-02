@@ -1,52 +1,70 @@
 :root {
-  --header-background: #2b7a78;
-  --header-text: #feffff;
+  --bg1: #f4fcb3;
+  --bg2: #5a8c58;
+  --bg3: #1a2e20;
 
-  --footer-text: #17252a;
+  --header-start: #1b4332;
+  --header-end: #4a6e55;
+  --header-text: #ffffff;
 
-  --login-button-background: #3aafa9;
-  --login-button-text: #feffff;
-  --login-button-border: #2b7a78;
-  --login-button-shadow: #3aafa9;
+  --footer-start: #2f4f2f;
+  --footer-end: #5a8c58;
+  --footer-text: #e5e5e5;
 
-  --info-card-background: #2b7a78;
-  --info-card-text: #feffff;
+  --table-header: #4a6e55;
+  --table-border: #5a8c58;
+  --row-odd: #376144;
+  --row-even: #1b4332;
 
-  --login-modal-background: #def2f1;
-  --modal-close-button-background: #feffff;
+  --accent: #5a8c58;
+  --highlight: #f4fcb3;
+  --main-text: #e5e5e5;
+  --button-text: #ffffff;
 
-  --datagrid-cell-border: #feffff;
-  --datagrid-cell-background: #3aafa9;
-  --datagrid-cell-text: #feffff;
-  --datagrid-cell-border-right: #feffff;
-  --datagrid-header-border-right: #feffff;
-  --datagrid-header-background: #2b7a78;
-  --datagrid-header-text: #feffff;
+  --bg: radial-gradient(
+    circle at top right,
+    var(--bg1) 3%,
+    var(--bg2) 20%,
+    var(--bg3) 50%
+  );
+  --header-bg: linear-gradient(145deg, var(--header-start), var(--header-end));
+  --footer-bg: linear-gradient(145deg, var(--footer-start), var(--footer-end));
 
-  --input-date-text: #feffff;
-  --input-date-border: #3aafa9;
-  --input-date-fieldset-border: #feffff;
+  --login-button-background: var(--accent);
+  --login-button-text: var(--button-text);
+  --login-button-border: var(--table-border);
+  --login-button-shadow: var(--highlight);
 
-  --manage-rules-border: #17252a;
-  --manage-rules-text: #17252a;
+  --info-card-background: var(--header-bg);
+  --info-card-text: var(--button-text);
 
-  --sortable-container-background: #2b7a78;
-  --draggable-background: #3aa3a9;
+  --login-modal-background: var(--bg);
+  --modal-close-button-background: var(--button-text);
 
-  --tasks-list-background: #2b7878;
+  --input-date-text: var(--button-text);
+  --input-date-border: var(--accent);
+  --input-date-fieldset-border: var(--button-text);
 
-  --student-tasks-header-background: #2b7a78;
-  --student-tasks-header-text: #feffff;
+  --manage-rules-border: var(--main-text);
+  --manage-rules-text: var(--main-text);
 
-  --page-background: #def2f1;
-  --primary-color: #2b7a78;
-  --secondary-color: #3aafa9;
-  --light-color: #feffff;
-  --dark-color: #17252a;
-  --border-color: #c1c8e4;
-  --progress-color: #3aafa9;
-  --selection-background: #3aafa9;
-  --selection-text: #17252a;
+  --sortable-container-background: var(--header-bg);
+  --draggable-background: var(--accent);
+
+  --tasks-list-background: var(--header-bg);
+
+  --student-tasks-header-background: var(--header-bg);
+  --student-tasks-header-text: var(--button-text);
+
+  --page-background: var(--bg);
+  --primary-color: var(--header-bg);
+  --secondary-color: var(--accent);
+  --light-color: var(--button-text);
+  --dark-color: var(--main-text);
+  --border-color: var(--table-border);
+  --progress-color: var(--accent);
+  --selection-background: var(--accent);
+  --selection-text: var(--main-text);
 }
 
 ::selection {
@@ -66,9 +84,12 @@ html {
 }
 
 body {
-  background-color: var(--page-background) !important;
+  background: var(--page-background) !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: var(--main-text);
+  position: relative;
+  overflow: hidden;
 }
 
 #root {
@@ -79,10 +100,10 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
-  border-color: var(--datagrid-cell-border) !important;
-  background-color: var(--datagrid-cell-background) !important;
-  color: var(--datagrid-cell-text) !important;
-  border-right: 2px solid var(--datagrid-cell-border-right) !important;
+  border-color: var(--table-border) !important;
+  background-color: var(--row-even) !important;
+  color: var(--main-text) !important;
+  border-right: 2px solid var(--table-border) !important;
   text-align: center !important;
   font-size: 18px;
   text-overflow: ellipsis !important;
@@ -91,9 +112,9 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
-  border-right: 2px solid var(--datagrid-header-border-right) !important;
-  background-color: var(--datagrid-header-background) !important;
-  color: var(--datagrid-header-text);
+  border-right: 2px solid var(--table-border) !important;
+  background-color: var(--table-header) !important;
+  color: var(--button-text);
   font-size: 20px;
 }
 
@@ -103,37 +124,50 @@ body {
   text-align: center;
 }
 
+.dataGrid .MuiDataGrid-row:nth-of-type(odd) .MuiDataGrid-cell {
+  background-color: var(--row-odd) !important;
+}
+
+.dataGrid .MuiDataGrid-row:nth-of-type(even) .MuiDataGrid-cell {
+  background-color: var(--row-even) !important;
+}
+
 button,
 .btn {
   background-color: var(--login-button-background) !important;
   color: var(--login-button-text) !important;
-  transition: all 0.3s !important;
-  text-decoration: none;
-  padding: 0.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
   display: inline-block;
   border-radius: 5px;
   text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--login-button-shadow);
+  cursor: pointer;
+  transition: all 0.4s !important;
+  text-decoration: none;
 }
 
 button:hover,
 .btn:hover {
-  background-color: var(--login-button-text) !important;
-  color: var(--login-button-background) !important;
+  background-color: var(--header-start) !important;
+  color: var(--main-text) !important;
   box-shadow: 0 0 20px var(--login-button-shadow),
     0 0 40px var(--login-button-shadow) !important;
+  transform: translateY(-5px) scale(1.05);
 }
 
 .MuiCheckbox-root {
-  color: var(--datagrid-header-text) !important;
+  color: var(--button-text) !important;
 }
 
 .table {
-  background-color: var(--primary-color) !important;
-  color: var(--light-color) !important;
+  background-color: var(--table-header) !important;
+  color: var(--button-text) !important;
 }
 
 .table-cell {
-  color: var(--light-color) !important;
+  color: var(--main-text) !important;
 }
 
 .default-text-field fieldset {
