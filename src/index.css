@@ -145,7 +145,6 @@ button,
   box-shadow: 0 0 10px var(--login-button-shadow);
   cursor: pointer;
   transition: all 0.4s !important;
-  box-shadow: 0 0 10px var(--login-button-shadow);
   text-decoration: none;
 }
 
@@ -156,15 +155,6 @@ button:hover,
   box-shadow: 0 0 20px var(--login-button-shadow),
     0 0 40px var(--login-button-shadow) !important;
   transform: translateY(-5px) scale(1.05);
-}
-
-@keyframes glowPulse {
-  0%,
-  100% {
-  }
-  50% {
-    box-shadow: 0 0 40px var(--login-button-shadow);
-  }
 }
 
 .MuiCheckbox-root {
