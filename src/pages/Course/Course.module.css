@@ -57,3 +57,8 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.courseDataGrid {
+  overflow-y: auto;
+  max-height: 60vh;
+}

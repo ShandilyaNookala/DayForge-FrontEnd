@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.dataGrid {
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
 .container :global(.MuiDataGrid-cell) {
   display: flex !important;
   align-items: center !important;

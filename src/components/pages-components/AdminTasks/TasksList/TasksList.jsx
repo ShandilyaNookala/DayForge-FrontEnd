@@ -36,13 +36,14 @@ export default function TasksList({ position, studentId, setDragging }) {
           group={`student-group-${studentId}`}
           list={position.tasks}
           setList={(list) => sortTasks(studentId, position.position, list)}
+          className={styles.sortableContainer}
         >
           {position.tasks.map((task, i) =>
             task._id === changedTask?.taskId ? (
               <ChangedTask key={task._id} defaultValue={task.taskName} />
             ) : (
               <Task key={task._id} index={i} task={task} />
-            ),
+            )
           )}
         </ReactSortable>
         {position.position === "currentTasks" &&

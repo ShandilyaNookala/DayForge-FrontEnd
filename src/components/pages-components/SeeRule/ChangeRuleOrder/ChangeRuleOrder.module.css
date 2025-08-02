@@ -1,5 +1,7 @@
 .sortableContainer {
   background-color: var(--sortable-container-background);
+  overflow-y: scroll;
+  max-height: 60vh;
 }
 
 .draggable {

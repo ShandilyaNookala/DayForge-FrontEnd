@@ -55,7 +55,7 @@ function ManageRules() {
         },
       ];
     },
-    [data, ruleWithTasksDropdown],
+    [data, ruleWithTasksDropdown]
   );
 
   useEffect(function () {
@@ -96,6 +96,7 @@ function ManageRules() {
                   getRowHeight={() => "auto"}
                   columns={columns}
                   rows={data.rows}
+                  className={styles.dataGrid}
                 />
               </>
             ) : (
