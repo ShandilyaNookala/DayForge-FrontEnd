@@ -11,6 +11,8 @@
   --footer-end: #5a8c58;
   --footer-text: #e5e5e5;
 
+  --border-see-rule: #2f4f2f;
+
   --table-header: #4a6e55;
   --table-border: #5a8c58;
   --row-odd: #376144;
@@ -28,7 +30,6 @@
     var(--bg3) 50%
   );
   --header-bg: linear-gradient(145deg, var(--header-start), var(--header-end));
-  --footer-bg: linear-gradient(145deg, var(--footer-start), var(--footer-end));
 
   --login-button-background: var(--accent);
   --login-button-text: var(--button-text);
