@@ -25,7 +25,7 @@ function StudentTimer() {
   const { user } = useAuth();
 
   const record = recordsData?.records?.find(
-    (record) => record._id === recordId
+    (record) => record._id === recordId,
   );
 
   function handleClickPlayPauseButton() {
@@ -44,7 +44,7 @@ function StudentTimer() {
       {
         startTime: dateStartTime,
         endTime: dateEndTime,
-      }
+      },
     );
     setRecordsData(newRecordsData.data);
     setIsLoading(false);
@@ -69,7 +69,7 @@ function StudentTimer() {
                   <br />
                   Date:{" "}
                   {new Date(record?.date)?.toLocaleDateString(
-                    Intl.DateTimeFormat().resolvedOptions().locale
+                    Intl.DateTimeFormat().resolvedOptions().locale,
                   )}
                 </InfoCard>
 

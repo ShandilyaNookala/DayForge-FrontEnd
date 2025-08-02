@@ -4,7 +4,7 @@ import sharedStyles from "../shared.module.css";
 
 function ChangedRuleCategory({ ruleCategory = null, onSaveRuleCategory }) {
   const [newCategoryName, setNewCategoryName] = useState(
-    ruleCategory?.name || ""
+    ruleCategory?.name || "",
   );
 
   async function handleSaveRuleCategory() {

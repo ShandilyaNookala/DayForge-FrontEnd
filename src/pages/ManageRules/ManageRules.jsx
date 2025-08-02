@@ -55,7 +55,7 @@ function ManageRules() {
         },
       ];
     },
-    [data, ruleWithTasksDropdown]
+    [data, ruleWithTasksDropdown],
   );
 
   useEffect(function () {

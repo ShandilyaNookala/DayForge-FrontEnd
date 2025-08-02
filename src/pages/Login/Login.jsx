@@ -25,7 +25,7 @@ export default function Login() {
         navigate(redirect || "/");
       }
     },
-    [checkedAuth, user, navigate, redirect]
+    [checkedAuth, user, navigate, redirect],
   );
 
   const handleSubmit = async (e, userName, password) => {

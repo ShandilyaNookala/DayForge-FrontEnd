@@ -58,7 +58,7 @@ export default function StudentTasks() {
       }
       fetchData();
     },
-    [markedObsolete]
+    [markedObsolete],
   );
 
   if (user.isAdmin) return <NotAuthorized />;

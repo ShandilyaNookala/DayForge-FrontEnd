@@ -65,7 +65,7 @@ function reducer(state, action) {
                 checked: !mistake.checked,
                 shouldRepeat: mistake.checked ? false : true,
               }
-            : mistake
+            : mistake,
         ),
         hasChanged: true,
       };
@@ -74,7 +74,7 @@ function reducer(state, action) {
       return {
         ...state,
         nextWork: state.nextWork.map((work, i) =>
-          i === action.payload ? { ...work, checked: !work.checked } : work
+          i === action.payload ? { ...work, checked: !work.checked } : work,
         ),
       };
     case "toggleShouldRepeat": {
@@ -83,7 +83,7 @@ function reducer(state, action) {
         mistakes: state.mistakes.map((mistake) =>
           mistake.id === action.payload
             ? { ...mistake, shouldRepeat: !mistake.shouldRepeat }
-            : mistake
+            : mistake,
         ),
         hasChanged: true,
       };
@@ -94,7 +94,7 @@ function reducer(state, action) {
         mistakes: state.mistakes.map((mistake) =>
           mistake.id === action.payload
             ? { ...mistake, addMistakes: !mistake.addMistakes }
-            : mistake
+            : mistake,
         ),
         hasChanged: true,
       };
@@ -141,7 +141,7 @@ function Results() {
     function () {
       return recordsData?.records?.find((record) => record._id === recordId);
     },
-    [recordId, recordsData?.records]
+    [recordId, recordsData?.records],
   );
 
   useEffect(
@@ -153,7 +153,7 @@ function Results() {
         });
       }
     },
-    [currentRecord]
+    [currentRecord],
   );
 
   useEffect(
@@ -168,7 +168,7 @@ function Results() {
             `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
             {
               mistakes: mistakes?.filter((el) => el.checked === true),
-            }
+            },
           )
         ).data;
 
@@ -198,7 +198,7 @@ function Results() {
       recordsData?.rule,
       mistakes,
       hasChanged,
-    ]
+    ],
   );
 
   async function handleResults() {
@@ -217,7 +217,7 @@ function Results() {
         result: newMistakes,
         comment: comments,
         nextWork: newWork,
-      }
+      },
     );
     setRecordsData(newRecordsData.data);
     setIsLoadingEntirePage(false);

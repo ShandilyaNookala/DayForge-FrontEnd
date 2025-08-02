@@ -57,7 +57,7 @@ export default function Course() {
   async function showAddNewRecord() {
     const dataForAddedRecord = await sendAPI(
       "GET",
-      `${baseUrl}/records/get-automatic-data/${taskId}`
+      `${baseUrl}/records/get-automatic-data/${taskId}`,
     );
 
     setChangedRecordData({
@@ -72,7 +72,7 @@ export default function Course() {
       const record = records.find((record) => record._id === id);
       const dataForEditedRecord = await sendAPI(
         "GET",
-        `${baseUrl}/records/get-automatic-data/${taskId}?recordId=${record._id}`
+        `${baseUrl}/records/get-automatic-data/${taskId}?recordId=${record._id}`,
       );
 
       setChangedRecordData({
@@ -80,7 +80,7 @@ export default function Course() {
         editId: record._id,
       });
     },
-    [records, taskId, setChangedRecordData]
+    [records, taskId, setChangedRecordData],
   );
 
   function handleCellClick(params) {
@@ -102,7 +102,7 @@ export default function Course() {
         };
       });
     },
-    [recordsData]
+    [recordsData],
   );
 
   const columns = useMemo(
@@ -171,7 +171,7 @@ export default function Course() {
         { field: "formattedGrade", headerName: "Grades", flex: 1 },
       ];
     },
-    [isAdmin, handleStartEdit, changedRecordData?.editId]
+    [isAdmin, handleStartEdit, changedRecordData?.editId],
   );
 
   return (

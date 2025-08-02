@@ -24,7 +24,7 @@ export default function Student({ student }) {
     function () {
       if (dragging === false) handleChangePosition(student.studentId);
     },
-    [dragging, student.studentId, handleChangePosition]
+    [dragging, student.studentId, handleChangePosition],
   );
 
   return (

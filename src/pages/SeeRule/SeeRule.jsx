@@ -35,7 +35,7 @@ export default function SeeRule() {
         setIsLoading(true);
         const response = await sendAPI(
           "GET",
-          `${baseUrl}/rules/get-rule/${id}`
+          `${baseUrl}/rules/get-rule/${id}`,
         );
         setRule(response.data);
         setRuleName(response.data.ruleName);
@@ -44,7 +44,7 @@ export default function SeeRule() {
 
       if (id) fetchRule();
     },
-    [id]
+    [id],
   );
 
   async function handleSaveRuleName() {
@@ -72,7 +72,7 @@ export default function SeeRule() {
       ? await sendAPI(
           "PATCH",
           `${rulesBaseUrl}/update-rule-category/${ruleCategoryId}`,
-          body
+          body,
         )
       : await sendAPI("PATCH", `${rulesBaseUrl}/add-rule-category`, body);
     setRule(response.data);
@@ -83,7 +83,7 @@ export default function SeeRule() {
     ruleInputId,
     ruleInputName,
     ruleInputPoints,
-    ruleCategoryId
+    ruleCategoryId,
   ) {
     if (!ruleInputName) {
       alert("Please enter a rule input name.");
@@ -100,7 +100,7 @@ export default function SeeRule() {
       ? await sendAPI(
           "PATCH",
           `${rulesBaseUrl}/update-rule-input/${ruleInputId}`,
-          body
+          body,
         )
       : await sendAPI("PATCH", `${rulesBaseUrl}/add-rule-input`, body);
     setRule(response.data);
@@ -158,7 +158,7 @@ export default function SeeRule() {
                           ruleId={rule._id}
                           ruleInputs={rule?.ruleInputs.filter(
                             (ruleInput) =>
-                              ruleInput.ruleCategoryId === ruleCategory._id
+                              ruleInput.ruleCategoryId === ruleCategory._id,
                           )}
                           key={ruleCategory._id}
                           onEditRuleCategory={handleSaveRuleCategory}

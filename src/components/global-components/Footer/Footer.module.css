@@ -12,9 +12,13 @@
 
 @keyframes footerGlow {
   0% {
-    box-shadow: 0 0 15px var(--highlight), 0 0 30px var(--highlight);
+    box-shadow:
+      0 0 15px var(--highlight),
+      0 0 30px var(--highlight);
   }
   100% {
-    box-shadow: 0 0 30px var(--highlight), 0 0 60px var(--highlight);
+    box-shadow:
+      0 0 30px var(--highlight),
+      0 0 60px var(--highlight);
   }
 }
