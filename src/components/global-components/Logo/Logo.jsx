@@ -5,12 +5,7 @@ import { Box } from "@mui/material";
 function Logo() {
   return (
     <Link to="/">
-      <Box
-        component="img"
-        src="/logoSmall.png"
-        alt="logo"
-        className={styles.logo}
-      />
+      <Box component="img" src="/Logo.png" alt="logo" className={styles.logo} />
     </Link>
   );
 }

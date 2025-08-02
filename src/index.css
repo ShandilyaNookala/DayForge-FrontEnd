@@ -1,5 +1,4 @@
 :root {
-  /* magical forest palette */
   --bg1: #f4fcb3;
   --bg2: #5a8c58;
   --bg3: #1a2e20;
@@ -22,7 +21,6 @@
   --main-text: #e5e5e5;
   --button-text: #ffffff;
 
-  /* derived values */
   --bg: radial-gradient(
     circle at top right,
     var(--bg1) 3%,
@@ -32,7 +30,6 @@
   --header-bg: linear-gradient(145deg, var(--header-start), var(--header-end));
   --footer-bg: linear-gradient(145deg, var(--footer-start), var(--footer-end));
 
-  /* existing variable mappings */
   --login-button-background: var(--accent);
   --login-button-text: var(--button-text);
   --login-button-border: var(--table-border);
@@ -149,7 +146,7 @@ button,
   cursor: pointer;
   transition: all 0.4s !important;
   box-shadow: 0 0 10px var(--login-button-shadow);
-  /* animation: glowPulse 4s infinite; */
+  text-decoration: none;
 }
 
 button:hover,
@@ -158,7 +155,7 @@ button:hover,
   color: var(--main-text) !important;
   box-shadow: 0 0 20px var(--login-button-shadow),
     0 0 40px var(--login-button-shadow) !important;
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px) scale(1.05);
 }
 
 @keyframes glowPulse {
