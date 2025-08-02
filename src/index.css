@@ -89,7 +89,6 @@ body {
   background-attachment: fixed;
   color: var(--main-text);
   position: relative;
-  overflow: hidden;
 }
 
 #root {
