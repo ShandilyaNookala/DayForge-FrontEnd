@@ -24,7 +24,7 @@
 }
 
 .login {
-  background-color: var(--header-background) !important;
+  background-color: var(--header-bg) !important;
   color: var(--login-button-text) !important;
   box-shadow: 0 0 20px var(--login-button-shadow) !important;
   width: 80%;

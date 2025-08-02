@@ -1,52 +1,54 @@
 :root {
-  --header-background: #2b7a78;
-  --header-text: #feffff;
+  /* new color palette */
+  --bg: #F6FCFC;
+  --header-bg: #117A7A;
+  --header-text: #fff;
+  --footer-bg: #117A7A;
+  --footer-text: #fff;
+  --table-header: #1ABC9C;
+  --table-border: #5FE6C2;
+  --row-odd: #E8FAF7;
+  --row-even: #C9F7F5;
+  --accent: #1ABC9C;
+  --main-text: #174046;
+  --button-text: #fff;
 
-  --footer-text: #17252a;
+  /* existing variable mappings */
+  --login-button-background: var(--accent);
+  --login-button-text: var(--button-text);
+  --login-button-border: var(--table-border);
+  --login-button-shadow: var(--accent);
 
-  --login-button-background: #3aafa9;
-  --login-button-text: #feffff;
-  --login-button-border: #2b7a78;
-  --login-button-shadow: #3aafa9;
+  --info-card-background: var(--header-bg);
+  --info-card-text: var(--button-text);
 
-  --info-card-background: #2b7a78;
-  --info-card-text: #feffff;
+  --login-modal-background: var(--bg);
+  --modal-close-button-background: var(--button-text);
 
-  --login-modal-background: #def2f1;
-  --modal-close-button-background: #feffff;
+  --input-date-text: var(--button-text);
+  --input-date-border: var(--accent);
+  --input-date-fieldset-border: var(--button-text);
 
-  --datagrid-cell-border: #feffff;
-  --datagrid-cell-background: #3aafa9;
-  --datagrid-cell-text: #feffff;
-  --datagrid-cell-border-right: #feffff;
-  --datagrid-header-border-right: #feffff;
-  --datagrid-header-background: #2b7a78;
-  --datagrid-header-text: #feffff;
+  --manage-rules-border: var(--main-text);
+  --manage-rules-text: var(--main-text);
 
-  --input-date-text: #feffff;
-  --input-date-border: #3aafa9;
-  --input-date-fieldset-border: #feffff;
+  --sortable-container-background: var(--header-bg);
+  --draggable-background: var(--accent);
 
-  --manage-rules-border: #17252a;
-  --manage-rules-text: #17252a;
+  --tasks-list-background: var(--header-bg);
 
-  --sortable-container-background: #2b7a78;
-  --draggable-background: #3aa3a9;
+  --student-tasks-header-background: var(--header-bg);
+  --student-tasks-header-text: var(--button-text);
 
-  --tasks-list-background: #2b7878;
-
-  --student-tasks-header-background: #2b7a78;
-  --student-tasks-header-text: #feffff;
-
-  --page-background: #def2f1;
-  --primary-color: #2b7a78;
-  --secondary-color: #3aafa9;
-  --light-color: #feffff;
-  --dark-color: #17252a;
-  --border-color: #c1c8e4;
-  --progress-color: #3aafa9;
-  --selection-background: #3aafa9;
-  --selection-text: #17252a;
+  --page-background: var(--bg);
+  --primary-color: var(--header-bg);
+  --secondary-color: var(--accent);
+  --light-color: var(--button-text);
+  --dark-color: var(--main-text);
+  --border-color: var(--table-border);
+  --progress-color: var(--accent);
+  --selection-background: var(--accent);
+  --selection-text: var(--main-text);
 }
 
 ::selection {
@@ -69,6 +71,7 @@ body {
   background-color: var(--page-background) !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: var(--main-text);
 }
 
 #root {
@@ -79,10 +82,10 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
-  border-color: var(--datagrid-cell-border) !important;
-  background-color: var(--datagrid-cell-background) !important;
-  color: var(--datagrid-cell-text) !important;
-  border-right: 2px solid var(--datagrid-cell-border-right) !important;
+  border-color: var(--table-border) !important;
+  background-color: var(--row-even) !important;
+  color: var(--main-text) !important;
+  border-right: 2px solid var(--table-border) !important;
   text-align: center !important;
   font-size: 18px;
   text-overflow: ellipsis !important;
@@ -91,9 +94,9 @@ body {
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
-  border-right: 2px solid var(--datagrid-header-border-right) !important;
-  background-color: var(--datagrid-header-background) !important;
-  color: var(--datagrid-header-text);
+  border-right: 2px solid var(--table-border) !important;
+  background-color: var(--table-header) !important;
+  color: var(--button-text);
   font-size: 20px;
 }
 
@@ -101,6 +104,14 @@ body {
   justify-content: center !important;
   align-items: center !important;
   text-align: center;
+}
+
+.dataGrid .MuiDataGrid-row:nth-of-type(odd) .MuiDataGrid-cell {
+  background-color: var(--row-odd) !important;
+}
+
+.dataGrid .MuiDataGrid-row:nth-of-type(even) .MuiDataGrid-cell {
+  background-color: var(--row-even) !important;
 }
 
 button,
@@ -124,16 +135,16 @@ button:hover,
 }
 
 .MuiCheckbox-root {
-  color: var(--datagrid-header-text) !important;
+  color: var(--button-text) !important;
 }
 
 .table {
-  background-color: var(--primary-color) !important;
-  color: var(--light-color) !important;
+  background-color: var(--table-header) !important;
+  color: var(--button-text) !important;
 }
 
 .table-cell {
-  color: var(--light-color) !important;
+  color: var(--main-text) !important;
 }
 
 .default-text-field fieldset {
