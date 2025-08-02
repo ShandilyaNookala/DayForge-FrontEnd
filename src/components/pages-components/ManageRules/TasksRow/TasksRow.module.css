@@ -5,7 +5,7 @@
 }
 
 .addTaskButton {
-  background-color: var(--header-bg) !important;
+  background: var(--header-bg) !important;
   max-height: 50px;
   align-self: center;
 }

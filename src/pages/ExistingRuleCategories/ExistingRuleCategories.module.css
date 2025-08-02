@@ -1,5 +1,5 @@
 .existingRuleCategories {
-  background-color: var(--header-bg) !important;
+  background: var(--header-bg) !important;
   display: flex;
 }
 
