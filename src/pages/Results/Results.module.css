@@ -7,3 +7,9 @@
   filter: blur(2.5rem);
   pointer-events: none;
 }
+
+.labelCell {
+  color: var(--button-text) !important;
+  font-size: 16px;
+  font-weight: bold;
+}

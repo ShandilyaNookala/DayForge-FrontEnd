@@ -5,7 +5,8 @@ function SelectOption({ grade, dispatch }) {
   return (
     <Select
       value={grade}
-      className={`default-text-field ${styles.select}`}
+      variant="outlined"
+      className={styles.select}
       onChange={(e) => dispatch({ type: "setGrade", payload: +e.target.value })}
     >
       <MenuItem value={0}>Birdie</MenuItem>

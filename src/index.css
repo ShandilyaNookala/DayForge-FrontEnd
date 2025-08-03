@@ -161,6 +161,10 @@ button:hover,
   color: var(--button-text) !important;
 }
 
+.MuiFormControlLabel-label {
+  color: var(--button-text) !important;
+}
+
 .table {
   background-color: var(--table-header) !important;
   color: var(--button-text) !important;
