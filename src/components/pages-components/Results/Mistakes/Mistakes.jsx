@@ -14,7 +14,7 @@ function Mistakes({ mistakes, dispatch }) {
               dispatch({ type: "changeMistake", payload: mistake.id })
             }
           />
-          <Box component="label" className={styles.name}>
+          <Box component="label" className={`${styles.label} ${styles.name}`}>
             {mistake.name}
           </Box>
 
@@ -29,7 +29,9 @@ function Mistakes({ mistakes, dispatch }) {
                   })
                 }
               />
-              <Box component="label">Should Repeat</Box>
+              <Box component="label" className={styles.label}>
+                Should Repeat
+              </Box>
             </Box>
           )}
           {mistake.shouldRepeat && mistake.checked && (
@@ -43,7 +45,9 @@ function Mistakes({ mistakes, dispatch }) {
                   })
                 }
               />
-              <Box component="label">Add mistakes</Box>
+              <Box component="label" className={styles.label}>
+                Add mistakes
+              </Box>
             </Box>
           )}
         </Box>

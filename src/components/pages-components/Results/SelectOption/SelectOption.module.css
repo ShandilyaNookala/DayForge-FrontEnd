@@ -1,3 +1,18 @@
-.select {
-  color: var(--light-color);
+.select :global(.MuiSelect-select),
+.select :global(.MuiSelect-icon) {
+  color: var(--button-text);
+  font-weight: bold;
+}
+
+.select :global(.MuiOutlinedInput-notchedOutline) {
+  border-color: var(--button-text) !important;
+}
+
+.select :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+  border-color: var(--button-text) !important;
+}
+
+.select
+  :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
+  border-color: var(--button-text) !important;
 }

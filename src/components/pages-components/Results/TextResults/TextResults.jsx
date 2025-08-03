@@ -1,15 +1,17 @@
-import { TextField } from "@mui/material";
-
+import { Box, TextField } from "@mui/material";
+import styles from "./TextResults.module.css";
 function TextResults({ value, dispatch, type }) {
   return (
-    <TextField
-      multiline
-      className="default-text-field"
-      value={value || ""}
-      onChange={(e) =>
-        dispatch({ type: `${type}ValText`, payload: e.target.value })
-      }
-    />
+    <Box className={styles.container}>
+      <TextField
+        multiline
+        className="default-text-field"
+        value={value || ""}
+        onChange={(e) =>
+          dispatch({ type: `${type}ValText`, payload: e.target.value })
+        }
+      />
+    </Box>
   );
 }
 

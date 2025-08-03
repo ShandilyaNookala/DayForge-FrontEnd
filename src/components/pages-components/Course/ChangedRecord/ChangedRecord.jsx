@@ -6,12 +6,13 @@ import InputDate from "../../../global-components/InputDate/InputDate";
 import { useRecords } from "../../../../contexts/RecordsContext";
 import { sendAPI } from "../../../../utils/helpers";
 import { baseUrl } from "../../../../utils/config";
+import styles from "./ChangedRecord.module.css";
 
 export default function ChangedRecord({ taskId }) {
   const { changedRecordData, setRecordsData, setChangedRecordData } =
     useRecords();
   const [inputDate, setInputDate] = useState(
-    new Date(changedRecordData?.nextDate),
+    new Date(changedRecordData?.nextDate)
   );
   const [work, setWork] = useState(changedRecordData?.work);
 
@@ -26,7 +27,7 @@ export default function ChangedRecord({ taskId }) {
       {
         date: new Date(inputDate),
         work: newWork,
-      },
+      }
     );
 
     setRecordsData(data.data);
@@ -36,29 +37,31 @@ export default function ChangedRecord({ taskId }) {
   if (!changedRecordData) return null;
 
   return (
-    <Table>
-      <TableBody>
-        <TableRow>
-          <TableCell>
-            <InputDate date={inputDate} setDate={setInputDate} />
-          </TableCell>
-          <TableCell>
-            {Array.isArray(changedRecordData?.work) ? (
-              <WorkRules work={work} setWork={setWork} />
-            ) : (
-              <StandardWork
-                manualInputWork={work}
-                onChangeManualInputWork={setWork}
-              />
-            )}
-          </TableCell>
-          <TableCell>
-            <Button className="btn standard-btn" onClick={handleSaveRecord}>
-              Save
-            </Button>
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <div className={styles.scrollContainer}>
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              <InputDate date={inputDate} setDate={setInputDate} />
+            </TableCell>
+            <TableCell>
+              {Array.isArray(changedRecordData?.work) ? (
+                <WorkRules work={work} setWork={setWork} />
+              ) : (
+                <StandardWork
+                  manualInputWork={work}
+                  onChangeManualInputWork={setWork}
+                />
+              )}
+            </TableCell>
+            <TableCell>
+              <Button className="btn standard-btn" onClick={handleSaveRecord}>
+                Save
+              </Button>
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </div>
   );
 }
