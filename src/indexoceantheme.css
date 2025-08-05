@@ -1,0 +1,63 @@
+@import "./index.css";
+
+:root {
+  --bg1: #def2f1;
+  --bg2: #187bcd;
+  --bg3: #172a4a;
+
+  --header-start: #172a4a;
+  --header-end: #187bcd;
+  --header-text: #def2f1;
+
+  --footer-start: #172a4a;
+  --footer-end: #187bcd;
+  --footer-text: #def2f1;
+
+  --border-see-rule: #3aafa9;
+
+  --table-header: #187bcd;
+  --table-border: #172a4a;
+  --row-odd: #f5f5dc;
+  --row-even: #def2f1;
+
+  --accent: #3aafa9;
+  --highlight: #4ac0e0;
+  --main-text: #def2f1;
+  --button-text: #def2f1;
+
+  --login-button-background: var(--accent);
+  --login-button-text: var(--button-text);
+  --login-button-border: var(--table-border);
+  --login-button-shadow: var(--highlight);
+
+  --info-card-background: var(--header-bg);
+  --info-card-text: var(--button-text);
+
+  --login-modal-background: var(--bg);
+  --modal-close-button-background: var(--button-text);
+
+  --input-date-text: var(--button-text);
+  --input-date-border: var(--accent);
+  --input-date-fieldset-border: var(--button-text);
+
+  --manage-rules-border: var(--main-text);
+  --manage-rules-text: var(--main-text);
+
+  --sortable-container-background: var(--header-bg);
+  --draggable-background: var(--accent);
+
+  --tasks-list-background: var(--header-bg);
+
+  --student-tasks-header-background: var(--header-bg);
+  --student-tasks-header-text: var(--button-text);
+
+  --page-background: var(--bg);
+  --primary-color: var(--header-bg);
+  --secondary-color: var(--accent);
+  --light-color: var(--button-text);
+  --dark-color: var(--main-text);
+  --border-color: var(--table-border);
+  --progress-color: var(--accent);
+  --selection-background: var(--accent);
+  --selection-text: var(--main-text);
+}
