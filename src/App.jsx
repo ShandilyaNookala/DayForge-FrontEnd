@@ -10,13 +10,13 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/global-components/ProtectedRoute/ProtectedRoute.jsx";
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
-import Stars from "./components/global-components/Stars/Stars.jsx";
+import Bubbles from "./themes/OceanTheme/Bubbles.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Stars />
+        <Bubbles />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate replace to="/home" />} />

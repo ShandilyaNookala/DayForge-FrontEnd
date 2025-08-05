@@ -1,0 +1,26 @@
+:root {
+  --bg1: #f4fcb3;
+  --bg2: #5a8c58;
+  --bg3: #1a2e20;
+
+  --header-start: #1b4332;
+  --header-end: #4a6e55;
+  --header-text: #ffffff;
+
+  --footer-start: #2f4f2f;
+  --footer-end: #5a8c58;
+  --footer-text: #e5e5e5;
+
+  --border-see-rule: #2f4f2f;
+
+  --table-header: #4a6e55;
+  --table-border: #5a8c58;
+  --table-text-color: #e5e5e5;
+  --row-odd: #376144;
+  --row-even: #1b4332;
+
+  --accent: #5a8c58;
+  --highlight: #f4fcb3;
+  --main-text: #e5e5e5;
+  --button-text: #ffffff;
+}
