@@ -1,7 +1,7 @@
 import { useState } from "react";
 import WorkRules from "../WorkRules/WorkRules";
 import StandardWork from "../StandardWork/StandardWork";
-import { TableBody, TableRow, TableCell, Button, Table } from "@mui/material";
+import { Button } from "@mui/material";
 import InputDate from "../../../global-components/InputDate/InputDate";
 import { useRecords } from "../../../../contexts/RecordsContext";
 import { sendAPI } from "../../../../utils/helpers";
@@ -37,31 +37,24 @@ export default function ChangedRecord({ taskId }) {
   if (!changedRecordData) return null;
 
   return (
-    <div className={styles.scrollContainer}>
-      <Table>
-        <TableBody>
-          <TableRow>
-            <TableCell>
-              <InputDate date={inputDate} setDate={setInputDate} />
-            </TableCell>
-            <TableCell>
-              {Array.isArray(changedRecordData?.work) ? (
-                <WorkRules work={work} setWork={setWork} />
-              ) : (
-                <StandardWork
-                  manualInputWork={work}
-                  onChangeManualInputWork={setWork}
-                />
-              )}
-            </TableCell>
-            <TableCell>
-              <Button className="btn standard-btn" onClick={handleSaveRecord}>
-                Save
-              </Button>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+    <div className={styles.container}>
+      <InputDate date={inputDate} setDate={setInputDate} />
+      <div className={styles.scrollContainer}>
+        {Array.isArray(changedRecordData?.work) ? (
+          <WorkRules work={work} setWork={setWork} />
+        ) : (
+          <StandardWork
+            manualInputWork={work}
+            onChangeManualInputWork={setWork}
+          />
+        )}
+      </div>
+      <Button
+        className={`btn standard-btn ${styles.saveButton}`}
+        onClick={handleSaveRecord}
+      >
+        Save
+      </Button>
     </div>
   );
 }
