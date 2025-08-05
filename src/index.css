@@ -22,23 +22,7 @@
   --login-button-border: var(--table-border);
   --login-button-shadow: var(--highlight);
 
-  --login-button-background: var(--accent);
-  --login-button-text: var(--button-text);
-  --login-button-border: var(--table-border);
-  --login-button-shadow: var(--highlight);
-
   --info-card-background: var(--header-bg);
-
-  --login-button-background: var(--accent);
-  --login-button-text: var(--button-text);
-  --login-button-border: var(--table-border);
-  --login-button-shadow: var(--highlight);
-
-  --login-button-background: var(--accent);
-  --login-button-text: var(--button-text);
-  --login-button-border: var(--table-border);
-  --login-button-shadow: var(--highlight);
-  --login-bg: var(--bg2);
 
   --info-card-text: var(--button-text);
 
