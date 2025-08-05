@@ -1,0 +1,23 @@
+.bubbleArea {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  transition: opacity 0.4s;
+  filter: blur(0.2px);
+  box-shadow: 0 0 16px 8px #b0eaff33, 0 0 32px 0px #fff4;
+  left: var(--bubble-left, 0px);
+  top: var(--bubble-top, 0px);
+  width: var(--bubble-size, 50px);
+  height: var(--bubble-size, 50px);
+  opacity: var(--bubble-opacity, 1);
+  border: var(--bubble-border, 2px solid #fff);
+  background: var(--bubble-background, #b0eaff);
+}

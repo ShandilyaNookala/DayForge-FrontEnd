@@ -10,7 +10,7 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/global-components/ProtectedRoute/ProtectedRoute.jsx";
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
-import Bubbles from "./components/global-components/Bubbles/Bubbles.jsx";
+import Bubbles from "./themes/OceanTheme/Bubbles.jsx";
 
 function App() {
   return (

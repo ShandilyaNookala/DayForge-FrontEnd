@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { starsCount } from "../../../utils/config";
+import { starsCount } from "../../utils/config.js";
 import styles from "./Stars.module.css";
 
 export default function Stars() {
