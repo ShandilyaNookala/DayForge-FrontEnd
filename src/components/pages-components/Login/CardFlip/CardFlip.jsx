@@ -37,6 +37,7 @@ function CardFlip({ onSubmit, error, isLoading }) {
               label="Username"
               name="username"
               required
+              autoFocus
               margin="normal"
               className={`default-text-field ${styles.textFieldForLogin}`}
               value={userName}
