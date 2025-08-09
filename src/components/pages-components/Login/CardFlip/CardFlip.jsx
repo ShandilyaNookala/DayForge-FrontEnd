@@ -13,26 +13,20 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Spinner from "../../../global-components/Spinner/Spinner";
 
 function CardFlip({ onSubmit, error, isLoading }) {
-  const [isFlipped, setIsFlipped] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <Box
-      className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}
-      onMouseEnter={() => setIsFlipped(true)}
-    >
+    <Box className={styles.cardContainer}>
       {isLoading ? (
         <Spinner />
       ) : (
         <>
-          <Box className={styles.cardFront}>Go</Box>
-
           <Box
-            className={styles.cardBack}
             component="form"
             onSubmit={(e) => onSubmit(e, userName, password)}
+            className={styles.card}
           >
             <Box component="h1" className={styles.heading}>
               Login
@@ -43,6 +37,7 @@ function CardFlip({ onSubmit, error, isLoading }) {
               label="Username"
               name="username"
               required
+              autoFocus
               margin="normal"
               className={`default-text-field ${styles.textFieldForLogin}`}
               value={userName}
