@@ -130,11 +130,6 @@
   animation: flapR 2.8s ease-in-out infinite;
 }
 
-.gull {
-  opacity: 0.9;
-  transform: scale(1.3);
-}
-
 @keyframes fly {
   from {
     transform: translateX(-12vw) scale(var(--sx));
