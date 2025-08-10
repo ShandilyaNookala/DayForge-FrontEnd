@@ -64,7 +64,7 @@ const Beach = () => {
         {birds.map((b) => (
           <Box
             key={b.n}
-            className={`${styles.gull}`}
+            className={styles.gull}
             style={{
               top: b.top,
               animationDelay: b.delay,
