@@ -84,7 +84,7 @@ const Beach = () => {
             animationDelay: c.delay,
           }}
         >
-          {c.puffs.slice(0, 4).map((p, pi) => (
+          {c.puffs.map((p, pi) => (
             <Box
               key={pi}
               className={styles.puff}
