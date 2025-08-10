@@ -1,0 +1,48 @@
+:root {
+  /* Scene colors */
+  --beach-bg: #2eb5e5;
+  --sky-gradient-top: #037ccb;
+  --sky-gradient-bottom: #82ccef;
+  --sea-gradient-1: #087ac1;
+  --sea-gradient-2: #129cc0;
+  --sea-gradient-3: #2ad4e5;
+  --sea-gradient-4: #96e9ef;
+  --sea-gradient-5: #deecd3;
+  --sand: #fdf1d7;
+  --wet-sand: linear-gradient(
+      to bottom,
+      rgba(189, 146, 86, 0.85) 70%,
+      rgba(214, 175, 110, 0.55) 84%,
+      rgba(236, 192, 117, 0) 100%
+    ),
+    #ecc075;
+  --wet-sand-shadow: 0 10px 10px 0 #ecc075;
+
+  /* App UI palette (used by index.css and components) */
+  --bg1: #9bdcf2; /* light sky */
+  --bg2: #2eb5e5; /* mid sea */
+  --bg3: #096aa7; /* deep sea */
+
+  /* Header (transparent via variables) */
+  --header-start: rgba(255, 255, 255, 0);
+  --header-end: rgba(255, 255, 255, 0);
+  --header-text: #062b2b;
+
+  /* Footer (kept for parity with other themes) */
+  --footer-start: rgba(255, 255, 255, 0);
+  --footer-end: rgba(255, 255, 255, 0);
+  --footer-text: #062b2b;
+
+  /* Brand accents */
+  --accent: #3aafa9; /* primary beach teal */
+  --highlight: rgba(255, 255, 255, 0.65);
+  --main-text: #0c2e2e; /* dark teal */
+  --button-text: #062b2b; /* deeper teal for contrast */
+
+  /* Tables and borders */
+  --table-header: rgba(18, 164, 207, 0.5);
+  --table-border: #0c7bb3;
+  --table-text-color: #0c2e2e;
+  --row-odd: rgba(255, 255, 255, 0.25);
+  --row-even: rgba(255, 255, 255, 0.15);
+}
