@@ -178,7 +178,6 @@ button:hover,
   color: var(--light-color) !important;
 }
 
-/* MUI buttons - match beach theme */
 .MuiButton-root {
   background-color: var(--accent) !important;
   color: var(--button-text) !important;

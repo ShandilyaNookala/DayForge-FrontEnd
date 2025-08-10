@@ -1,5 +1,5 @@
 .beachRoot {
-  position: fixed; /* stick to viewport so background persists when scrolling */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -8,8 +8,8 @@
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
     Arial;
   overflow: hidden;
-  pointer-events: none; /* let UI interactions pass through */
-  z-index: -1; /* keep behind all app content */
+  pointer-events: none;
+  z-index: -1;
 }
 
 .sky {
@@ -30,10 +30,8 @@
   position: absolute;
   z-index: 2;
   pointer-events: none;
-  top: 0;
   left: 0;
   right: 0;
-  /* clouds will be placed by .c1, .c2, .c3 */
   transform: translateX(-35vw) scale(var(--sx, 1));
   animation: cloudMove var(--dur, 90s) linear infinite;
 }
@@ -81,66 +79,9 @@
   );
   opacity: 0.4;
   border-radius: 50%;
-}
-.ray1 {
   height: 60px;
   width: 8px;
-  transform: rotate(0deg) translateY(-80px);
-}
-.ray2 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(30deg) translateY(-80px);
-}
-.ray3 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(60deg) translateY(-80px);
-}
-.ray4 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(90deg) translateY(-80px);
-}
-.ray5 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(120deg) translateY(-80px);
-}
-.ray6 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(150deg) translateY(-80px);
-}
-.ray7 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(180deg) translateY(-80px);
-}
-.ray8 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(210deg) translateY(-80px);
-}
-.ray9 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(240deg) translateY(-80px);
-}
-.ray10 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(270deg) translateY(-80px);
-}
-.ray11 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(300deg) translateY(-80px);
-}
-.ray12 {
-  height: 60px;
-  width: 8px;
-  transform: rotate(330deg) translateY(-80px);
+  transform: rotate(var(--angle, 0deg)) translateY(-80px);
 }
 @keyframes rayAnim {
   to {
@@ -160,7 +101,7 @@
   top: 0;
   left: -12vw;
   width: 32px;
-  height: 16px;
+  height: 22px;
   opacity: 1;
   --sx: 1;
   --dur: 75s;
@@ -188,98 +129,12 @@
   transform-origin: left bottom;
   animation: flapR 2.8s ease-in-out infinite;
 }
-.g1 {
-  top: 3vh;
-  --sx: 1.15;
-  --dur: 70s;
-  animation-delay: -10s;
-}
-.g2 {
-  top: 8vh;
-  --sx: 0.95;
-  --dur: 85s;
-  animation-delay: -30s;
-}
-.g3 {
-  top: 12vh;
-  --sx: 0.85;
-  --dur: 100s;
-  animation-delay: -50s;
-}
+
 .gull {
   opacity: 0.9;
   transform: scale(1.3);
 }
-.rev {
-  left: auto;
-  right: -12vw;
-  animation-name: flyR;
-}
-.g4 {
-  top: 2vh;
-  --sx: 1.2;
-  --dur: 68s;
-  animation-delay: -8s;
-}
-.g5 {
-  top: 6vh;
-  --sx: 1;
-  --dur: 88s;
-  animation-delay: -22s;
-}
-.g6 {
-  top: 10vh;
-  --sx: 0.95;
-  --dur: 92s;
-  animation-delay: -36s;
-}
-.g7 {
-  top: 14vh;
-  --sx: 0.9;
-  --dur: 100s;
-  animation-delay: -48s;
-}
-.g8 {
-  top: 4vh;
-  --sx: 0.8;
-  --dur: 105s;
-  animation-delay: -60s;
-  opacity: 0.9;
-}
-.g9 {
-  top: 12vh;
-  --sx: 0.75;
-  --dur: 112s;
-  animation-delay: -72s;
-  opacity: 0.9;
-}
-.g10 {
-  top: 7vh;
-  --sx: 0.7;
-  --dur: 120s;
-  animation-delay: -84s;
-  opacity: 0.9;
-}
-.g11 {
-  top: 16vh;
-  --sx: 1.05;
-  --dur: 78s;
-  animation-delay: -96s;
-}
-.g12 {
-  top: 18vh;
-  --sx: 0.85;
-  --dur: 110s;
-  animation-delay: -108s;
-}
-@keyframes flyR {
-  from {
-    transform: translateX(112vw) scale(var(--sx));
-  }
-  to {
-    transform: translateX(-12vw) scale(var(--sx));
-  }
-}
+
 @keyframes fly {
   from {
     transform: translateX(-12vw) scale(var(--sx));
@@ -312,48 +167,6 @@
   background: rgba(255, 255, 255, 0.65);
   filter: blur(6px);
 }
-.p1 {
-  width: 52px;
-  height: 52px;
-  top: 10px;
-  left: 20px;
-}
-.p2 {
-  width: 72px;
-  height: 72px;
-  top: 0;
-  left: 56px;
-}
-.p3 {
-  width: 46px;
-  height: 46px;
-  top: 18px;
-  left: 112px;
-}
-.p4 {
-  width: 38px;
-  height: 38px;
-  top: 30px;
-  left: 74px;
-}
-.c1 {
-  top: 8%;
-  --sx: 1;
-  --dur: 80s;
-  animation-delay: -15s;
-}
-.c2 {
-  top: 14%;
-  --sx: 0.9;
-  --dur: 95s;
-  animation-delay: -35s;
-}
-.c3 {
-  top: 20%;
-  --sx: 0.8;
-  --dur: 110s;
-  animation-delay: -55s;
-}
 @keyframes cloudMove {
   from {
     transform: translateX(-35vw) scale(var(--sx, 1));
@@ -362,7 +175,6 @@
     transform: translateX(135vw) scale(var(--sx, 1));
   }
 }
-/* Sea sits above wet sand and sand, and surges toward the beach */
 .sea {
   position: absolute;
   height: 50%;
@@ -385,7 +197,6 @@
   will-change: transform;
 }
 
-/* Sea extends downward (no vertical shift) to meet sand */
 @keyframes seaSurge {
   0% {
     transform: scaleY(1);
@@ -416,7 +227,6 @@
   }
 }
 
-/* increase visible foam band so it fully covers shoreline at peak */
 .seafoam {
   position: absolute;
   inset: 0;
@@ -448,7 +258,6 @@
   pointer-events: none;
 }
 
-/* lower the wet-sand band so foam can overlap and cover at peak */
 .wetSand {
   position: absolute;
   height: 60%;
@@ -494,7 +303,6 @@
   }
 }
 
-/* Base sand, fixed at the bottom */
 .sand {
   position: absolute;
   height: 35%;
@@ -513,7 +321,6 @@
   z-index: 4;
 }
 
-/* Animations */
 @keyframes waveanim {
   0% {
     transform: scaleY(1);
@@ -566,7 +373,6 @@
 }
 
 @keyframes seafoamSurge {
-  /* receding */
   0% {
     opacity: 0;
   }
