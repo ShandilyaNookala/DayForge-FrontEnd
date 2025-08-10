@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Bubbles.module.css";
-import { bubbleCount } from "../../utils/config";
+import { bubbleCount } from "./itemsCount";
 
 function random(min, max) {
   return Math.random() * (max - min) + min;

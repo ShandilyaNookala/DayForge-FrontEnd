@@ -5,7 +5,7 @@
   font-size: 24px !important;
   position: relative;
   overflow: hidden;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  text-shadow: none !important;
 }
 
 .toolbar {

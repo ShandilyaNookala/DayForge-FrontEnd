@@ -1,0 +1,398 @@
+.beachRoot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--beach-bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    Arial;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 40vh;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    var(--sky-gradient-top) 0%,
+    var(--sky-gradient-bottom) 100%
+  );
+}
+
+.cloud {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  transform: translateX(-35vw) scale(var(--sx, 1));
+  animation: cloudMove var(--dur, 90s) linear infinite;
+}
+
+.sunContainer {
+  position: absolute;
+  top: 30px;
+  right: 120px;
+  width: 160px;
+  height: 160px;
+  z-index: 3;
+}
+
+.rayBox {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 0;
+  left: 0;
+  animation: rayAnim 20s linear infinite;
+}
+
+.sun {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.95;
+  box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.9);
+  z-index: 4;
+}
+.ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center top;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.4;
+  border-radius: 50%;
+  height: 60px;
+  width: 8px;
+  transform: rotate(var(--angle, 0deg)) translateY(-80px);
+}
+@keyframes rayAnim {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.birds {
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  width: 100vw;
+  height: 22vh;
+  z-index: 5;
+  pointer-events: none;
+}
+.gull {
+  top: 0;
+  left: -12vw;
+  width: 32px;
+  height: 22px;
+  opacity: 1;
+  --sx: 1;
+  --dur: 75s;
+  animation: fly var(--dur) linear infinite;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35));
+  transform: scale(1.9);
+}
+.gull::before,
+.gull::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: -6px;
+  border-top: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+.gull::before {
+  left: -2px;
+  transform-origin: right bottom;
+  animation: flapL 2.8s ease-in-out infinite;
+}
+.gull::after {
+  right: -2px;
+  transform-origin: left bottom;
+  animation: flapR 2.8s ease-in-out infinite;
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(-12vw) scale(var(--sx));
+  }
+  to {
+    transform: translateX(112vw) scale(var(--sx));
+  }
+}
+@keyframes flapL {
+  0%,
+  100% {
+    transform: rotate(-24deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+@keyframes flapR {
+  0%,
+  100% {
+    transform: rotate(24deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+.puff {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  filter: blur(6px);
+}
+@keyframes cloudMove {
+  from {
+    transform: translateX(-35vw) scale(var(--sx, 1));
+  }
+  to {
+    transform: translateX(135vw) scale(var(--sx, 1));
+  }
+}
+.sea {
+  position: absolute;
+  height: 50%;
+  width: 200%;
+  left: -50%;
+  top: 30%;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(
+    to bottom,
+    var(--sea-gradient-1) 0%,
+    var(--sea-gradient-2) 25%,
+    var(--sea-gradient-3) 50%,
+    var(--sea-gradient-4) 75%,
+    var(--sea-gradient-5) 100%
+  );
+  animation: seaSurge 8s linear infinite;
+  transform-origin: 50% 0%;
+  overflow: hidden;
+  z-index: 6;
+  will-change: transform;
+}
+
+@keyframes seaSurge {
+  0% {
+    transform: scaleY(1);
+  }
+  12.5% {
+    transform: scaleY(1.05);
+  }
+  25% {
+    transform: scaleY(1.1);
+  }
+  37.5% {
+    transform: scaleY(1.15);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+  62.5% {
+    transform: scaleY(1.15);
+  }
+  75% {
+    transform: scaleY(1.1);
+  }
+  87.5% {
+    transform: scaleY(1.05);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.seafoam {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(
+      60% 22% at 20% 88%,
+      rgba(255, 255, 255, 0.55) 0 42%,
+      transparent 64%
+    ),
+    radial-gradient(
+      50% 18% at 55% 90%,
+      rgba(255, 255, 255, 0.5) 0 40%,
+      transparent 66%
+    ),
+    radial-gradient(
+      70% 24% at 85% 87%,
+      rgba(255, 255, 255, 0.55) 0 38%,
+      transparent 68%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0 95%,
+      rgba(255, 255, 255, 0.92) 98%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: seafoamSurge 8s linear infinite, foamShift 16s linear infinite;
+  pointer-events: none;
+}
+
+.wetSand {
+  position: absolute;
+  height: 60%;
+  width: 200%;
+  left: -50%;
+  top: 30%;
+  border-radius: 0 0 50% 50%;
+  background: var(--wet-sand);
+  box-shadow: var(--wet-sand-shadow);
+  -webkit-mask: linear-gradient(to bottom, transparent 0 76%, #000 88%);
+  mask: linear-gradient(to bottom, transparent 0 76%, #000 88%);
+  animation: wetSandPulse 8s linear infinite;
+  z-index: 5;
+}
+
+@keyframes wetSandPulse {
+  0% {
+    opacity: 0.15;
+  }
+  12.5% {
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 0.15;
+  }
+  37.5% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  62.5% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.45;
+  }
+  87.5% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.sand {
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  background: var(--sand);
+  top: 65%;
+  z-index: 4;
+}
+
+.sandFront {
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  background: var(--sand);
+  top: 90%;
+  z-index: 4;
+}
+
+@keyframes waveanim {
+  0% {
+    transform: scaleY(1);
+  }
+  35% {
+    transform: scaleY(1.3);
+  }
+  69% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes wetsandanim {
+  0% {
+    opacity: 0.2;
+  }
+  34% {
+    opacity: 0.2;
+  }
+  35% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+@keyframes seafoamanim {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes foamShift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: -60px 0, -30px 0, -90px 0, 0 0;
+  }
+}
+
+@keyframes seafoamSurge {
+  0% {
+    opacity: 0;
+  }
+  12.5% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.55;
+  }
+  37.5% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+  62.5% {
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 0.35;
+  }
+  87.5% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
