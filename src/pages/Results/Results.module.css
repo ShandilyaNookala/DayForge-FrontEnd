@@ -31,7 +31,6 @@
 }
 
 .labelCell {
-  color: var(--button-text) !important;
   font-size: 18px;
   font-weight: 600;
   padding: 20px 16px !important;
@@ -218,12 +217,6 @@
 
 .valueCell .MuiTextField-root .MuiInputLabel-root.Mui-focused {
   color: var(--accent) !important;
-}
-
-.valueCell .select .MuiSelect-select,
-.valueCell .select .MuiSelect-icon {
-  color: var(--bg3) !important;
-  font-weight: bold;
 }
 
 .valueCell .select .MuiOutlinedInput-notchedOutline {
@@ -512,10 +505,4 @@
   color: var(--bg3) !important;
   opacity: 1 !important;
   font-weight: 500 !important;
-}
-
-.valueCell .select .MuiSelect-select,
-.valueCell .select .MuiSelect-icon {
-  color: var(--bg3) !important;
-  font-weight: bold;
 }
