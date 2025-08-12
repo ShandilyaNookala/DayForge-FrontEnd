@@ -13,6 +13,7 @@ function Mistakes({ mistakes, dispatch }) {
             onChange={() =>
               dispatch({ type: "changeMistake", payload: mistake.id })
             }
+            className={styles.checkbox}
           />
           <Box component="label" className={`${styles.label} ${styles.name}`}>
             {mistake.name}
@@ -28,6 +29,7 @@ function Mistakes({ mistakes, dispatch }) {
                     type: "toggleShouldRepeat",
                   })
                 }
+                className={styles.checkbox}
               />
               <Box component="label" className={styles.label}>
                 Should Repeat
@@ -44,6 +46,7 @@ function Mistakes({ mistakes, dispatch }) {
                     type: "toggleAddMistakes",
                   })
                 }
+                className={styles.checkbox}
               />
               <Box component="label" className={styles.label}>
                 Add mistakes
