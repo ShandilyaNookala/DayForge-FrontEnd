@@ -5,7 +5,8 @@ function TextResults({ value, dispatch, type }) {
     <Box className={styles.container}>
       <TextField
         multiline
-        className="default-text-field"
+        rows={2}
+        className={styles.commentsTextField}
         value={value || ""}
         onChange={(e) =>
           dispatch({ type: `${type}ValText`, payload: e.target.value })

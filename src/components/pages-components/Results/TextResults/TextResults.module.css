@@ -1,4 +1,101 @@
 .container {
-  overflow-y: auto;
-  max-height: 10vh;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  min-width: 220px;
+  min-height: 48px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.commentsTextField .MuiOutlinedInput-root {
+  border: 2.5px solid var(--accent) !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  box-shadow: 0 2px 8px rgba(23, 42, 74, 0.08);
+}
+
+.commentsTextField .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField
+  .MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+  box-shadow: none !important;
+}
+
+.commentsTextField .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+  box-shadow: none !important;
+}
+
+.commentsTextField .MuiOutlinedInput-root.Mui-focused fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField .MuiOutlinedInput-root fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField .MuiOutlinedInput-root:hover fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField .MuiOutlinedInput-root.Mui-focused fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField .MuiInputBase-input {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+.commentsTextField .MuiInputLabel-root {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+.commentsTextField input::placeholder,
+.commentsTextField textarea::placeholder {
+  color: var(--accent) !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+
+.commentsTextField.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField.MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField.MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border: 2.5px solid var(--accent) !important;
+  box-shadow: none !important;
+}
+
+.commentsTextField fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField:hover fieldset {
+  border: 2.5px solid var(--accent) !important;
+}
+
+.commentsTextField.Mui-focused fieldset {
+  border: 2.5px solid var(--accent) !important;
 }

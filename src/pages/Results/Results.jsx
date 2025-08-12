@@ -28,6 +28,7 @@ const initialState = {
   grade: 5,
   isLoading: true,
   hasChanged: false,
+  currentStep: 1,
 };
 
 function reducer(state, action) {
@@ -115,6 +116,12 @@ function reducer(state, action) {
       return { ...state, grade: action.payload };
     case "setIsLoading":
       return { ...state, isLoading: action.payload };
+    case "nextStep":
+      return { ...state, currentStep: state.currentStep + 1 };
+    case "previousStep":
+      return { ...state, currentStep: state.currentStep - 1 };
+    case "setCurrentStep":
+      return { ...state, currentStep: action.payload };
     default:
       throw new Error("Unknown");
   }
@@ -123,7 +130,7 @@ function reducer(state, action) {
 function Results() {
   const { user } = useAuth();
   const [
-    { mistakes, comments, nextWork, grade, isLoading, hasChanged },
+    { mistakes, comments, nextWork, grade, isLoading, hasChanged, currentStep },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -151,69 +158,70 @@ function Results() {
           type: "setInitial",
           payload: currentRecord.work,
         });
+        dispatch({ type: "setIsLoading", payload: false });
       }
     },
     [currentRecord]
   );
 
-  useEffect(
-    function () {
-      async function getResultsData() {
-        if (hasChanged) return;
-        dispatch({ type: "setIsLoading", payload: true });
-        let data;
-        data = (
-          await sendAPI(
-            "POST",
-            `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
-            {
-              mistakes: mistakes?.filter((el) => el.checked === true),
-            }
-          )
-        ).data;
+  const fetchNextWork = async () => {
+    dispatch({ type: "setIsLoading", payload: true });
+    try {
+      const data = (
+        await sendAPI(
+          "POST",
+          `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
+          {
+            mistakes: mistakes?.filter((el) => el.checked === true),
+          }
+        )
+      ).data;
 
-        dispatch({
-          type: "setNextWorkAndGrade",
-          payload: {
-            nextWork: data?.work,
-            grade: data ? data.grade : 5,
-          },
-        });
-      }
-      if (
-        taskId &&
-        recordId &&
-        recordsData?.rule &&
-        (!Array.isArray(mistakes) ? typeof mistakes !== "string" : true)
-      )
-        getResultsData();
-      else if (typeof currentRecord?.work === "string") {
-        dispatch({ type: "setIsLoading", payload: false });
-      }
-    },
-    [
-      taskId,
-      recordId,
-      currentRecord?.work,
-      recordsData?.rule,
-      mistakes,
-      hasChanged,
-    ]
-  );
+      dispatch({
+        type: "setNextWorkAndGrade",
+        payload: {
+          nextWork: data?.work || [],
+          grade: data ? data.grade : 5,
+        },
+      });
+
+      dispatch({ type: "fetchTomorrowWork" });
+
+      return data;
+    } catch (error) {
+      console.error("Error fetching next work:", error);
+      dispatch({ type: "setIsLoading", payload: false });
+      return null;
+    }
+  };
 
   async function handleResults() {
+    let currentNextWork = nextWork;
+    let currentGrade = grade;
+
+    if (currentStep === 1 && hasChanged) {
+      const fetchedData = await fetchNextWork();
+      if (fetchedData) {
+        currentNextWork = fetchedData.work || [];
+        currentGrade = fetchedData.grade || 5;
+      }
+    }
+
     setIsLoadingEntirePage(true);
-    const newWork = Array.isArray(nextWork)
-      ? nextWork.filter((el) => el.checked === true).map((el) => el.id)
-      : nextWork;
+
+    const newWork = Array.isArray(currentNextWork)
+      ? currentNextWork.filter((el) => el.checked === true).map((el) => el.id)
+      : currentNextWork;
+
     const newMistakes = Array.isArray(mistakes)
       ? mistakes.filter((el) => el.checked === true).map((el) => el.id)
       : mistakes;
+
     const newRecordsData = await sendAPI(
       "PATCH",
       `${baseUrl}/records/update-or-create-record/${taskId}/${recordId}`,
       {
-        grade: grade,
+        grade: currentGrade,
         result: newMistakes,
         comment: comments,
         nextWork: newWork,
@@ -223,6 +231,70 @@ function Results() {
     setIsLoadingEntirePage(false);
     navigate(`/course/${taskId}`);
   }
+
+  const handleNextStep = async () => {
+    if (currentStep === 1) {
+      await fetchNextWork();
+      dispatch({ type: "nextStep" });
+    } else {
+      dispatch({ type: "nextStep" });
+    }
+  };
+
+  const handlePreviousStep = () => {
+    dispatch({ type: "previousStep" });
+  };
+
+  const fetchNextWorkForNavigation = async () => {
+    try {
+      const data = (
+        await sendAPI(
+          "POST",
+          `${baseUrl}/records/get-automatic-data-with-mistakes/${taskId}/${recordId}`,
+          {
+            mistakes: mistakes?.filter((el) => el.checked === true),
+          }
+        )
+      ).data;
+
+      dispatch({
+        type: "setNextWorkAndGrade",
+        payload: {
+          nextWork: data?.work || [],
+          grade: data ? data.grade : 5,
+        },
+      });
+
+      dispatch({ type: "fetchTomorrowWork" });
+
+      return data;
+    } catch (error) {
+      console.error("Error fetching next work:", error);
+      return null;
+    }
+  };
+
+  const handleStepClick = (stepNumber) => {
+    if (stepNumber === 1) {
+      dispatch({ type: "setCurrentStep", payload: 1 });
+    } else if (stepNumber === 2) {
+      if (currentStep === 1) {
+        fetchNextWorkForNavigation().then(() => {
+          dispatch({ type: "setCurrentStep", payload: 2 });
+        });
+      } else {
+        dispatch({ type: "setCurrentStep", payload: 2 });
+      }
+    } else if (stepNumber === 3) {
+      if (currentStep === 1) {
+        fetchNextWorkForNavigation().then(() => {
+          dispatch({ type: "setCurrentStep", payload: 3 });
+        });
+      } else {
+        dispatch({ type: "setCurrentStep", payload: 3 });
+      }
+    }
+  };
 
   return (
     <>
@@ -234,70 +306,154 @@ function Results() {
             <NotAuthorized />
           ) : (
             <Box className={styles.resultsBox}>
+              <Box className={styles.stepIndicator}>
+                <Box
+                  className={`${styles.stepDot} ${
+                    currentStep === 1 ? styles.active : ""
+                  }`}
+                  onClick={() => handleStepClick(1)}
+                />
+                <Box
+                  className={`${styles.stepDot} ${
+                    currentStep === 2 ? styles.active : styles.accessible
+                  }`}
+                  onClick={() => handleStepClick(2)}
+                />
+                <Box
+                  className={`${styles.stepDot} ${
+                    currentStep === 3 ? styles.active : styles.accessible
+                  }`}
+                  onClick={() => handleStepClick(3)}
+                />
+              </Box>
+
               <Table>
                 <TableBody>
-                  <TableRow>
-                    <TableCell className={styles.labelCell}>Results</TableCell>
-                    <TableCell>
-                      {Array.isArray(mistakes) ? (
-                        <>
-                          <Mistakes mistakes={mistakes} dispatch={dispatch} />
-                        </>
-                      ) : (
-                        <TextResults
-                          value={mistakes}
-                          dispatch={dispatch}
-                          type="results"
-                        />
-                      )}
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className={styles.labelCell}>Comments</TableCell>
-                    <TableCell>
-                      <TextResults
-                        value={comments}
-                        dispatch={dispatch}
-                        type="comments"
-                      />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow
-                    className={`${
-                      hasChanged ? styles.blurGradeAndNextWork : ""
-                    }`}
-                  >
-                    <TableCell className={styles.labelCell}>Grades</TableCell>
-                    <TableCell colSpan={2} className={styles.valueCell}>
-                      <SelectOption grade={grade} dispatch={dispatch} />
-                    </TableCell>
-                  </TableRow>
-                  <TableRow
-                    className={`${
-                      hasChanged ? styles.blurGradeAndNextWork : ""
-                    }`}
-                  >
-                    <TableCell className={styles.labelCell}>
-                      Work for Tomorrow
-                    </TableCell>
-                    <TableCell>
-                      <NextWork nextWork={nextWork} dispatch={dispatch} />
-                    </TableCell>
-                  </TableRow>
+                  {currentStep === 1 && (
+                    <TableRow>
+                      <TableCell className={styles.labelCell}>
+                        Results
+                      </TableCell>
+                      <TableCell className={styles.valueCell}>
+                        {Array.isArray(mistakes) ? (
+                          <>
+                            <Mistakes mistakes={mistakes} dispatch={dispatch} />
+                          </>
+                        ) : (
+                          <TextResults
+                            value={mistakes}
+                            dispatch={dispatch}
+                            type="results"
+                          />
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  )}
+
+                  {currentStep === 2 && (
+                    <>
+                      <TableRow>
+                        <TableCell className={styles.labelCell}>
+                          Comments
+                        </TableCell>
+                        <TableCell className={styles.valueCell}>
+                          <TextResults
+                            value={comments}
+                            dispatch={dispatch}
+                            type="comments"
+                          />
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className={styles.labelCell}>
+                          Grades
+                        </TableCell>
+                        <TableCell colSpan={2} className={styles.valueCell}>
+                          <SelectOption grade={grade} dispatch={dispatch} />
+                        </TableCell>
+                      </TableRow>
+                    </>
+                  )}
+
+                  {currentStep === 3 && (
+                    <TableRow>
+                      <TableCell className={styles.labelCell}>
+                        Work for Tomorrow
+                      </TableCell>
+                      <TableCell className={styles.valueCell}>
+                        <NextWork nextWork={nextWork} dispatch={dispatch} />
+                      </TableCell>
+                    </TableRow>
+                  )}
                 </TableBody>
               </Table>
+
               <Box className="btn-container">
-                {hasChanged ? (
-                  <Button
-                    className="btn results-btn"
-                    onClick={() => dispatch({ type: "fetchTomorrowWork" })}
-                  >
-                    Fetch Tomorrow's Work
-                  </Button>
+                {currentStep === 1 ? (
+                  <Box className={styles.buttonGroup}>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handleResults}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Submit
+                    </Button>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handleNextStep}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Next
+                    </Button>
+                  </Box>
+                ) : currentStep === 2 ? (
+                  <Box className={styles.buttonGroup}>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handlePreviousStep}
+                      variant="outlined"
+                      color="secondary"
+                    >
+                      Back
+                    </Button>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handleResults}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Submit
+                    </Button>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handleNextStep}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Next
+                    </Button>
+                  </Box>
                 ) : (
-                  <Button className="btn results-btn" onClick={handleResults}>
-                    Submit
-                  </Button>
+                  <Box className={styles.buttonGroup}>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handlePreviousStep}
+                      variant="outlined"
+                      color="secondary"
+                    >
+                      Back
+                    </Button>
+                    <Button
+                      className="btn results-btn"
+                      onClick={handleResults}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Submit
+                    </Button>
+                  </Box>
                 )}
               </Box>
             </Box>

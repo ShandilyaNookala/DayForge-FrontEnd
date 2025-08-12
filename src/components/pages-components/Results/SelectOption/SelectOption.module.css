@@ -1,18 +1,24 @@
 .select :global(.MuiSelect-select),
 .select :global(.MuiSelect-icon) {
-  color: var(--button-text);
+  color: var(--bg3) !important;
   font-weight: bold;
 }
 
+.select :global(.MuiOutlinedInput-root) {
+  border: 2px solid var(--bg3) !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+}
+
 .select :global(.MuiOutlinedInput-notchedOutline) {
-  border-color: var(--button-text) !important;
+  border: 2px solid var(--bg3) !important;
 }
 
 .select :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--button-text) !important;
+  border: 2px solid var(--accent) !important;
 }
 
 .select
   :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--button-text) !important;
+  border: 2px solid var(--accent) !important;
 }

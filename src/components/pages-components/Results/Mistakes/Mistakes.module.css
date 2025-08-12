@@ -23,6 +23,64 @@
 }
 
 .label {
-  color: var(--button-text) !important;
+  color: var(--bg3) !important;
   font-size: 16px;
+  font-weight: 600;
+}
+
+.checkbox {
+  color: var(--bg3) !important;
+  padding: 4px !important;
+}
+
+.checkbox.Mui-checked {
+  color: var(--accent) !important;
+}
+
+.checkbox:hover {
+  color: var(--accent) !important;
+}
+
+.checkbox .MuiSvgIcon-root {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+  color: var(--bg3) !important;
+}
+
+.checkbox.Mui-checked .MuiSvgIcon-root {
+  color: var(--accent) !important;
+}
+
+.checkbox:hover .MuiSvgIcon-root {
+  color: var(--accent) !important;
+}
+
+.checkbox svg {
+  color: var(--bg3) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.checkbox.Mui-checked svg {
+  color: var(--accent) !important;
+}
+
+.checkbox:hover svg {
+  color: var(--accent) !important;
+}
+
+.checkbox .MuiSvgIcon-root path {
+  fill: var(--bg3) !important;
+  stroke: var(--bg3) !important;
+}
+
+.checkbox.Mui-checked .MuiSvgIcon-root path {
+  fill: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+
+.checkbox:hover .MuiSvgIcon-root path {
+  fill: var(--accent) !important;
+  stroke: var(--accent) !important;
 }
