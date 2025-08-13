@@ -4,23 +4,15 @@
   align-items: flex-start;
   padding: 40px 20px;
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    rgba(222, 242, 241, 0.1) 0%,
-    rgba(24, 123, 205, 0.05) 100%
-  );
-  backdrop-filter: blur(10px);
+  background: none;
 }
 
 .resultsBox {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--results-bg);
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(23, 42, 74, 0.1);
   padding: 40px;
   max-width: 800px;
   width: 100%;
-  border: 1px solid rgba(58, 175, 169, 0.2);
-  backdrop-filter: blur(20px);
 }
 
 .blurGradeAndNextWork {
@@ -44,7 +36,6 @@
 
 .valueCell {
   padding: 20px 16px !important;
-  background: rgba(222, 242, 241, 0.8);
   border-radius: 0 12px 12px 0;
   border-left: 3px solid var(--accent);
 }
@@ -121,7 +112,6 @@
 .resultsBox .valueCell .MuiTextField-root {
   border: 2px solid var(--bg3) !important;
   border-radius: 4px !important;
-  background-color: white !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiOutlinedInput-root {
@@ -299,31 +289,34 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(58, 175, 169, 0.3);
+  background: var(--accent);
+  opacity: 0.3;
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
 }
 
 .stepDot:hover {
-  background: rgba(58, 175, 169, 0.6);
+  opacity: 0.6;
   transform: scale(1.1);
 }
 
 .stepDot.active {
   background: var(--accent);
+  opacity: 1;
   transform: scale(1.2);
 }
 
 .stepDot.accessible {
-  background: rgba(58, 175, 169, 0.5);
+  background: var(--accent);
+  opacity: 0.5;
   cursor: pointer;
 }
 
 .stepDot.inaccessible {
-  background: rgba(58, 175, 169, 0.2);
+  background: var(--accent);
+  opacity: 0.2;
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
 .resultsBox input[type="checkbox"] {
@@ -331,7 +324,6 @@
   height: 20px !important;
   border: 2px solid var(--bg3) !important;
   border-radius: 4px !important;
-  background-color: white !important;
   cursor: pointer !important;
   margin-right: 8px !important;
   display: inline-block !important;
@@ -349,7 +341,6 @@
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  color: white !important;
   font-size: 14px !important;
   font-weight: bold !important;
 }
@@ -423,33 +414,6 @@
   display: block !important;
 }
 
-@media (max-width: 768px) {
-  .resultsContainer {
-    padding: 20px 10px;
-  }
-
-  .resultsBox {
-    padding: 20px;
-    margin: 10px;
-  }
-
-  .buttonGroup {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .buttonGroup .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .labelCell {
-    font-size: 16px;
-    padding: 16px 12px !important;
-    min-width: 120px;
-  }
-}
-
 .resultsBox
   .valueCell
   .MuiTextField-root
@@ -461,13 +425,11 @@
 .resultsBox .valueCell .default-text-field {
   border: 2px solid var(--bg3) !important;
   border-radius: 4px !important;
-  background-color: white !important;
 }
 
 .resultsBox .valueCell .default-text-field .MuiOutlinedInput-root {
   border: 2px solid var(--bg3) !important;
   border-radius: 4px !important;
-  background-color: white !important;
 }
 
 .resultsBox .valueCell .default-text-field .MuiOutlinedInput-notchedOutline {
@@ -493,7 +455,6 @@
 .resultsBox .valueCell .default-text-field .MuiInputBase-input {
   color: var(--bg3) !important;
   font-weight: 600 !important;
-  background: white !important;
 }
 
 .resultsBox .valueCell .default-text-field .MuiInputLabel-root {
