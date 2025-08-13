@@ -33,7 +33,6 @@
   left: 0;
   right: 0;
   transform: translateX(-35vw) scale(var(--sx, 1));
-  animation: cloudMove var(--dur, 90s) linear infinite;
 }
 
 .sunContainer {
@@ -51,7 +50,6 @@
   height: 160px;
   top: 0;
   left: 0;
-  animation: rayAnim 20s linear infinite;
 }
 
 .sun {
@@ -88,74 +86,7 @@
     transform: rotate(360deg);
   }
 }
-.birds {
-  position: absolute;
-  top: 6vh;
-  left: 0;
-  width: 100vw;
-  height: 22vh;
-  z-index: 5;
-  pointer-events: none;
-}
-.gull {
-  top: 0;
-  left: -12vw;
-  width: 32px;
-  height: 22px;
-  opacity: 1;
-  --sx: 1;
-  --dur: 75s;
-  animation: fly var(--dur) linear infinite;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35));
-  transform: scale(1.9);
-}
-.gull::before,
-.gull::after {
-  content: "";
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: -6px;
-  border-top: 2px solid rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
-}
-.gull::before {
-  left: -2px;
-  transform-origin: right bottom;
-  animation: flapL 2.8s ease-in-out infinite;
-}
-.gull::after {
-  right: -2px;
-  transform-origin: left bottom;
-  animation: flapR 2.8s ease-in-out infinite;
-}
 
-@keyframes fly {
-  from {
-    transform: translateX(-12vw) scale(var(--sx));
-  }
-  to {
-    transform: translateX(112vw) scale(var(--sx));
-  }
-}
-@keyframes flapL {
-  0%,
-  100% {
-    transform: rotate(-24deg);
-  }
-  50% {
-    transform: rotate(-8deg);
-  }
-}
-@keyframes flapR {
-  0%,
-  100% {
-    transform: rotate(24deg);
-  }
-  50% {
-    transform: rotate(8deg);
-  }
-}
 .puff {
   position: absolute;
   border-radius: 50%;
