@@ -164,7 +164,7 @@ function Results() {
     [currentRecord]
   );
 
-  const fetchNextWork = async () => {
+  async function fetchNextWork() {
     dispatch({ type: "setIsLoading", payload: true });
     try {
       const data = (
@@ -193,21 +193,26 @@ function Results() {
       dispatch({ type: "setIsLoading", payload: false });
       return null;
     }
-  };
+  }
 
   async function handleResults() {
+    setIsLoadingEntirePage(true);
+
     let currentNextWork = nextWork;
     let currentGrade = grade;
 
-    if (currentStep === 1 && hasChanged) {
+    if (
+      currentStep === 1 &&
+      (hasChanged ||
+        !nextWork ||
+        (Array.isArray(nextWork) && nextWork.length === 0))
+    ) {
       const fetchedData = await fetchNextWork();
       if (fetchedData) {
         currentNextWork = fetchedData.work || [];
         currentGrade = fetchedData.grade || 5;
       }
     }
-
-    setIsLoadingEntirePage(true);
 
     const newWork = Array.isArray(currentNextWork)
       ? currentNextWork.filter((el) => el.checked === true).map((el) => el.id)
@@ -228,24 +233,24 @@ function Results() {
       }
     );
     setRecordsData(newRecordsData.data);
-    setIsLoadingEntirePage(false);
     navigate(`/course/${taskId}`);
+    setIsLoadingEntirePage(false);
   }
 
-  const handleNextStep = async () => {
+  async function handleNextStep() {
     if (currentStep === 1) {
       await fetchNextWork();
       dispatch({ type: "nextStep" });
     } else {
       dispatch({ type: "nextStep" });
     }
-  };
+  }
 
-  const handlePreviousStep = () => {
+  function handlePreviousStep() {
     dispatch({ type: "previousStep" });
-  };
+  }
 
-  const fetchNextWorkForNavigation = async () => {
+  async function fetchNextWorkForNavigation() {
     try {
       const data = (
         await sendAPI(
@@ -272,9 +277,9 @@ function Results() {
       console.error("Error fetching next work:", error);
       return null;
     }
-  };
+  }
 
-  const handleStepClick = (stepNumber) => {
+  function handleStepClick(stepNumber) {
     if (stepNumber === 1) {
       dispatch({ type: "setCurrentStep", payload: 1 });
     } else if (stepNumber === 2) {
@@ -294,7 +299,7 @@ function Results() {
         dispatch({ type: "setCurrentStep", payload: 3 });
       }
     }
-  };
+  }
 
   return (
     <>

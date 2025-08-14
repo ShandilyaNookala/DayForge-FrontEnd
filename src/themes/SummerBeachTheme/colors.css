@@ -39,4 +39,5 @@
   --table-text-color: #0c2e2e;
   --row-odd: rgba(255, 255, 255, 0.25);
   --row-even: rgba(255, 255, 255, 0.15);
+  --results-bg: #fdf1d7;
 }
