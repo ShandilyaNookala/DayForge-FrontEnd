@@ -232,9 +232,9 @@ function Results() {
         nextWork: newWork,
       }
     );
-    setIsLoadingEntirePage(false);
     setRecordsData(newRecordsData.data);
     navigate(`/course/${taskId}`);
+    setIsLoadingEntirePage(false);
   }
 
   async function handleNextStep() {
