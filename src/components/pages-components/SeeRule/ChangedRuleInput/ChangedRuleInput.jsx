@@ -9,7 +9,7 @@ function ChangedRuleInput({
 }) {
   const [ruleInputValue, setRuleInputValue] = useState(ruleInput?.name || "");
   const [ruleInputPoints, setRuleInputPoints] = useState(
-    +ruleInput?.points || +standardPoints,
+    +ruleInput?.points || +standardPoints
   );
 
   async function handleSaveRuleInput() {
@@ -17,7 +17,7 @@ function ChangedRuleInput({
       alert("Please enter a rule input name.");
       return;
     }
-    if (ruleInputPoints <= 0) {
+    if (ruleInputPoints < 0) {
       alert("Points must be positive.");
       return;
     }
