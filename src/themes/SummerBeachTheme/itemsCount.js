@@ -1,2 +1,2 @@
 export const rayCount = 20;
-export const cloudCount = 5;
+export const cloudCount = 2;

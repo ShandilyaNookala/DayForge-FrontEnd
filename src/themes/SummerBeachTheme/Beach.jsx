@@ -20,7 +20,7 @@ const Beach = () => {
     const leftPositions = [
       ...Array.from(
         { length: cloudCount - 1 },
-        (_, i) => `${10 + (i / (cloudCount - 2)) * 65}vw`
+        (_, i) => `${10 + (i / Math.max(cloudCount - 2, 1)) * 65}vw`
       ),
       "88vw",
     ];
