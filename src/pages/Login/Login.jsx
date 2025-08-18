@@ -1,4 +1,3 @@
-import Footer from "../../components/global-components/Footer/Footer";
 import { Container } from "@mui/material";
 import CardFlip from "../../components/pages-components/Login/CardFlip/CardFlip";
 import Header from "../../components/global-components/Header/Header";
@@ -25,7 +24,7 @@ export default function Login() {
         navigate(redirect || "/");
       }
     },
-    [checkedAuth, user, navigate, redirect],
+    [checkedAuth, user, navigate, redirect]
   );
 
   const handleSubmit = async (e, userName, password) => {
@@ -50,7 +49,6 @@ export default function Login() {
       <Container className={styles.container}>
         <CardFlip onSubmit={handleSubmit} error={error} isLoading={isLoading} />
       </Container>
-      <Footer />
     </>
   );
 }

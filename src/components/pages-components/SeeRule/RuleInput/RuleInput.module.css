@@ -3,3 +3,19 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.text {
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.editBtn {
+  min-width: 80px;
+}

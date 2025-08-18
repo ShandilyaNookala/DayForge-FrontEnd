@@ -11,6 +11,8 @@ import ProtectedRoute from "./components/global-components/ProtectedRoute/Protec
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
 import Beach from "./themes/SummerBeachTheme/Beach.jsx";
+import ChangeRuleOrder from "./pages/ChangeRuleOrder/ChangeRuleOrder.jsx";
+import Footer from "./components/global-components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -43,10 +45,15 @@ function App() {
               <Route index element={<Navigate replace to="manage-rules" />} />
               <Route path="manage-rules" element={<ManageRules />} />
               <Route path="see-rule/:id" element={<SeeRule />} />
+              <Route
+                path="see-rule/:id/reorder"
+                element={<ChangeRuleOrder />}
+              />
             </Route>
           </Route>
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );

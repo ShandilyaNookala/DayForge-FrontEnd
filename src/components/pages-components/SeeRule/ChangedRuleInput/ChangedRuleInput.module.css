@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.textField fieldset {
+  border: 1px solid var(--manage-rules-border) !important;
+}
+
+.textField input,
+.textField label {
+  color: var(--manage-rules-text) !important;
+}
+
+.saveBtn {
+  min-width: 120px;
+  text-transform: uppercase;
+  font-weight: 600;
+}

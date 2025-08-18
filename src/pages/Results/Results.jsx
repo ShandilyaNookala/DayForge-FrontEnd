@@ -189,7 +189,6 @@ function Results() {
 
       return data;
     } catch (error) {
-      console.error("Error fetching next work:", error);
       dispatch({ type: "setIsLoading", payload: false });
       return null;
     }
@@ -274,7 +273,6 @@ function Results() {
 
       return data;
     } catch (error) {
-      console.error("Error fetching next work:", error);
       return null;
     }
   }

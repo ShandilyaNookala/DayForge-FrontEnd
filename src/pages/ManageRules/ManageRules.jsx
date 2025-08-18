@@ -1,5 +1,4 @@
 import { Button, Container } from "@mui/material";
-import Footer from "../../components/global-components/Footer/Footer";
 import Header from "../../components/global-components/Header/Header";
 import { useEffect, useMemo, useState } from "react";
 import { sendAPI } from "../../utils/helpers";
@@ -103,7 +102,6 @@ function ManageRules() {
               <NotAuthorized />
             )}
           </Container>
-          <Footer />
         </>
       ) : (
         <Spinner />

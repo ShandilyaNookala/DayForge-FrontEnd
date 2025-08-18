@@ -1,6 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import sharedStyles from "../shared.module.css";
+import styles from "./ChangedRuleInput.module.css";
 
 function ChangedRuleInput({
   ruleInput = null,
@@ -25,22 +26,28 @@ function ChangedRuleInput({
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <TextField
         value={ruleInputValue}
         onChange={(e) => setRuleInputValue(e.target.value)}
         label="Rule Input Name"
-        className={sharedStyles.ruleTextField}
+        className={`${sharedStyles.ruleTextField} ${styles.textField}`}
       />
       <TextField
         type="number"
         value={ruleInputPoints}
         onChange={(e) => setRuleInputPoints(+e.target.value)}
         label="Points"
-        className={sharedStyles.ruleTextField}
+        className={`${sharedStyles.ruleTextField} ${styles.textField}`}
       />
-      <Button onClick={handleSaveRuleInput}>Save</Button>
-    </>
+      <Button
+        variant="contained"
+        onClick={handleSaveRuleInput}
+        className={styles.saveBtn}
+      >
+        Save
+      </Button>
+    </div>
   );
 }
 
