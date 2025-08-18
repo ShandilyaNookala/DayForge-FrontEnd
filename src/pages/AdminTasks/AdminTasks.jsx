@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 import Spinner from "../../components/global-components/Spinner/Spinner";
 import Header from "../../components/global-components/Header/Header";
-import Footer from "../../components/global-components/Footer/Footer";
 import Student from "../../components/pages-components/AdminTasks/Student/Student";
 import { usePositions } from "../../contexts/PositionsContext";
 import { Link } from "react-router";
@@ -27,7 +26,6 @@ export default function AdminTasks() {
               <Student student={student} key={student.studentId}></Student>
             ))}
           </Container>
-          <Footer />
         </>
       )}
     </>

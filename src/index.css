@@ -46,6 +46,8 @@
   --progress-color: var(--accent);
   --selection-background: var(--accent);
   --selection-text: var(--main-text);
+
+  --no-of-columns-for-grid-in-change-rule-order: 3;
 }
 
 ::selection {

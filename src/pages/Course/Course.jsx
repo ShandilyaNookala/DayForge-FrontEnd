@@ -3,7 +3,6 @@ import { baseUrl } from "../../utils/config.js";
 import { displayTimeTaken, sendAPI } from "../../utils/helpers.js";
 
 import ChangedRecord from "../../components/pages-components/Course/ChangedRecord/ChangedRecord.jsx";
-import Footer from "../../components/global-components/Footer/Footer.jsx";
 import Header from "../../components/global-components/Header/Header.jsx";
 import { Box, Button, Container, Dialog, Slide } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -253,7 +252,6 @@ export default function Course() {
           >
             <Box className={styles.modalText}>{modalData}</Box>
           </Dialog>
-          <Footer />
         </>
       )}
     </>

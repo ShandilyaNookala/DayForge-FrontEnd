@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 
 import { baseUrl, currentDate } from "../../utils/config";
 import { displayTimeTaken, sendAPI } from "../../utils/helpers";
-import Footer from "../../components/global-components/Footer/Footer";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Container } from "@mui/material";
 import Header from "../../components/global-components/Header/Header";
@@ -58,7 +57,7 @@ export default function StudentTasks() {
       }
       fetchData();
     },
-    [markedObsolete],
+    [markedObsolete]
   );
 
   if (user.isAdmin) return <NotAuthorized />;
@@ -108,7 +107,6 @@ export default function StudentTasks() {
               </Button>
             )}
           </Container>
-          <Footer />
         </>
       )}
     </>

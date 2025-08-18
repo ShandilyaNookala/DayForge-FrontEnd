@@ -4,24 +4,22 @@ import { sendAPI } from "../../utils/helpers.js";
 
 import RuleCategory from "../../components/pages-components/SeeRule/RuleCategory/RuleCategory.jsx";
 import Header from "../../components/global-components/Header/Header.jsx";
-import Footer from "../../components/global-components/Footer/Footer.jsx";
 
 import styles from "./SeeRule.module.css";
 import { Box, Button, Container, TextField } from "@mui/material";
 import { useParams } from "react-router";
 import Spinner from "../../components/global-components/Spinner/Spinner.jsx";
-import ChangeRuleOrder from "../../components/pages-components/SeeRule/ChangeRuleOrder/ChangeRuleOrder.jsx";
 import BackButton from "../../components/global-components/BackButton/BackButton.jsx";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized.jsx";
 import ChangedRuleCategory from "../../components/pages-components/SeeRule/ChangedRuleCategory/ChangedRuleCategory.jsx";
+import { Link } from "react-router-dom";
 
 export default function SeeRule() {
   const [rule, setRule] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [ruleName, setRuleName] = useState("");
   const [isAddingRuleCategory, setIsAddingRuleCategory] = useState(false);
-  const [hasDragged, setHasDragged] = useState(false);
 
   const { id } = useParams();
 
@@ -35,7 +33,7 @@ export default function SeeRule() {
         setIsLoading(true);
         const response = await sendAPI(
           "GET",
-          `${baseUrl}/rules/get-rule/${id}`,
+          `${baseUrl}/rules/get-rule/${id}`
         );
         setRule(response.data);
         setRuleName(response.data.ruleName);
@@ -44,7 +42,7 @@ export default function SeeRule() {
 
       if (id) fetchRule();
     },
-    [id],
+    [id]
   );
 
   async function handleSaveRuleName() {
@@ -72,7 +70,7 @@ export default function SeeRule() {
       ? await sendAPI(
           "PATCH",
           `${rulesBaseUrl}/update-rule-category/${ruleCategoryId}`,
-          body,
+          body
         )
       : await sendAPI("PATCH", `${rulesBaseUrl}/add-rule-category`, body);
     setRule(response.data);
@@ -83,7 +81,7 @@ export default function SeeRule() {
     ruleInputId,
     ruleInputName,
     ruleInputPoints,
-    ruleCategoryId,
+    ruleCategoryId
   ) {
     if (!ruleInputName) {
       alert("Please enter a rule input name.");
@@ -100,25 +98,10 @@ export default function SeeRule() {
       ? await sendAPI(
           "PATCH",
           `${rulesBaseUrl}/update-rule-input/${ruleInputId}`,
-          body,
+          body
         )
       : await sendAPI("PATCH", `${rulesBaseUrl}/add-rule-input`, body);
     setRule(response.data);
-  }
-
-  async function handleChangeOrder(newRuleInputs) {
-    setRule((rule) => {
-      return { ...rule, ruleInputs: newRuleInputs };
-    });
-  }
-
-  async function handleSaveRuleInputOrder() {
-    setIsLoading(true);
-    await sendAPI("PATCH", `${rulesBaseUrl}/change-rule-input-order`, {
-      newRuleInputs: rule.ruleInputs,
-    });
-    setIsLoading(false);
-    setHasDragged(false);
   }
 
   return (
@@ -143,53 +126,52 @@ export default function SeeRule() {
               </Button>
             </Box>
           </Header>
-          <Container className={styles.seeRuleContainer}>
+          <Container
+            maxWidth={false}
+            disableGutters
+            className={styles.seeRuleContainer}
+          >
             <BackButton url={-1} />
             {!user?.isAdmin ? (
               <NotAuthorized />
             ) : (
               <>
                 <Box className={styles.ruleCategoriesBox}>
-                  {hasDragged ? null : (
-                    <>
-                      {rule?.ruleCategories.map((ruleCategory) => (
-                        <RuleCategory
-                          ruleCategory={ruleCategory}
-                          ruleId={rule._id}
-                          ruleInputs={rule?.ruleInputs.filter(
-                            (ruleInput) =>
-                              ruleInput.ruleCategoryId === ruleCategory._id,
-                          )}
-                          key={ruleCategory._id}
-                          onEditRuleCategory={handleSaveRuleCategory}
-                          onSaveRuleInput={handleSaveRuleInput}
-                          setRule={setRule}
-                          setIsLoading={setIsLoading}
-                        />
-                      ))}
-                      {isAddingRuleCategory ? (
-                        <ChangedRuleCategory
-                          onSaveRuleCategory={handleSaveRuleCategory}
-                        />
-                      ) : (
-                        <Button onClick={() => setIsAddingRuleCategory(true)}>
-                          + Add Rule Category
-                        </Button>
-                      )}
-                    </>
-                  )}
+                  <>
+                    {rule?.ruleCategories.map((ruleCategory) => (
+                      <RuleCategory
+                        ruleCategory={ruleCategory}
+                        ruleId={rule._id}
+                        ruleInputs={rule?.ruleInputs.filter(
+                          (ruleInput) =>
+                            ruleInput.ruleCategoryId === ruleCategory._id
+                        )}
+                        key={ruleCategory._id}
+                        onEditRuleCategory={handleSaveRuleCategory}
+                        onSaveRuleInput={handleSaveRuleInput}
+                        setRule={setRule}
+                        setIsLoading={setIsLoading}
+                      />
+                    ))}
+                    {isAddingRuleCategory ? (
+                      <ChangedRuleCategory
+                        onSaveRuleCategory={handleSaveRuleCategory}
+                      />
+                    ) : (
+                      <Button onClick={() => setIsAddingRuleCategory(true)}>
+                        + Add Rule Category
+                      </Button>
+                    )}
+                  </>
                 </Box>
-                <ChangeRuleOrder
-                  ruleInputs={rule.ruleInputs}
-                  onChangeOrder={handleChangeOrder}
-                  onSaveRuleInputOrder={handleSaveRuleInputOrder}
-                  hasDragged={hasDragged}
-                  setHasDragged={setHasDragged}
-                />
+                <Box className={styles.reorderAbsolute}>
+                  <Link to="reorder" className="btn">
+                    Reorder Rule Inputs
+                  </Link>
+                </Box>
               </>
             )}
           </Container>
-          <Footer />
         </>
       )}
     </>

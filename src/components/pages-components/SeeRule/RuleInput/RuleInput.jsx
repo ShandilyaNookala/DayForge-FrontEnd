@@ -2,6 +2,7 @@ import { Edit } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import sharedStyles from "../shared.module.css";
+import styles from "./RuleInput.module.css";
 import ChangedRuleInput from "../ChangedRuleInput/ChangedRuleInput";
 
 function RuleInput({ ruleInput, onSaveRuleInput }) {
@@ -13,7 +14,7 @@ function RuleInput({ ruleInput, onSaveRuleInput }) {
   }
 
   return (
-    <Box>
+    <Box className={styles.container}>
       {isEditing ? (
         <ChangedRuleInput
           ruleInput={ruleInput}
@@ -21,11 +22,15 @@ function RuleInput({ ruleInput, onSaveRuleInput }) {
         />
       ) : (
         <>
-          <Typography variant="p" className={sharedStyles.typography}>
-            Name: {ruleInput.name}, Points: {ruleInput.points}
+          <Typography className={`${sharedStyles.typography} ${styles.text}`}>
+            {ruleInput.name} — {ruleInput.points} pts
           </Typography>
-          <Button onClick={() => setIsEditing(true)}>
-            <Edit />
+          <Button
+            size="small"
+            className={styles.editBtn}
+            onClick={() => setIsEditing(true)}
+          >
+            <Edit fontSize="small" />
           </Button>
         </>
       )}

@@ -1,7 +1,7 @@
 export const sendAPI = async function (
   typeOfRequest,
   url,
-  data = { nothing: null },
+  data = { nothing: null }
 ) {
   try {
     let dataReturned;
@@ -25,7 +25,6 @@ export const sendAPI = async function (
       ).json();
     return dataReturned;
   } catch (err) {
-    console.error(err);
     throw err;
   }
 };

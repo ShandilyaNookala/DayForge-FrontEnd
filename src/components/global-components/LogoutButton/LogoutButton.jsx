@@ -15,7 +15,6 @@ function LogoutButton() {
     try {
       await logout();
     } catch (err) {
-      console.error("Error during logout:", err);
       setError(err.message || "An error occurred during logout.");
     } finally {
       setIsLoading(false);
@@ -32,7 +31,7 @@ function LogoutButton() {
             <LogoutOutlined />
             Logout
           </Button>
-          {error && <Box style={{ color: "red" }}>{error}</Box>}
+          {error && <Box>{error}</Box>}
         </>
       )}
     </>
