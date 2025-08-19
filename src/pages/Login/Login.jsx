@@ -1,4 +1,10 @@
-import { Container } from "@mui/material";
+import {
+  Box,
+  Container,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+} from "@mui/material";
 import CardFlip from "../../components/pages-components/Login/CardFlip/CardFlip";
 import Header from "../../components/global-components/Header/Header";
 import styles from "./Login.module.css";
@@ -10,6 +16,7 @@ import { useAuth } from "../../contexts/AuthContext";
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showAbout, setShowAbout] = useState(false);
 
   const { user, checkedAuth, login } = useAuth();
 
@@ -45,10 +52,56 @@ export default function Login() {
 
   return (
     <>
-      <Header>About Us</Header>
+      <Header>
+        <Box>
+          <Box>
+            <button className="btn" onClick={() => setShowAbout(true)}>
+              About Us
+            </button>
+          </Box>
+        </Box>
+      </Header>
       <Container className={styles.container}>
-        <CardFlip onSubmit={handleSubmit} error={error} isLoading={isLoading} />
+        <Box className={styles.form}>
+          <CardFlip
+            onSubmit={handleSubmit}
+            error={error}
+            isLoading={isLoading}
+          />
+        </Box>
       </Container>
+
+      <Dialog
+        open={showAbout}
+        onClose={() => setShowAbout(false)}
+        maxWidth="md"
+        fullWidth
+      >
+        <DialogTitle>About Us</DialogTitle>
+        <DialogContent>
+          <Box className={styles.about}>
+            <Box className={styles.aboutTitle}>DayForge</Box>
+            <Box className={styles.aboutText}>
+              A focused workspace for tracking student work, timing tasks,
+              grading outcomes, and planning next steps — all in one place.
+            </Box>
+            <Box className={styles.aboutList}>
+              <Box>• Organize tasks and records</Box>
+              <Box>• Record timings with start/pause/stop</Box>
+              <Box>• Capture comments and compute grades</Box>
+              <Box>• Prepare next work automatically</Box>
+            </Box>
+            <Box className={styles.aboutFooter}>
+              Questions? Reach us at shandilya.nookala@gmail.com
+            </Box>
+          </Box>
+          <Box className={styles.dialogActions}>
+            <button className="btn" onClick={() => setShowAbout(false)}>
+              Close
+            </button>
+          </Box>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

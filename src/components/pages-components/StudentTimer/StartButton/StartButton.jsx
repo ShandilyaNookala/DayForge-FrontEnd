@@ -1,4 +1,7 @@
-import { Box, Button, TableCell, TableRow } from "@mui/material";
+import { Button, TableCell, TableRow } from "@mui/material";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PauseIcon from "@mui/icons-material/Pause";
+import styles from "./StartButton.module.css";
 
 function StartButton({ hasStarted, onClickPlayPauseButton }) {
   return (
@@ -7,12 +10,12 @@ function StartButton({ hasStarted, onClickPlayPauseButton }) {
       <TableCell>
         {!hasStarted && (
           <Button onClick={onClickPlayPauseButton}>
-            <Box component="img" src="/play-icon.png" alt="play" />
+            <PlayArrowIcon className={styles.icon} />
           </Button>
         )}
         {hasStarted && (
           <Button onClick={onClickPlayPauseButton}>
-            <Box component="img" src="/pause-icon.png" alt="pause" />
+            <PauseIcon className={styles.icon} />
           </Button>
         )}
       </TableCell>
