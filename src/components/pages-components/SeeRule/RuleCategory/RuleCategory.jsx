@@ -8,6 +8,7 @@ import ChangedRuleInput from "../ChangedRuleInput/ChangedRuleInput";
 import ChangedRuleCategory from "../ChangedRuleCategory/ChangedRuleCategory";
 import { sendAPI } from "../../../../utils/helpers";
 import { baseUrl } from "../../../../utils/config";
+import Spinner from "../../../global-components/Spinner/Spinner.jsx";
 
 function RuleCategory({
   ruleCategory,
@@ -16,13 +17,14 @@ function RuleCategory({
   onSaveRuleInput,
   ruleId,
   setRule,
-  setIsLoading,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isAddingRuleInput, setIsAddingRuleInput] = useState(false);
   const [standardPoints, setStandardPoints] = useState(0);
   const [bulkEditPoints, setBulkEditPoints] = useState(0);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [bulkEditHasChanged, setBulkEditHasChanged] = useState(false);
 
   async function handleEditRuleCategory(...params) {
     await onEditRuleCategory(...params);
@@ -48,11 +50,13 @@ function RuleCategory({
       }
     );
     setRule(rule.data);
-    setBulkEditPoints(0);
+    setBulkEditHasChanged(false);
     setIsLoading(false);
   }
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <Box className={styles.container}>
       {!isEditing ? (
         <>
@@ -85,23 +89,29 @@ function RuleCategory({
           {!isCollapsed && (
             <Box className={styles.fields}>
               <TextField
+                type="number"
                 label="Standard Points"
                 className={`${sharedStyles.ruleTextField} ${styles.textField}`}
                 value={standardPoints}
-                onChange={(e) => setStandardPoints(e.target.value)}
+                onChange={(e) => setStandardPoints(+e.target.value)}
               />
               <TextField
+                type="number"
                 label="Bulk Edit Points"
                 className={`${sharedStyles.ruleTextField} ${styles.textField}`}
                 value={bulkEditPoints}
-                onChange={(e) => setBulkEditPoints(e.target.value)}
+                onChange={(e) => {
+                  setBulkEditPoints(+e.target.value);
+                  setBulkEditHasChanged(true);
+                }}
               />
               <Button
                 variant="contained"
                 onClick={handleSaveBulkEditPoints}
                 className={styles.actionBtn}
+                disabled={!bulkEditHasChanged}
               >
-                Save
+                Save Bulk Edit Points
               </Button>
             </Box>
           )}

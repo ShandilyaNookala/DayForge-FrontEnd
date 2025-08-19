@@ -45,7 +45,7 @@ function ChangedRuleInput({
         onClick={handleSaveRuleInput}
         className={styles.saveBtn}
       >
-        Save
+        Save Rule Input
       </Button>
     </div>
   );

@@ -150,7 +150,6 @@ export default function SeeRule() {
                         onEditRuleCategory={handleSaveRuleCategory}
                         onSaveRuleInput={handleSaveRuleInput}
                         setRule={setRule}
-                        setIsLoading={setIsLoading}
                       />
                     ))}
                     {isAddingRuleCategory ? (

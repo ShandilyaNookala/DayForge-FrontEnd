@@ -4,7 +4,7 @@ import sharedStyles from "../shared.module.css";
 
 function ChangedRuleCategory({ ruleCategory = null, onSaveRuleCategory }) {
   const [newCategoryName, setNewCategoryName] = useState(
-    ruleCategory?.name || "",
+    ruleCategory?.name || ""
   );
 
   async function handleSaveRuleCategory() {
@@ -19,7 +19,7 @@ function ChangedRuleCategory({ ruleCategory = null, onSaveRuleCategory }) {
         className={sharedStyles.ruleTextField}
         label="Rule Category Name"
       />
-      <Button onClick={handleSaveRuleCategory}>Save</Button>
+      <Button onClick={handleSaveRuleCategory}>Save Rule Category</Button>
     </>
   );
 }
