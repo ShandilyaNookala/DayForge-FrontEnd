@@ -6,3 +6,52 @@
   justify-content: center !important;
   align-items: center !important;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.about {
+  background: var(--info-card-background);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: var(--dark-color);
+}
+
+.aboutTitle {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.aboutText {
+  margin-bottom: 0.75rem;
+}
+
+.aboutList {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.aboutFooter {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

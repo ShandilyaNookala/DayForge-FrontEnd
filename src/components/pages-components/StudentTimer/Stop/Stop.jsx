@@ -1,4 +1,6 @@
-import { Box, Button, TableCell, TableRow } from "@mui/material";
+import { Button, TableCell, TableRow } from "@mui/material";
+import StopIcon from "@mui/icons-material/Stop";
+import styles from "./Stop.module.css";
 
 function Stop({ hasStarted, onStopTime }) {
   return (
@@ -6,7 +8,7 @@ function Stop({ hasStarted, onStopTime }) {
       <TableCell>End Timer</TableCell>
       <TableCell>
         <Button disabled={!hasStarted} onClick={onStopTime}>
-          <Box component="img" src="/stop-icon.png" alt="stop" />
+          <StopIcon className={styles.icon} />
         </Button>
       </TableCell>
     </TableRow>

@@ -1,7 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import RuleInput from "../RuleInput/RuleInput";
 import { useState } from "react";
-import { Edit } from "@mui/icons-material";
+import { Edit, ExpandLess, ExpandMore } from "@mui/icons-material";
 import sharedStyles from "../shared.module.css";
 import styles from "./RuleCategory.module.css";
 import ChangedRuleInput from "../ChangedRuleInput/ChangedRuleInput";
@@ -22,6 +22,7 @@ function RuleCategory({
   const [isAddingRuleInput, setIsAddingRuleInput] = useState(false);
   const [standardPoints, setStandardPoints] = useState(0);
   const [bulkEditPoints, setBulkEditPoints] = useState(0);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   async function handleEditRuleCategory(...params) {
     await onEditRuleCategory(...params);
@@ -64,34 +65,46 @@ function RuleCategory({
             </Typography>
             <Button
               size="small"
+              onClick={() => setIsCollapsed((prev) => !prev)}
+              className={styles.actionBtn}
+            >
+              {isCollapsed ? (
+                <ExpandMore fontSize="small" />
+              ) : (
+                <ExpandLess fontSize="small" />
+              )}
+            </Button>
+            <Button
+              size="small"
               onClick={() => setIsEditing((prev) => !prev)}
               className={styles.actionBtn}
             >
               <Edit fontSize="small" />
             </Button>
           </Box>
-
-          <Box className={styles.fields}>
-            <TextField
-              label="Standard Points"
-              className={`${sharedStyles.ruleTextField} ${styles.textField}`}
-              value={standardPoints}
-              onChange={(e) => setStandardPoints(e.target.value)}
-            />
-            <TextField
-              label="Bulk Edit Points"
-              className={`${sharedStyles.ruleTextField} ${styles.textField}`}
-              value={bulkEditPoints}
-              onChange={(e) => setBulkEditPoints(e.target.value)}
-            />
-            <Button
-              variant="contained"
-              onClick={handleSaveBulkEditPoints}
-              className={styles.actionBtn}
-            >
-              Save
-            </Button>
-          </Box>
+          {!isCollapsed && (
+            <Box className={styles.fields}>
+              <TextField
+                label="Standard Points"
+                className={`${sharedStyles.ruleTextField} ${styles.textField}`}
+                value={standardPoints}
+                onChange={(e) => setStandardPoints(e.target.value)}
+              />
+              <TextField
+                label="Bulk Edit Points"
+                className={`${sharedStyles.ruleTextField} ${styles.textField}`}
+                value={bulkEditPoints}
+                onChange={(e) => setBulkEditPoints(e.target.value)}
+              />
+              <Button
+                variant="contained"
+                onClick={handleSaveBulkEditPoints}
+                className={styles.actionBtn}
+              >
+                Save
+              </Button>
+            </Box>
+          )}
         </>
       ) : (
         <ChangedRuleCategory
@@ -99,28 +112,32 @@ function RuleCategory({
           onSaveRuleCategory={handleEditRuleCategory}
         />
       )}
-      <Box className={styles.ruleInputs}>
-        {ruleInputs.map((ruleInput) => (
-          <RuleInput
-            ruleInput={ruleInput}
-            onSaveRuleInput={handleSaveRuleInput}
-            key={ruleInput._id}
-          />
-        ))}
-      </Box>
-      {isAddingRuleInput ? (
-        <ChangedRuleInput
-          onSaveRuleInput={handleSaveRuleInput}
-          standardPoints={standardPoints}
-        />
-      ) : (
-        <Button
-          variant="contained"
-          className={styles.actionBtn}
-          onClick={() => setIsAddingRuleInput(true)}
-        >
-          + Add Rule Input
-        </Button>
+      {!isCollapsed && (
+        <>
+          <Box className={styles.ruleInputs}>
+            {ruleInputs.map((ruleInput) => (
+              <RuleInput
+                ruleInput={ruleInput}
+                onSaveRuleInput={handleSaveRuleInput}
+                key={ruleInput._id}
+              />
+            ))}
+          </Box>
+          {isAddingRuleInput ? (
+            <ChangedRuleInput
+              onSaveRuleInput={handleSaveRuleInput}
+              standardPoints={standardPoints}
+            />
+          ) : (
+            <Button
+              variant="contained"
+              className={styles.actionBtn}
+              onClick={() => setIsAddingRuleInput(true)}
+            >
+              + Add Rule Input
+            </Button>
+          )}
+        </>
       )}
     </Box>
   );

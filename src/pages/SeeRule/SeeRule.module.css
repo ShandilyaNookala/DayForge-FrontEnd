@@ -21,12 +21,6 @@
   display: none;
 }
 
-@media (max-width: 1024px) {
-  .seeRuleContainer {
-    grid-template-columns: 1fr;
-  }
-}
-
 .headerBox {
   display: flex;
   align-items: center;
