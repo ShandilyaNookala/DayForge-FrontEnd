@@ -1,6 +1,22 @@
+import { useEffect, useRef } from "react";
 import { Box, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
-function WorkRules({ work, setWork }) {
+function WorkRules({ work, setWork, scrollContainerRef }) {
+  const itemRefs = useRef([]);
+
+  useEffect(() => {
+    if (!Array.isArray(work) || work.length === 0) return;
+    const firstCheckedIndex = work.findIndex((eachWork) => eachWork.checked);
+    if (firstCheckedIndex === -1) return;
+    const element = itemRefs.current[firstCheckedIndex];
+    const container = scrollContainerRef?.current;
+    if (!element || !container) return;
+
+    const elementRect = element.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const targetTop = elementRect.top - containerRect.top + container.scrollTop;
+    container.scrollTo({ top: targetTop, behavior: "smooth" });
+  }, [work, scrollContainerRef]);
   function handleChangeCheckedStatus(newCheckedStatusValue, index) {
     setWork((work) =>
       work.map((checkedStatus, i) =>
@@ -14,7 +30,7 @@ function WorkRules({ work, setWork }) {
     <FormGroup>
       {work.map((eachRule, i) => {
         return (
-          <Box key={eachRule.id}>
+          <Box key={eachRule.id} ref={(el) => (itemRefs.current[i] = el)}>
             <FormControlLabel
               control={
                 <Checkbox

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import WorkRules from "../WorkRules/WorkRules";
 import StandardWork from "../StandardWork/StandardWork";
 import { Button } from "@mui/material";
@@ -15,6 +15,7 @@ export default function ChangedRecord({ taskId }) {
     new Date(changedRecordData?.nextDate)
   );
   const [work, setWork] = useState(changedRecordData?.work);
+  const scrollContainerRef = useRef(null);
 
   async function handleSaveRecord() {
     const newWork = Array.isArray(work)
@@ -39,9 +40,13 @@ export default function ChangedRecord({ taskId }) {
   return (
     <div className={styles.container}>
       <InputDate date={inputDate} setDate={setInputDate} />
-      <div className={styles.scrollContainer}>
+      <div className={styles.scrollContainer} ref={scrollContainerRef}>
         {Array.isArray(changedRecordData?.work) ? (
-          <WorkRules work={work} setWork={setWork} />
+          <WorkRules
+            work={work}
+            setWork={setWork}
+            scrollContainerRef={scrollContainerRef}
+          />
         ) : (
           <StandardWork
             manualInputWork={work}

@@ -1,4 +1,4 @@
-import { Box, Checkbox } from "@mui/material";
+import { Box, Checkbox, FormControlLabel } from "@mui/material";
 import styles from "./Mistakes.module.css";
 
 function Mistakes({ mistakes, dispatch }) {
@@ -8,49 +8,70 @@ function Mistakes({ mistakes, dispatch }) {
     <Box className={styles.list}>
       {mistakes.map((mistake) => (
         <Box key={mistake.id} className={styles.row}>
-          <Checkbox
-            checked={mistake.checked}
-            onChange={() =>
-              dispatch({ type: "changeMistake", payload: mistake.id })
-            }
-            className={styles.checkbox}
-          />
-          <Box component="label" className={`${styles.label} ${styles.name}`}>
-            {mistake.name}
-          </Box>
-
-          {mistake.checked && (
-            <Box className={styles.repeat}>
+          <FormControlLabel
+            control={
               <Checkbox
-                checked={mistake.shouldRepeat}
+                checked={mistake.checked}
                 onChange={() =>
-                  dispatch({
-                    payload: mistake.id,
-                    type: "toggleShouldRepeat",
-                  })
+                  dispatch({ type: "changeMistake", payload: mistake.id })
                 }
                 className={styles.checkbox}
               />
-              <Box component="label" className={styles.label}>
-                Should Repeat
+            }
+            label={
+              <Box
+                component="span"
+                className={`${styles.label} ${styles.name}`}
+              >
+                {mistake.name}
               </Box>
+            }
+          />
+
+          {mistake.checked && (
+            <Box className={styles.repeat}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={mistake.shouldRepeat}
+                    onChange={() =>
+                      dispatch({
+                        payload: mistake.id,
+                        type: "toggleShouldRepeat",
+                      })
+                    }
+                    className={styles.checkbox}
+                  />
+                }
+                label={
+                  <Box component="span" className={styles.label}>
+                    Should Repeat
+                  </Box>
+                }
+              />
             </Box>
           )}
           {mistake.shouldRepeat && mistake.checked && (
             <Box className={styles.repeat}>
-              <Checkbox
-                checked={mistake.addMistakes}
-                onChange={() =>
-                  dispatch({
-                    payload: mistake.id,
-                    type: "toggleAddMistakes",
-                  })
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={mistake.addMistakes}
+                    onChange={() =>
+                      dispatch({
+                        payload: mistake.id,
+                        type: "toggleAddMistakes",
+                      })
+                    }
+                    className={styles.checkbox}
+                  />
                 }
-                className={styles.checkbox}
+                label={
+                  <Box component="span" className={styles.label}>
+                    Add mistakes
+                  </Box>
+                }
               />
-              <Box component="label" className={styles.label}>
-                Add mistakes
-              </Box>
             </Box>
           )}
         </Box>
