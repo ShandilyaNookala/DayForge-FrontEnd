@@ -12,16 +12,9 @@
   --login-modal-background: var(--bg);
   --info-card-background: var(--header-bg);
 
-  --login-button-background: linear-gradient(
-    90deg,
-    var(--button-grad-start),
-    var(--button-grad-end)
-  );
+  --login-button-background: var(--header-bg);
   --login-button-text: var(--button-text);
   --login-button-border: var(--table-border);
-  --login-button-shadow: var(--button-shadow-outer-1);
-  --login-button-shadow-2: var(--button-shadow-outer-2);
-  --login-button-shadow-inset: var(--button-shadow-inset);
 
   --info-card-background: var(--header-bg);
 
@@ -131,17 +124,14 @@ button,
 .btn {
   background: var(--login-button-background) !important;
   color: var(--login-button-text) !important;
-  border: 1px solid var(--button-border);
+  border: 1px solid var(--table-border);
   padding: 0.6rem 1.15rem;
   display: inline-block;
   border-radius: 999px;
   text-align: center;
   font-weight: 800;
   letter-spacing: 0.2px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
-    0 0 22px 10px var(--login-button-shadow),
-    0 12px 22px var(--login-button-shadow-2),
-    inset 0 -2px 0 var(--login-button-shadow-inset);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease !important;
   text-decoration: none;
@@ -151,23 +141,19 @@ button:hover,
 .btn:hover {
   filter: brightness(1.05);
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
-    0 0 22px 10px var(--login-button-shadow),
-    0 12px 22px var(--login-button-shadow-2),
-    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14) !important;
 }
 
 button:active,
 .btn:active {
   transform: translateY(0) scale(0.99);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12),
-    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
 }
 
 button:focus-visible,
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--button-ring) !important;
+  box-shadow: 0 0 0 3px var(--accent) !important;
 }
 
 .MuiCheckbox-root {
@@ -181,9 +167,9 @@ button:focus-visible,
 .table {
   background: var(--results-bg) !important;
   color: var(--table-text-color, var(--main-text)) !important;
-  border: var(--results-border);
+  border: 1px solid var(--table-border);
   border-radius: 20px !important;
-  box-shadow: var(--results-shadow);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
@@ -212,9 +198,9 @@ button:focus-visible,
 
 .MuiTableContainer-root {
   background: var(--results-bg) !important;
-  border: var(--results-border);
+  border: 1px solid var(--table-border);
   border-radius: 20px !important;
-  box-shadow: var(--results-shadow);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
@@ -230,13 +216,10 @@ button:focus-visible,
 
 .MuiButton-root {
   background: var(--login-button-background) !important;
-  color: #253133 !important;
+  color: var(--login-button-text) !important;
   border-radius: 999px !important;
-  border: 1px solid var(--button-border) !important;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
-    0 0 22px 10px var(--login-button-shadow),
-    0 12px 22px var(--login-button-shadow-2),
-    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+  border: 1px solid var(--table-border) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
   text-transform: none !important;
   font-weight: 800 !important;
   letter-spacing: 0.2px !important;
@@ -245,10 +228,7 @@ button:focus-visible,
 .MuiButton-root:hover {
   filter: brightness(1.06);
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
-    0 0 22px 10px var(--login-button-shadow),
-    0 12px 22px var(--login-button-shadow-2),
-    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14) !important;
 }
 
 .MuiButton-outlined {

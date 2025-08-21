@@ -7,15 +7,6 @@
   --header-end: #00c2a8;
   --header-text: #ffffff;
 
-  --vibrant-header-bg: linear-gradient(
-    90deg,
-    #ffb02e 0%,
-    #ff6f61 50%,
-    #00c2a8 100%
-  );
-  --header-border-color: #ff9900;
-  --header-shadow: 0 4px 18px rgba(255, 120, 0, 0.45);
-
   --footer-start: rgba(255, 255, 255, 0.96);
   --footer-end: rgba(255, 255, 255, 0.9);
   --footer-text: #0a2d2b;
@@ -24,29 +15,14 @@
   --highlight: #ffd54a;
   --main-text: #0a2d2b;
   --button-text: #253133;
-  --results-accent: #ff6f61;
 
-  --button-grad-start: #fff55f;
-  --button-grad-end: #ffc300;
-  --button-shadow-outer-1: rgba(255, 255, 255, 0.85);
-  --button-shadow-outer-2: rgba(255, 195, 0, 0.48);
-  --button-shadow-inset: rgba(0, 0, 0, 0.08);
-  --button-border: rgba(255, 176, 46, 0.6);
-  --button-ring: rgba(0, 194, 168, 0.35);
+  --border-see-rule: #ff6f61;
 
   --table-header: linear-gradient(90deg, #ffb02e, #ff6f61, #00c2a8);
   --table-border: #ffb02e;
   --table-text-color: #062e2a;
   --row-odd: #fff6c8;
   --row-even: #ffe6b4;
-
-  --border-see-rule: #ff6f61;
   --results-bg: rgba(255, 255, 255, 0.94);
   --results-accent: #ffb02e;
-  --results-border: 2px solid rgba(255, 255, 255, 0.95);
-  --results-shadow: 0 20px 45px rgba(255, 176, 46, 0.22);
-  --results-hover: rgba(255, 176, 46, 0.06);
-
-  --selection-bg: rgba(255, 213, 74, 0.6);
-  --selection-fg: #0a2d2b;
 }

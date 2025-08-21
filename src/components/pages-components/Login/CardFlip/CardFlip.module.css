@@ -32,7 +32,7 @@
 .login {
   background: var(--header-bg) !important;
   color: var(--login-button-text) !important;
-  box-shadow: 0 0 20px var(--login-button-shadow) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
   width: 80%;
   max-width: 400px;
   font-weight: bold;
