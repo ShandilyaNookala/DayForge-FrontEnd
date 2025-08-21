@@ -1,14 +1,12 @@
 .header {
-  background: var(--vibrant-header-bg, var(--header-bg)) !important;
+  background: var(--header-bg) !important;
   color: var(--header-text) !important;
   padding: 15px !important;
   font-size: 24px !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 6 !important;
+  position: static !important;
   overflow: hidden;
-  border-bottom: 3px solid var(--header-border-color, var(--table-border));
-  box-shadow: var(--header-shadow, none);
+  border-bottom: 3px solid var(--table-border);
+  box-shadow: none;
 }
 
 .toolbar {
