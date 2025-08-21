@@ -15,10 +15,10 @@
 }
 
 .select :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border: 2px solid var(--accent) !important;
+  border: 2px solid var(--results-accent, var(--accent)) !important;
 }
 
 .select
   :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border: 2px solid var(--accent) !important;
+  border: 2px solid var(--results-accent, var(--accent)) !important;
 }

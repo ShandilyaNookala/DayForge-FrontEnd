@@ -405,7 +405,7 @@ function Results() {
                     <Button
                       className="btn results-btn"
                       onClick={handleNextStep}
-                      variant="outlined"
+                      variant="contained"
                       color="primary"
                     >
                       Next
@@ -432,7 +432,7 @@ function Results() {
                     <Button
                       className="btn results-btn"
                       onClick={handleNextStep}
-                      variant="outlined"
+                      variant="contained"
                       color="primary"
                     >
                       Next

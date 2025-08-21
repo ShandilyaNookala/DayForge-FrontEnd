@@ -1,6 +1,7 @@
 .label {
-  color: var(--button-text) !important;
+  color: var(--highlight) !important;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .container {
