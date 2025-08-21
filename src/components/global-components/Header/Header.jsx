@@ -10,7 +10,7 @@ function Header({ children, className = "" }) {
   return (
     <AppBar position="static" className={styles.header + " " + className}>
       <Toolbar className={styles.toolbar}>
-        <Typography>
+        <Typography className={styles.brand}>
           <Logo />
         </Typography>
         {children}

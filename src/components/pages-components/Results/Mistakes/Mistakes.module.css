@@ -23,9 +23,9 @@
 }
 
 .label {
-  color: var(--bg3) !important;
+  color: var(--highlight) !important;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .checkbox {
@@ -34,11 +34,11 @@
 }
 
 .checkbox.Mui-checked {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox:hover {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox .MuiSvgIcon-root {
@@ -49,11 +49,11 @@
 }
 
 .checkbox.Mui-checked .MuiSvgIcon-root {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox:hover .MuiSvgIcon-root {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox svg {
@@ -63,11 +63,11 @@
 }
 
 .checkbox.Mui-checked svg {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox:hover svg {
-  color: var(--accent) !important;
+  color: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox .MuiSvgIcon-root path {
@@ -76,11 +76,11 @@
 }
 
 .checkbox.Mui-checked .MuiSvgIcon-root path {
-  fill: var(--accent) !important;
-  stroke: var(--accent) !important;
+  fill: var(--results-accent, var(--accent)) !important;
+  stroke: var(--results-accent, var(--accent)) !important;
 }
 
 .checkbox:hover .MuiSvgIcon-root path {
-  fill: var(--accent) !important;
-  stroke: var(--accent) !important;
+  fill: var(--results-accent, var(--accent)) !important;
+  stroke: var(--results-accent, var(--accent)) !important;
 }

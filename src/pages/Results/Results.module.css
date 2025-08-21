@@ -9,10 +9,12 @@
 
 .resultsBox {
   background: var(--results-bg);
+  border: var(--results-border);
   border-radius: 20px;
   padding: 24px;
   max-width: 800px;
   width: 100%;
+  box-shadow: var(--results-shadow);
 }
 
 .blurGradeAndNextWork {
@@ -26,8 +28,8 @@
   font-size: 18px;
   font-weight: 600;
   padding: 10px 16px !important;
-  background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
-  color: var(--button-text) !important;
+  background: var(--coral, #ff6f61) !important;
+  color: #ffffff !important;
   border-radius: 12px 0 0 12px;
   text-align: center;
   flex: 1;
@@ -37,7 +39,9 @@
 .valueCell {
   padding: 20px 16px !important;
   border-radius: 0 12px 12px 0;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--coral, var(--accent));
+  color: var(--highlight) !important;
+  background: #ffffff !important;
 }
 
 .valueCell .default-text-field fieldset {
@@ -47,7 +51,7 @@
 .valueCell .default-text-field textarea,
 .valueCell .default-text-field input,
 .valueCell .default-text-field label {
-  color: var(--bg3) !important;
+  color: var(--highlight) !important;
 }
 
 .valueCell .default-text-field label.Mui-focused {
@@ -270,8 +274,13 @@
 }
 
 .resultsBox tbody tr:hover {
-  background: rgba(58, 175, 169, 0.05);
+  background: var(--results-hover);
   transform: scale(1.01);
+}
+
+.resultsBox .MuiTableRow-root:hover .labelCell,
+.resultsBox tbody tr:hover .labelCell {
+  color: var(--coral, #ff6f61) !important;
 }
 
 .resultsBox tbody tr:not(:last-child) {

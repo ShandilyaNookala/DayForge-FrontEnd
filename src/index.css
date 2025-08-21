@@ -1,12 +1,7 @@
-@import "./themes/SummerBeachTheme/colors.css";
+@import "./themes/VibrantSummerTheme/colors.css";
 
 :root {
-  --bg: radial-gradient(
-    circle at top right,
-    var(--bg1) 3%,
-    var(--bg2) 20%,
-    var(--bg3) 50%
-  );
+  --bg: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
   --header-bg: linear-gradient(145deg, var(--header-start), var(--header-end));
   --sortable-container-background: var(--header-bg);
   --page-background: var(--bg);
@@ -17,10 +12,16 @@
   --login-modal-background: var(--bg);
   --info-card-background: var(--header-bg);
 
-  --login-button-background: var(--accent);
+  --login-button-background: linear-gradient(
+    90deg,
+    var(--button-grad-start),
+    var(--button-grad-end)
+  );
   --login-button-text: var(--button-text);
   --login-button-border: var(--table-border);
-  --login-button-shadow: var(--highlight);
+  --login-button-shadow: var(--button-shadow-outer-1);
+  --login-button-shadow-2: var(--button-shadow-outer-2);
+  --login-button-shadow-inset: var(--button-shadow-inset);
 
   --info-card-background: var(--header-bg);
 
@@ -44,8 +45,8 @@
   --dark-color: var(--main-text);
   --border-color: var(--table-border);
   --progress-color: var(--accent);
-  --selection-background: var(--accent);
-  --selection-text: var(--main-text);
+  --selection-background: var(--selection-bg, var(--accent));
+  --selection-text: var(--selection-fg, var(--main-text));
 
   --no-of-columns-for-grid-in-change-rule-order: 3;
 }
@@ -95,8 +96,8 @@ body {
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
   border-right: 2px solid var(--table-border) !important;
-  background-color: var(--table-header) !important;
-  color: var(--button-text);
+  background: var(--table-header) !important;
+  color: var(--table-text-color, var(--main-text)) !important;
   font-size: 20px;
 }
 
@@ -114,29 +115,59 @@ body {
   background-color: var(--row-even) !important;
 }
 
+table tbody tr:hover {
+  background: #ffffff !important;
+}
+
+.dataGrid .MuiDataGrid-row:hover .MuiDataGrid-cell {
+  background-color: #ffffff !important;
+}
+
+.MuiTableRow-root:hover .MuiTableCell-root {
+  background-color: #ffffff !important;
+}
+
 button,
 .btn {
-  background-color: var(--login-button-background) !important;
+  background: var(--login-button-background) !important;
   color: var(--login-button-text) !important;
-  border: none;
-  padding: 0.5rem 1rem;
+  border: 1px solid var(--button-border);
+  padding: 0.6rem 1.15rem;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 999px;
   text-align: center;
-  font-weight: bold;
-  box-shadow: 0 0 10px var(--login-button-shadow);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 0 22px 10px var(--login-button-shadow),
+    0 12px 22px var(--login-button-shadow-2),
+    inset 0 -2px 0 var(--login-button-shadow-inset);
   cursor: pointer;
-  transition: all 0.4s !important;
+  transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease !important;
   text-decoration: none;
 }
 
 button:hover,
 .btn:hover {
-  background-color: var(--header-start) !important;
-  color: var(--main-text) !important;
-  box-shadow: 0 0 20px var(--login-button-shadow),
-    0 0 40px var(--login-button-shadow) !important;
-  transform: translateY(-5px) scale(1.05);
+  filter: brightness(1.05);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 0 22px 10px var(--login-button-shadow),
+    0 12px 22px var(--login-button-shadow-2),
+    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
+}
+
+button:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--button-ring) !important;
 }
 
 .MuiCheckbox-root {
@@ -148,8 +179,17 @@ button:hover,
 }
 
 .table {
-  background-color: var(--table-header) !important;
-  color: var(--button-text) !important;
+  background: var(--results-bg) !important;
+  color: var(--table-text-color, var(--main-text)) !important;
+  border: var(--results-border);
+  border-radius: 20px !important;
+  box-shadow: var(--results-shadow);
+  overflow: hidden;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  background: var(--table-header) !important;
+  color: var(--table-text-color, var(--main-text)) !important;
 }
 
 .table-cell {
@@ -167,7 +207,15 @@ button:hover,
 }
 
 .MuiTable-root {
-  background-color: var(--primary-color) !important;
+  background: transparent !important;
+}
+
+.MuiTableContainer-root {
+  background: var(--results-bg) !important;
+  border: var(--results-border);
+  border-radius: 20px !important;
+  box-shadow: var(--results-shadow);
+  overflow: hidden;
 }
 
 .MuiPickersLayout-root button {
@@ -181,22 +229,26 @@ button:hover,
 }
 
 .MuiButton-root {
-  background-color: var(--accent) !important;
-  color: var(--button-text) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 0 10px var(--login-button-shadow) !important;
+  background: var(--login-button-background) !important;
+  color: #253133 !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--button-border) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 0 22px 10px var(--login-button-shadow),
+    0 12px 22px var(--login-button-shadow-2),
+    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
   text-transform: none !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.2px !important;
 }
 
 .MuiButton-root:hover {
-  background: linear-gradient(
-    145deg,
-    var(--header-start),
-    var(--header-end)
-  ) !important;
-  color: var(--main-text) !important;
-  box-shadow: 0 0 20px var(--login-button-shadow),
-    0 0 40px var(--login-button-shadow) !important;
+  filter: brightness(1.06);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 0 22px 10px var(--login-button-shadow),
+    0 12px 22px var(--login-button-shadow-2),
+    inset 0 -2px 0 var(--login-button-shadow-inset) !important;
 }
 
 .MuiButton-outlined {
