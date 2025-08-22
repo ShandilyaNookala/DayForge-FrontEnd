@@ -37,7 +37,7 @@
   --light-color: var(--button-text);
   --dark-color: var(--main-text);
   --border-color: var(--table-border);
-  --progress-color: var(--accent);
+  --progress-color: var(--results-accent);
   --selection-background: var(--selection-bg, var(--accent));
   --selection-text: var(--selection-fg, var(--main-text));
 
@@ -66,6 +66,7 @@ body {
   background-attachment: fixed;
   color: var(--main-text);
   position: relative;
+  overflow-x: hidden;
 }
 
 #root {
@@ -73,6 +74,98 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive: base typography and layout */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
+    font-size: 16px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+  :root {
+    --no-of-columns-for-grid-in-change-rule-order: 2;
+  }
+  button,
+  .btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+  }
+  .MuiTableCell-root {
+    padding: 10px !important;
+  }
+  .MuiTableContainer-root {
+    overflow-x: auto !important;
+  }
+  .dataGrid {
+    overflow-x: auto !important;
+  }
+  .dataGrid .MuiDataGrid-root {
+    min-width: 900px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
+    font-size: 16px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 12px;
+  }
+  :root {
+    --no-of-columns-for-grid-in-change-rule-order: 1;
+  }
+  .table {
+    border-radius: 14px !important;
+  }
+  .MuiTableContainer-root {
+    border-radius: 14px !important;
+    overflow-x: auto !important;
+  }
+  .MuiButton-root {
+    padding: 0.5rem 0.9rem !important;
+    font-size: 0.95rem !important;
+  }
+  .MuiTableCell-root {
+    padding: 8px !important;
+  }
+  .dataGrid {
+    overflow-x: auto !important;
+  }
+  .dataGrid .MuiDataGrid-root {
+    min-width: 1000px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
+    font-size: 13px;
+    padding: 6px 6px;
+  }
+  .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
+    font-size: 14px;
+    padding: 6px 6px;
+  }
 }
 
 .dataGrid .MuiDataGrid-root .MuiDataGrid-cell {
@@ -176,6 +269,20 @@ button:focus-visible,
 .MuiTableHead-root .MuiTableCell-root {
   background: var(--table-header) !important;
   color: var(--table-text-color, var(--main-text)) !important;
+}
+
+/* Improve table cell aesthetics */
+.MuiTableCell-root {
+  vertical-align: middle !important;
+  border-bottom: 1px solid var(--table-border) !important;
+}
+
+/* Zebra striping for table rows using theme variables */
+.MuiTableBody-root .MuiTableRow-root:nth-of-type(odd) .MuiTableCell-root {
+  background-color: var(--row-odd) !important;
+}
+.MuiTableBody-root .MuiTableRow-root:nth-of-type(even) .MuiTableCell-root {
+  background-color: var(--row-even) !important;
 }
 
 .table-cell {

@@ -5,8 +5,8 @@ import styles from "./Stop.module.css";
 function Stop({ hasStarted, onStopTime }) {
   return (
     <TableRow>
-      <TableCell>End Timer</TableCell>
-      <TableCell>
+      <TableCell className={styles.labelCell}>End Timer</TableCell>
+      <TableCell className={styles.controlCell}>
         <Button disabled={!hasStarted} onClick={onStopTime}>
           <StopIcon className={styles.icon} />
         </Button>

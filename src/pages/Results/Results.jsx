@@ -330,8 +330,8 @@ function Results() {
                 />
               </Box>
 
-              <Table>
-                <TableBody>
+              <Table className={styles.table}>
+                <TableBody className={styles.tableBody}>
                   {currentStep === 1 && (
                     <TableRow>
                       <TableCell className={styles.labelCell}>

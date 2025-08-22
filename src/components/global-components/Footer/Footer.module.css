@@ -6,4 +6,6 @@
   color: var(--footer-text) !important;
   font-size: 12px !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2; /* ensure citrus below cannot paint over footer */
 }

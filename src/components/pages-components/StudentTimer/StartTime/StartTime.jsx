@@ -1,10 +1,11 @@
 import { TableCell, TableRow } from "@mui/material";
+import styles from "./StartTime.module.css";
 
 function StartTime({ startTime }) {
   return (
     <TableRow>
-      <TableCell>Start Time</TableCell>
-      <TableCell>
+      <TableCell className={styles.labelCell}>Start Time</TableCell>
+      <TableCell className={styles.controlCell}>
         {startTime
           ? startTime?.getHours() % 12 === 0
             ? 12
