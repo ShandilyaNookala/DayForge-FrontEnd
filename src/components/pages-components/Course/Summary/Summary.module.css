@@ -15,3 +15,24 @@
   column-gap: 0.3rem;
   margin-top: 0.5rem;
 }
+
+/* Layout-only tweaks for small screens */
+@media (max-width: 992px) {
+  .summaryBox {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .summaryBox {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .summaryBox {
+    grid-template-columns: 1fr;
+    width: 95%;
+    gap: 0.75rem;
+  }
+}

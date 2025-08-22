@@ -15,3 +15,29 @@
 .saveButton {
   height: 3rem;
 }
+
+/* Small-screen layout improvements */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .scrollContainer {
+    max-height: 50vh;
+  }
+  .saveButton {
+    width: 100%;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .scrollContainer {
+    max-height: 55vh;
+  }
+  .saveButton {
+    width: 100%;
+    height: 2.6rem;
+  }
+}

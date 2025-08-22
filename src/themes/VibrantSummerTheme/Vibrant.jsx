@@ -24,7 +24,6 @@ const Vibrant = () => {
     <>
       <Box className={styles.backgroundRoot} />
       <Box className={styles.overlayRoot}>
-        <Box className={styles.sun} aria-hidden="true" />
         <Box className={styles.citrus} aria-hidden="true">
           {slices.map((s, i) => (
             <Box
@@ -42,6 +41,7 @@ const Vibrant = () => {
           ))}
         </Box>
       </Box>
+      <Box className={styles.sun} aria-hidden="true" />
     </>
   );
 };

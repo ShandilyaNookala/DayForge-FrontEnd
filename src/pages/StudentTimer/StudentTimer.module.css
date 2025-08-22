@@ -1,3 +1,56 @@
 .container {
   display: flex;
 }
+
+/* Mobile-friendly timer table */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8px;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  :global(.table) {
+    border-radius: 1rem !important;
+  }
+  :global(.MuiTable-root) {
+    table-layout: fixed;
+    width: 100%;
+  }
+  /* Each row stays two-column but looks like a card */
+  :global(.MuiTableRow-root) {
+    display: table-row !important;
+    background: rgba(255, 255, 255, 0.75);
+  }
+  :global(.MuiTableRow-root + .MuiTableRow-root) {
+    border-top: 0.0625rem solid var(--table-border);
+  }
+  :global(.MuiTableCell-root) {
+    display: table-cell !important;
+    width: auto !important;
+    padding: 0.625rem !important;
+    box-sizing: border-box !important;
+  }
+  :global(.MuiTableCell-root:first-child) {
+    width: 45% !important;
+    text-align: left !important;
+    font-weight: 600;
+  }
+  :global(.MuiTableCell-root:last-child) {
+    width: 55% !important;
+    text-align: center !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 576px) {
+  :global(.MuiTableCell-root) {
+    padding: 0.5rem !important;
+  }
+  :global(.MuiTableCell-root:first-child) {
+    width: 42% !important;
+  }
+  :global(.MuiTableCell-root:last-child) {
+    width: 58% !important;
+    white-space: nowrap;
+  }
+}

@@ -6,8 +6,10 @@ import styles from "./StartButton.module.css";
 function StartButton({ hasStarted, onClickPlayPauseButton }) {
   return (
     <TableRow>
-      <TableCell>Start/Pause/Resume Timer</TableCell>
-      <TableCell>
+      <TableCell className={styles.labelCell}>
+        Start/Pause/Resume Timer
+      </TableCell>
+      <TableCell className={styles.controlCell}>
         {!hasStarted && (
           <Button onClick={onClickPlayPauseButton}>
             <PlayArrowIcon className={styles.icon} />

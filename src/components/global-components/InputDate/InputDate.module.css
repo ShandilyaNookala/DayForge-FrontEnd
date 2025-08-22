@@ -18,3 +18,10 @@
 .inputDate :global(.MuiOutlineInput-notchedOutline) {
   border: 1px solid var(--input-date-fieldset-border) !important;
 }
+
+@media (max-width: 768px) {
+  .inputDate {
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+  }
+}

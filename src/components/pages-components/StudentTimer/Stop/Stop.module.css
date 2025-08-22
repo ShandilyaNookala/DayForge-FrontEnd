@@ -1,3 +1,31 @@
 .icon {
   font-size: 3rem !important;
 }
+
+@media (max-width: 768px) {
+  .icon {
+    font-size: 2.25rem !important;
+  }
+  .labelCell,
+  .controlCell {
+    display: block !important;
+    width: 100% !important;
+  }
+  .controlCell {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .icon {
+    font-size: 2rem !important;
+  }
+  .labelCell,
+  .controlCell {
+    display: block !important;
+    width: 100% !important;
+  }
+  .controlCell {
+    text-align: center !important;
+  }
+}

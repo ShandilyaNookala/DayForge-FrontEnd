@@ -24,12 +24,12 @@
   transition: all 0.3s ease;
 }
 
-.labelCell {
+.resultsContainer .resultsBox .table .tableBody .labelCell {
   font-size: 18px;
   font-weight: 600;
   padding: 10px 16px !important;
-  background: var(--results-accent) !important;
-  color: #ffffff !important;
+  background-color: var(--results-accent) !important;
+  color: var(--main-text) !important;
   border-radius: 12px 0 0 12px;
   text-align: center;
   flex: 1;
@@ -237,6 +237,48 @@
   justify-content: center;
   margin-top: 40px;
   flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .resultsBox {
+    padding: 20px;
+    max-width: 720px;
+  }
+  .labelCell {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resultsContainer {
+    padding: 12px 0;
+  }
+  .resultsBox {
+    padding: 16px;
+    max-width: 640px;
+    border-radius: 16px;
+  }
+  .valueCell {
+    padding: 16px !important;
+  }
+  .buttonGroup {
+    gap: 12px;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .resultsBox {
+    padding: 12px;
+    border-radius: 14px;
+  }
+  .labelCell {
+    font-size: 14px;
+  }
+  .valueCell {
+    padding: 12px !important;
+  }
 }
 
 .buttonGroup .btn {

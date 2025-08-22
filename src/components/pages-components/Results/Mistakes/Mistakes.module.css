@@ -4,6 +4,7 @@
   gap: 8px;
   overflow-y: auto;
   max-height: 20vh;
+  padding-left: 12px;
 }
 
 .row {
@@ -14,6 +15,8 @@
 
 .name {
   flex: 1 1 auto;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .repeat {
@@ -83,4 +86,54 @@
 .checkbox:hover .MuiSvgIcon-root path {
   fill: var(--results-accent, var(--accent)) !important;
   stroke: var(--results-accent, var(--accent)) !important;
+}
+
+/* Small-screen layout improvements */
+@media (max-width: 768px) {
+  .list {
+    max-height: 34vh;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 14px;
+  }
+  .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .label {
+    font-size: 16px;
+  }
+  .checkbox {
+    padding: 6px !important;
+  }
+  .checkbox .MuiSvgIcon-root {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+  }
+  .repeat {
+    flex-basis: 100%;
+    margin-left: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .list {
+    max-height: 40vh;
+    padding-left: 16px;
+  }
+  .row {
+    gap: 6px;
+  }
+  .label {
+    font-size: 15px;
+  }
+  .checkbox .MuiSvgIcon-root {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 18px !important;
+  }
+  .repeat {
+    margin-left: 32px;
+  }
 }
