@@ -238,8 +238,11 @@ function Results() {
 
   async function handleNextStep() {
     if (currentStep === 1) {
-      await fetchNextWork();
+      // Advance immediately; fetch in background so UI doesn't stall
       dispatch({ type: "nextStep" });
+      setIsLoadingEntirePage(true);
+      fetchNextWorkForNavigation();
+      setIsLoadingEntirePage(false);
     } else {
       dispatch({ type: "nextStep" });
     }
@@ -394,19 +397,12 @@ function Results() {
               <Box className="btn-container">
                 {currentStep === 1 ? (
                   <Box className={styles.buttonGroup}>
-                    <Button
-                      className="btn results-btn"
-                      onClick={handleResults}
-                      variant="contained"
-                      color="primary"
-                    >
+                    <Button className="btn results-btn" onClick={handleResults}>
                       Submit
                     </Button>
                     <Button
                       className="btn results-btn"
                       onClick={handleNextStep}
-                      variant="contained"
-                      color="primary"
                     >
                       Next
                     </Button>
@@ -416,24 +412,15 @@ function Results() {
                     <Button
                       className="btn results-btn"
                       onClick={handlePreviousStep}
-                      variant="outlined"
-                      color="secondary"
                     >
                       Back
                     </Button>
-                    <Button
-                      className="btn results-btn"
-                      onClick={handleResults}
-                      variant="contained"
-                      color="primary"
-                    >
+                    <Button className="btn results-btn" onClick={handleResults}>
                       Submit
                     </Button>
                     <Button
                       className="btn results-btn"
                       onClick={handleNextStep}
-                      variant="contained"
-                      color="primary"
                     >
                       Next
                     </Button>
@@ -443,17 +430,10 @@ function Results() {
                     <Button
                       className="btn results-btn"
                       onClick={handlePreviousStep}
-                      variant="outlined"
-                      color="secondary"
                     >
                       Back
                     </Button>
-                    <Button
-                      className="btn results-btn"
-                      onClick={handleResults}
-                      variant="contained"
-                      color="primary"
-                    >
+                    <Button className="btn results-btn" onClick={handleResults}>
                       Submit
                     </Button>
                   </Box>

@@ -88,7 +88,6 @@
   stroke: var(--results-accent, var(--accent)) !important;
 }
 
-/* Small-screen layout improvements */
 @media (max-width: 768px) {
   .list {
     max-height: 34vh;

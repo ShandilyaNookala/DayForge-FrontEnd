@@ -78,7 +78,6 @@ body {
   z-index: 1;
 }
 
-/* Responsive: base typography and layout */
 @media (max-width: 1200px) {
   html {
     font-size: 15px;
@@ -271,13 +270,11 @@ button:focus-visible,
   color: var(--table-text-color, var(--main-text)) !important;
 }
 
-/* Improve table cell aesthetics */
 .MuiTableCell-root {
   vertical-align: middle !important;
   border-bottom: 1px solid var(--table-border) !important;
 }
 
-/* Zebra striping for table rows using theme variables */
 .MuiTableBody-root .MuiTableRow-root:nth-of-type(odd) .MuiTableCell-root {
   background-color: var(--row-odd) !important;
 }
