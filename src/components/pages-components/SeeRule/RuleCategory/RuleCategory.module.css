@@ -45,6 +45,29 @@
 .fields {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.collapseWrapper {
+  overflow: hidden;
+  transition: max-height 300ms ease, opacity 300ms ease, margin 300ms ease;
+}
+
+.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.expandedSmall {
+  max-height: 400px;
+  opacity: 1;
   margin-bottom: 16px;
+}
+
+.expandedLarge {
+  max-height: 600px;
+  opacity: 1;
 }

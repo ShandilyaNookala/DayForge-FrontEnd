@@ -41,7 +41,6 @@ function ChangedRuleInput({
         className={`${sharedStyles.ruleTextField} ${styles.textField}`}
       />
       <Button
-        variant="contained"
         onClick={handleSaveRuleInput}
         className={styles.saveBtn}
       >

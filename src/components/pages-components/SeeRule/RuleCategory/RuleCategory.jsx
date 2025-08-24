@@ -86,7 +86,11 @@ function RuleCategory({
               <Edit fontSize="small" />
             </Button>
           </Box>
-          {!isCollapsed && (
+          <Box
+            className={`${styles.collapseWrapper} ${
+              isCollapsed ? styles.collapsed : styles.expandedSmall
+            }`}
+          >
             <Box className={styles.fields}>
               <TextField
                 type="number"
@@ -106,7 +110,6 @@ function RuleCategory({
                 }}
               />
               <Button
-                variant="contained"
                 onClick={handleSaveBulkEditPoints}
                 className={styles.actionBtn}
                 disabled={!bulkEditHasChanged}
@@ -114,7 +117,7 @@ function RuleCategory({
                 Save Bulk Edit Points
               </Button>
             </Box>
-          )}
+          </Box>
         </>
       ) : (
         <ChangedRuleCategory
@@ -122,33 +125,34 @@ function RuleCategory({
           onSaveRuleCategory={handleEditRuleCategory}
         />
       )}
-      {!isCollapsed && (
-        <>
-          <Box className={styles.ruleInputs}>
-            {ruleInputs.map((ruleInput) => (
-              <RuleInput
-                ruleInput={ruleInput}
-                onSaveRuleInput={handleSaveRuleInput}
-                key={ruleInput._id}
-              />
-            ))}
-          </Box>
-          {isAddingRuleInput ? (
-            <ChangedRuleInput
+      <Box
+        className={`${styles.collapseWrapper} ${
+          isCollapsed ? styles.collapsed : styles.expandedLarge
+        }`}
+      >
+        <Box className={styles.ruleInputs}>
+          {ruleInputs.map((ruleInput) => (
+            <RuleInput
+              ruleInput={ruleInput}
               onSaveRuleInput={handleSaveRuleInput}
-              standardPoints={standardPoints}
+              key={ruleInput._id}
             />
-          ) : (
-            <Button
-              variant="contained"
-              className={styles.actionBtn}
-              onClick={() => setIsAddingRuleInput(true)}
-            >
-              + Add Rule Input
-            </Button>
-          )}
-        </>
-      )}
+          ))}
+        </Box>
+        {isAddingRuleInput ? (
+          <ChangedRuleInput
+            onSaveRuleInput={handleSaveRuleInput}
+            standardPoints={standardPoints}
+          />
+        ) : (
+          <Button
+            className={styles.actionBtn}
+            onClick={() => setIsAddingRuleInput(true)}
+          >
+            + Add Rule Input
+          </Button>
+        )}
+      </Box>
     </Box>
   );
 }
