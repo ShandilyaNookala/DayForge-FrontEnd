@@ -6,12 +6,14 @@ import styles from "./ChangeRuleOrder.module.css";
 import { baseUrl } from "../../utils/config.js";
 import { sendAPI } from "../../utils/helpers.js";
 import Header from "../../components/global-components/Header/Header.jsx";
+import Spinner from "../../components/global-components/Spinner/Spinner.jsx";
 import BackButton from "../../components/global-components/BackButton/BackButton.jsx";
 
 function ChangeRuleOrder() {
   const { id } = useParams();
 
   const [ruleInputs, setRuleInputs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasDragged, setHasDragged] = useState(false);
   const [droppedItemId, setDroppedItemId] = useState(null);
 
@@ -28,9 +30,12 @@ function ChangeRuleOrder() {
   }
 
   async function handleSave() {
+    setIsLoading(true);
     await sendAPI("PATCH", `${baseUrl}/rules/${id}/change-rule-input-order`, {
       newRuleInputs: ruleInputs,
     });
+    setIsLoading(false);
+    setHasDragged(false);
   }
 
   function handleDragEnd(e) {
@@ -42,46 +47,46 @@ function ChangeRuleOrder() {
     <>
       <Header />
       <Container>
-        <Box className={styles.pageRow}>
-          <Box className={styles.side}>
-            <BackButton url={-1} />
-          </Box>
-          <Box className={styles.container}>
-            <ReactSortable
-              list={ruleInputs}
-              onEnd={handleDragEnd}
-              setList={handleSetList}
-              className={styles.sortableGrid}
-              animation={150}
-              scroll={true}
-              scrollSensitivity={60}
-              scrollSpeed={12}
-            >
-              {ruleInputs.map((ruleInput, i) => {
-                return (
-                  <Box
-                    key={ruleInput._id}
-                    data-id={ruleInput._id}
-                    className={`${styles.draggable} ${
-                      ruleInput._id === droppedItemId ? styles.dropped : ""
-                    }`}
-                  >
-                    {i + 1}. {ruleInput.name}
-                  </Box>
-                );
-              })}
-            </ReactSortable>
-            {hasDragged && (
-              <Button
-                variant="contained"
-                onClick={handleSave}
-                className={styles.saveButton}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <Box className={styles.pageRow}>
+            <Box className={styles.side}>
+              <BackButton url={-1} />
+            </Box>
+            <Box className={styles.container}>
+              <ReactSortable
+                list={ruleInputs}
+                onEnd={handleDragEnd}
+                setList={handleSetList}
+                className={styles.sortableGrid}
+                animation={150}
+                scroll={true}
+                scrollSensitivity={60}
+                scrollSpeed={12}
               >
-                Save Order
-              </Button>
-            )}
+                {ruleInputs.map((ruleInput, i) => {
+                  return (
+                    <Box
+                      key={ruleInput._id}
+                      data-id={ruleInput._id}
+                      className={`${styles.draggable} ${
+                        ruleInput._id === droppedItemId ? styles.dropped : ""
+                      }`}
+                    >
+                      {i + 1}. {ruleInput.name}
+                    </Box>
+                  );
+                })}
+              </ReactSortable>
+              {hasDragged && (
+                <Button onClick={handleSave} className={styles.saveButton}>
+                  Save Order
+                </Button>
+              )}
+            </Box>
           </Box>
-        </Box>
+        )}
       </Container>
     </>
   );

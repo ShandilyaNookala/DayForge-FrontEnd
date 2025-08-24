@@ -44,13 +44,13 @@
 }
 
 .valueCell .default-text-field fieldset {
-  border: 1px solid var(--bg3) !important;
+  border: 1px solid var(--table-border) !important;
 }
 
 .valueCell .default-text-field textarea,
 .valueCell .default-text-field input,
 .valueCell .default-text-field label {
-  color: var(--highlight) !important;
+  color: var(--accent) !important;
 }
 
 .valueCell .default-text-field label.Mui-focused {
@@ -62,11 +62,11 @@
 }
 
 .valueCell .MuiTextField-root .MuiInputBase-input {
-  color: var(--bg3) !important;
+  color: var(--button-text) !important;
 }
 
 .valueCell .MuiTextField-root .MuiInputLabel-root {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .valueCell .MuiTextField-root .MuiInputLabel-root.Mui-focused {
@@ -76,15 +76,15 @@
 .resultsBox .valueCell .default-text-field textarea,
 .resultsBox .valueCell .default-text-field input,
 .resultsBox .valueCell .default-text-field label {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiInputBase-input {
-  color: var(--bg3) !important;
+  color: var(--button-text) !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiInputLabel-root {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiInputLabel-root.Mui-focused {
@@ -92,8 +92,9 @@
 }
 
 .resultsBox .valueCell .default-text-field .MuiOutlinedInput-root {
-  border: 2px solid var(--bg3) !important;
-  border-radius: 4px !important;
+  border: 1px solid var(--table-border) !important;
+  border-radius: 6px !important;
+  background: #ffffff !important;
 }
 
 .resultsBox .valueCell .default-text-field .MuiOutlinedInput-root.Mui-focused {
@@ -101,7 +102,7 @@
 }
 
 .resultsBox .valueCell .default-text-field .MuiOutlinedInput-notchedOutline {
-  border: 2px solid var(--bg3) !important;
+  border: 1px solid var(--table-border) !important;
 }
 
 .resultsBox
@@ -113,17 +114,19 @@
 }
 
 .resultsBox .valueCell .MuiTextField-root {
-  border: 2px solid var(--bg3) !important;
-  border-radius: 4px !important;
+  border: 1px solid var(--table-border) !important;
+  border-radius: 6px !important;
+  background: #ffffff !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiOutlinedInput-root {
-  border: 2px solid var(--bg3) !important;
-  border-radius: 4px !important;
+  border: 1px solid var(--table-border) !important;
+  border-radius: 6px !important;
+  background: #ffffff !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiOutlinedInput-notchedOutline {
-  border: 2px solid var(--bg3) !important;
+  border: 1px solid var(--table-border) !important;
 }
 
 .resultsBox
@@ -135,24 +138,34 @@
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiInputBase-input {
-  color: var(--bg3) !important;
+  color: var(--button-text) !important;
   font-weight: 600 !important;
 }
 
 .resultsBox .valueCell .MuiTextField-root .MuiInputLabel-root {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
   font-weight: 600 !important;
 }
 
 .valueCell .select .MuiSelect-select,
 .valueCell .select .MuiSelect-icon {
-  color: var(--bg3) !important;
-  font-weight: bold;
+  color: var(--main-text) !important;
+  font-weight: 600;
+}
+
+/* Improve dropdown size/spacing */
+.valueCell .MuiSelect-select {
+  padding: 10px 14px !important;
+  background: #ffffff !important;
+  border-radius: 6px !important;
+}
+.valueCell .MuiSelect-icon {
+  color: var(--accent) !important;
 }
 
 .valueCell .select .MuiOutlinedInput-notchedOutline {
-  border-color: var(--bg3) !important;
-  border-width: 2px !important;
+  border-color: var(--table-border) !important;
+  border-width: 1px !important;
 }
 
 .valueCell
@@ -170,34 +183,34 @@
 }
 
 .valueCell .MuiSelect-root .MuiSelect-select {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .valueCell .MuiSelect-root .MuiSvgIcon-root {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .resultsBox .valueCell .select .MuiSelect-select,
 .resultsBox .valueCell .select .MuiSelect-icon {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .resultsBox .valueCell .MuiSelect-root .MuiSelect-select {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .resultsBox .valueCell .MuiSelect-root .MuiSvgIcon-root {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .valueCell * {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
 }
 
 .valueCell input,
 .valueCell textarea,
 .valueCell select {
-  color: var(--bg3) !important;
+  color: var(--accent) !important;
 }
 
 .valueCell .MuiTextField-root .MuiInputBase-input {
@@ -239,7 +252,6 @@
   flex-wrap: wrap;
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
   .resultsBox {
     padding: 20px;
@@ -372,7 +384,7 @@
 .resultsBox input[type="checkbox"] {
   width: 20px !important;
   height: 20px !important;
-  border: 2px solid var(--bg3) !important;
+  border: 1px solid var(--table-border) !important;
   border-radius: 4px !important;
   cursor: pointer !important;
   margin-right: 8px !important;
@@ -405,7 +417,7 @@
 .resultsBox .MuiCheckbox-root .MuiSvgIcon-root {
   width: 20px !important;
   height: 20px !important;
-  color: var(--bg3) !important;
+  color: var(--button-text) !important;
   font-size: 20px !important;
   display: block !important;
   visibility: visible !important;
@@ -436,7 +448,7 @@
 }
 
 .resultsBox .MuiFormControlLabel-label {
-  color: var(--bg3) !important;
+  color: var(--main-text) !important;
   font-weight: 600 !important;
   font-size: 16px !important;
 }
@@ -513,7 +525,7 @@
 }
 
 .resultsBox .valueCell .default-text-field .MuiInputBase-input::placeholder {
-  color: var(--bg3) !important;
-  opacity: 1 !important;
+  color: var(--main-text) !important;
+  opacity: 0.7 !important;
   font-weight: 500 !important;
 }

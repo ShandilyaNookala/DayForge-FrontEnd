@@ -16,7 +16,6 @@
   height: 3rem;
 }
 
-/* Small-screen layout improvements */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

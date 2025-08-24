@@ -32,11 +32,7 @@ function AddNewRule() {
           value={newRuleName}
           onChange={(e) => setNewRuleName(e.target.value)}
         />
-        <Button
-          className={styles.addRuleButton}
-          variant="contained"
-          onClick={handleAddNewRule}
-        >
+        <Button className={styles.addRuleButton} onClick={handleAddNewRule}>
           Add Rule
         </Button>
       </Box>
