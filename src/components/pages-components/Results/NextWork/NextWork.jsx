@@ -6,9 +6,12 @@ import styles from "./NextWork.module.css";
 function NextWork({ nextWork, dispatch }) {
   const containerRef = useRef(null);
   const itemRefs = useRef([]);
+  const initialScrollCountRef = useRef(0);
 
   useEffect(() => {
     if (!Array.isArray(nextWork) || nextWork.length === 0) return;
+    if (initialScrollCountRef.current > 0) return;
+    initialScrollCountRef.current += 1;
     const firstCheckedIndex = nextWork.findIndex((work) => work.checked);
     if (firstCheckedIndex === -1) return;
 

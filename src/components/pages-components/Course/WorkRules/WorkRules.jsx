@@ -3,9 +3,12 @@ import { Box, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
 function WorkRules({ work, setWork, scrollContainerRef }) {
   const itemRefs = useRef([]);
+  const initialScrollCountRef = useRef(0);
 
   useEffect(() => {
     if (!Array.isArray(work) || work.length === 0) return;
+    if (initialScrollCountRef.current > 0) return;
+    initialScrollCountRef.current += 1;
     const firstCheckedIndex = work.findIndex((eachWork) => eachWork.checked);
     if (firstCheckedIndex === -1) return;
     const element = itemRefs.current[firstCheckedIndex];
