@@ -238,7 +238,6 @@ function Results() {
 
   async function handleNextStep() {
     if (currentStep === 1) {
-      // Advance immediately; fetch in background so UI doesn't stall
       dispatch({ type: "nextStep" });
       setIsLoadingEntirePage(true);
       fetchNextWorkForNavigation();
