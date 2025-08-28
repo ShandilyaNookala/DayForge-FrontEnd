@@ -88,7 +88,7 @@ function RuleCategory({
           </Box>
           <Box
             className={`${styles.collapseWrapper} ${
-              isCollapsed ? styles.collapsed : styles.expandedSmall
+              isCollapsed && styles.collapsed
             }`}
           >
             <Box className={styles.fields}>
@@ -127,7 +127,7 @@ function RuleCategory({
       )}
       <Box
         className={`${styles.collapseWrapper} ${
-          isCollapsed ? styles.collapsed : styles.expandedLarge
+          isCollapsed ? styles.collapsed : styles.expanded
         }`}
       >
         <Box className={styles.ruleInputs}>
