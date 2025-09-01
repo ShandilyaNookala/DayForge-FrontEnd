@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { baseUrl } from "../../utils/config.js";
 import { sendAPI } from "../../utils/helpers.js";
 
@@ -20,6 +20,7 @@ export default function SeeRule() {
   const [isLoading, setIsLoading] = useState(true);
   const [ruleName, setRuleName] = useState("");
   const [isAddingRuleCategory, setIsAddingRuleCategory] = useState(false);
+  const ruleCategoriesRef = useRef(null);
 
   const { id } = useParams();
 
@@ -43,6 +44,19 @@ export default function SeeRule() {
       if (id) fetchRule();
     },
     [id]
+  );
+
+  useEffect(
+    function () {
+      if (isAddingRuleCategory && ruleCategoriesRef.current) {
+        const container = ruleCategoriesRef.current;
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+    },
+    [isAddingRuleCategory]
   );
 
   async function handleSaveRuleName() {
@@ -136,7 +150,10 @@ export default function SeeRule() {
               <NotAuthorized />
             ) : (
               <>
-                <Box className={styles.ruleCategoriesBox}>
+                <Box
+                  className={styles.ruleCategoriesBox}
+                  ref={ruleCategoriesRef}
+                >
                   <>
                     {rule?.ruleCategories.map((ruleCategory) => (
                       <RuleCategory
@@ -152,14 +169,10 @@ export default function SeeRule() {
                         setRule={setRule}
                       />
                     ))}
-                    {isAddingRuleCategory ? (
+                    {isAddingRuleCategory && (
                       <ChangedRuleCategory
                         onSaveRuleCategory={handleSaveRuleCategory}
                       />
-                    ) : (
-                      <Button onClick={() => setIsAddingRuleCategory(true)}>
-                        + Add Rule Category
-                      </Button>
                     )}
                   </>
                 </Box>
@@ -169,6 +182,14 @@ export default function SeeRule() {
                   </Link>
                 </Box>
               </>
+            )}
+            {!isAddingRuleCategory && (
+              <Button
+                className={`${styles.addCategoryBtn} ${styles.fullRow}`}
+                onClick={() => setIsAddingRuleCategory(true)}
+              >
+                + Add Rule Category
+              </Button>
             )}
           </Container>
         </>
