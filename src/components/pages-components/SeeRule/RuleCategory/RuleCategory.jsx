@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography, IconButton } from "@mui/material";
 import RuleInput from "../RuleInput/RuleInput";
 import { useState } from "react";
 import { Edit, ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -145,12 +145,30 @@ function RuleCategory({
             standardPoints={standardPoints}
           />
         ) : (
-          <Button
-            className={styles.actionBtn}
-            onClick={() => setIsAddingRuleInput(true)}
-          >
-            + Add Rule Input
-          </Button>
+          <Box className={styles.categoryFooter}>
+            <Button
+              className={styles.actionBtn}
+              onClick={() => setIsAddingRuleInput(true)}
+            >
+              + Add Rule Input
+            </Button>
+            <IconButton
+              onClick={() => setIsCollapsed((prev) => !prev)}
+              className={styles.iconBtn}
+              size="small"
+              disableRipple
+              disableFocusRipple
+              aria-label={
+                isCollapsed ? "Expand rule category" : "Collapse rule category"
+              }
+            >
+              {isCollapsed ? (
+                <ExpandMore fontSize="small" />
+              ) : (
+                <ExpandLess fontSize="small" />
+              )}
+            </IconButton>
+          </Box>
         )}
       </Box>
     </Box>

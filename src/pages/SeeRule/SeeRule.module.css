@@ -44,3 +44,9 @@
   right: 8px;
   z-index: 2;
 }
+
+.addCategoryBtn {
+  justify-self: center;
+  align-self: center;
+  margin-top: 1rem !important;
+}
