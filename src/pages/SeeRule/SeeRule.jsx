@@ -66,9 +66,12 @@ export default function SeeRule() {
     }
 
     setIsLoading(true);
-    await sendAPI("PATCH", `${rulesBaseUrl}/update-rule-name`, {
-      newRuleName: ruleName,
-    });
+    const rule = (
+      await sendAPI("PATCH", `${rulesBaseUrl}/update-rule-name`, {
+        newRuleName: ruleName,
+      })
+    ).data;
+    setRule(rule);
     setIsLoading(false);
   }
 
