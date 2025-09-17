@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, IconButton } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import RuleInput from "../RuleInput/RuleInput";
 import { useState } from "react";
 import { Edit, ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -17,14 +17,17 @@ function RuleCategory({
   onSaveRuleInput,
   ruleId,
   setRule,
+  defaultStandardPoints,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isAddingRuleInput, setIsAddingRuleInput] = useState(false);
-  const [standardPoints, setStandardPoints] = useState(0);
+  const [standardPoints, setStandardPoints] = useState(defaultStandardPoints);
   const [bulkEditPoints, setBulkEditPoints] = useState(0);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [bulkEditHasChanged, setBulkEditHasChanged] = useState(false);
+  const [standardPointsHasChanged, setStandardPointsHasChanged] =
+    useState(false);
 
   async function handleEditRuleCategory(...params) {
     await onEditRuleCategory(...params);
@@ -34,6 +37,24 @@ function RuleCategory({
   async function handleSaveRuleInput(...params) {
     await onSaveRuleInput(...params, ruleCategory._id);
     setIsAddingRuleInput(false);
+  }
+
+  async function handleSaveStandardPoints() {
+    if (standardPoints < 0) {
+      alert("Points cannot be negative.");
+      return;
+    }
+    setIsLoading(true);
+    const rule = await sendAPI(
+      "PATCH",
+      `${baseUrl}/rules/${ruleId}/update-standard-points/${ruleCategory._id}`,
+      {
+        standardPoints,
+      }
+    );
+    setRule(rule.data);
+    setStandardPointsHasChanged(false);
+    setIsLoading(false);
   }
 
   async function handleSaveBulkEditPoints() {
@@ -93,12 +114,21 @@ function RuleCategory({
           >
             <Box className={styles.fields}>
               <TextField
-                type="number"
                 label="Standard Points"
                 className={`${sharedStyles.ruleTextField} ${styles.textField}`}
                 value={standardPoints}
-                onChange={(e) => setStandardPoints(+e.target.value)}
+                onChange={(e) => {
+                  setStandardPoints(+e.target.value);
+                  setStandardPointsHasChanged(true);
+                }}
               />
+              <Button
+                onClick={handleSaveStandardPoints}
+                className={styles.actionBtn}
+                disabled={!standardPointsHasChanged}
+              >
+                Save Standard Points
+              </Button>
               <TextField
                 type="number"
                 label="Bulk Edit Points"
@@ -152,22 +182,17 @@ function RuleCategory({
             >
               + Add Rule Input
             </Button>
-            <IconButton
-              onClick={() => setIsCollapsed((prev) => !prev)}
-              className={styles.iconBtn}
+            <Button
               size="small"
-              disableRipple
-              disableFocusRipple
-              aria-label={
-                isCollapsed ? "Expand rule category" : "Collapse rule category"
-              }
+              onClick={() => setIsCollapsed((prev) => !prev)}
+              className={styles.actionBtn}
             >
               {isCollapsed ? (
                 <ExpandMore fontSize="small" />
               ) : (
                 <ExpandLess fontSize="small" />
               )}
-            </IconButton>
+            </Button>
           </Box>
         )}
       </Box>
