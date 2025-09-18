@@ -161,6 +161,7 @@ export default function SeeRule() {
                     {rule?.ruleCategories.map((ruleCategory) => (
                       <RuleCategory
                         ruleCategory={ruleCategory}
+                        defaultStandardPoints={ruleCategory.standardPoints}
                         ruleId={rule._id}
                         ruleInputs={rule?.ruleInputs.filter(
                           (ruleInput) =>
