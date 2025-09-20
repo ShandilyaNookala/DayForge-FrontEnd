@@ -23,7 +23,6 @@ function ThresholdPoints({ isAdmin }) {
       <TextField
         label="Threshold"
         value={threshold}
-        type="number"
         onChange={(e) => handleChange(e, setThreshold)}
         className="default-text-field"
         slotProps={{ htmlInput: { min: 0 } }}
@@ -31,7 +30,6 @@ function ThresholdPoints({ isAdmin }) {
       <TextField
         label="Number of Points"
         value={noOfProblems}
-        type="number"
         onChange={(e) => handleChange(e, setNoOfProblems)}
         className="default-text-field"
         slotProps={{ htmlInput: { min: 0 } }}

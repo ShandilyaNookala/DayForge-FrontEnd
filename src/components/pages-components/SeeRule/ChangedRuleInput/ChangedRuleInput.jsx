@@ -34,16 +34,12 @@ function ChangedRuleInput({
         className={`${sharedStyles.ruleTextField} ${styles.textField}`}
       />
       <TextField
-        type="number"
         value={ruleInputPoints}
-        onChange={(e) => setRuleInputPoints(+e.target.value)}
+        onChange={(e) => setRuleInputPoints(e.target.value)}
         label="Points"
         className={`${sharedStyles.ruleTextField} ${styles.textField}`}
       />
-      <Button
-        onClick={handleSaveRuleInput}
-        className={styles.saveBtn}
-      >
+      <Button onClick={handleSaveRuleInput} className={styles.saveBtn}>
         Save Rule Input
       </Button>
     </div>
