@@ -118,7 +118,7 @@ function RuleCategory({
                 className={`${sharedStyles.ruleTextField} ${styles.textField}`}
                 value={standardPoints}
                 onChange={(e) => {
-                  setStandardPoints(+e.target.value);
+                  setStandardPoints(e.target.value);
                   setStandardPointsHasChanged(true);
                 }}
               />
@@ -130,12 +130,11 @@ function RuleCategory({
                 Save Standard Points
               </Button>
               <TextField
-                type="number"
                 label="Bulk Edit Points"
                 className={`${sharedStyles.ruleTextField} ${styles.textField}`}
                 value={bulkEditPoints}
                 onChange={(e) => {
-                  setBulkEditPoints(+e.target.value);
+                  setBulkEditPoints(e.target.value);
                   setBulkEditHasChanged(true);
                 }}
               />
