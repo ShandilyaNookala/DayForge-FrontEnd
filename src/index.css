@@ -1,4 +1,4 @@
-@import "./themes/VibrantSummerTheme/colors.css";
+@import "./themes/HalloweenTheme/colors.css";
 
 :root {
   --bg: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
@@ -12,9 +12,9 @@
   --login-modal-background: var(--bg);
   --info-card-background: var(--header-bg);
 
-  --login-button-background: var(--header-bg);
-  --login-button-text: var(--button-text);
-  --login-button-border: var(--table-border);
+  --login-button-background: linear-gradient(145deg, #2F1B69, #4A2C5A);
+  --login-button-text: #f2f1ff;
+  --login-button-border: #2F1B69;
 
   --info-card-background: var(--header-bg);
 
@@ -201,15 +201,15 @@ body {
 }
 
 table tbody tr:hover {
-  background: #ffffff !important;
+  background: #2F1B14 !important;
 }
 
 .dataGrid .MuiDataGrid-row:hover .MuiDataGrid-cell {
-  background-color: #ffffff !important;
+  background-color: #2F1B14 !important;
 }
 
 .MuiTableRow-root:hover .MuiTableCell-root {
-  background-color: #ffffff !important;
+  background-color: #2F1B14 !important;
 }
 
 button,
