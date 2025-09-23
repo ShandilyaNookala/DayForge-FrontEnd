@@ -25,4 +25,11 @@
   --button-text: #ffffff;
   --results-bg: #ffffff;
   --results-accent: #1a2e20;
+
+  --manage-rules-btn-bg-start: #2f4f2f;
+  --manage-rules-btn-bg-end: #4a6e55;
+  --manage-rules-btn-hover-start: #4a6e55;
+  --manage-rules-btn-hover-end: #5a8c58;
+  --manage-rules-btn-text: #ffffff;
+  --manage-rules-btn-border: #2f4f2f;
 }

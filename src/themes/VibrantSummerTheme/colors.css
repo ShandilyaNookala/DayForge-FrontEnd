@@ -25,4 +25,11 @@
   --row-even: #ffe6b4;
   --results-bg: rgba(255, 255, 255, 0.94);
   --results-accent: #ff6f61;
+
+  --manage-rules-btn-bg-start: #ffb02e;
+  --manage-rules-btn-bg-end: #00c2a8;
+  --manage-rules-btn-hover-start: #ff6f61;
+  --manage-rules-btn-hover-end: #00c2a8;
+  --manage-rules-btn-text: #253133;
+  --manage-rules-btn-border: #ffb02e;
 }

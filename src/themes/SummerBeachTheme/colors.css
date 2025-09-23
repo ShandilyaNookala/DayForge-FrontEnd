@@ -42,4 +42,11 @@
   --row-odd: rgba(255, 255, 255, 0.25);
   --row-even: rgba(255, 255, 255, 0.15);
   --results-bg: #fdf1d7;
+
+  --manage-rules-btn-bg-start: #0c7bb3;
+  --manage-rules-btn-bg-end: #2eb5e5;
+  --manage-rules-btn-hover-start: #2eb5e5;
+  --manage-rules-btn-hover-end: #82ccef;
+  --manage-rules-btn-text: #062b2b;
+  --manage-rules-btn-border: #0c7bb3;
 }
