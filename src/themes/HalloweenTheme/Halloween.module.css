@@ -45,7 +45,7 @@
     drop-shadow(0 0 1.375rem rgba(246, 235, 170, 0.22)) !important;
   animation: moonFloat 18s ease-in-out infinite !important;
   pointer-events: none !important;
-  z-index: 6 !important;
+  z-index: 100 !important;
 }
 
 @keyframes moonFloat {

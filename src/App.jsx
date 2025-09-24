@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/global-components/ProtectedRoute/Protec
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
 import Halloween from "./themes/HalloweenTheme/Halloween.jsx";
+//import Beach from "./themes/SummerBeachTheme/Beach.jsx";
 import ChangeRuleOrder from "./pages/ChangeRuleOrder/ChangeRuleOrder.jsx";
 import Footer from "./components/global-components/Footer/Footer.jsx";
 
