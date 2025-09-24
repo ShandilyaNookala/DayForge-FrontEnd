@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-function CauldronIcon() {
+function CauldronIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 520 460">
+    <SvgIcon {...props} viewBox="0 0 520 460">
       <Box component="defs">
         <Box component="radialGradient" id="backGlow" cx="50%" cy="55%" r="70%">
           <Box

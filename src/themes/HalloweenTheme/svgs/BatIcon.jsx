@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-function BatIcon() {
+function BatIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 90 36">
+    <SvgIcon {...props} viewBox="0 0 90 36">
       <Box component="g" fill="#2b2a4d">
         <Box
           component="path"
