@@ -5,18 +5,15 @@
   --header-bg: linear-gradient(145deg, var(--header-start), var(--header-end));
   --sortable-container-background: var(--header-bg);
   --page-background: var(--bg);
-  --primary-color: var(--header-bg);
   --tasks-list-background: var(--header-bg);
 
   --student-tasks-header-background: var(--header-bg);
   --login-modal-background: var(--bg);
-  --info-card-background: var(--header-bg);
+  --info-card-background: var(--primary-color);
 
-  --login-button-background: linear-gradient(145deg, #2F1B69, #4A2C5A);
+  --login-button-background: var(--primary-color);
   --login-button-text: #f2f1ff;
-  --login-button-border: #2F1B69;
-
-  --info-card-background: var(--header-bg);
+  --login-button-border: var(--secondary-color);
 
   --info-card-text: var(--button-text);
 
@@ -38,7 +35,7 @@
   --dark-color: var(--main-text);
   --border-color: var(--table-border);
   --progress-color: var(--results-accent);
-  --selection-background: var(--selection-bg, var(--accent));
+  --selection-background: var(--selection-bg, var(--highlight));
   --selection-text: var(--selection-fg, var(--main-text));
 
   --no-of-columns-for-grid-in-change-rule-order: 3;
@@ -201,15 +198,15 @@ body {
 }
 
 table tbody tr:hover {
-  background: #2F1B14 !important;
+  background: #2f1b14 !important;
 }
 
 .dataGrid .MuiDataGrid-row:hover .MuiDataGrid-cell {
-  background-color: #2F1B14 !important;
+  background-color: #2f1b14 !important;
 }
 
 .MuiTableRow-root:hover .MuiTableCell-root {
-  background-color: #2F1B14 !important;
+  background-color: #2f1b14 !important;
 }
 
 button,

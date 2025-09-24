@@ -32,4 +32,6 @@
   --manage-rules-btn-hover-end: #3aafa9;
   --manage-rules-btn-text: #def2f1;
   --manage-rules-btn-border: #172a4a;
+
+  --primary-color: linear-gradient(145deg, #172a4a, #187bcd);
 }

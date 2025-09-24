@@ -20,8 +20,8 @@
   --row-even: rgba(42, 36, 72, 0.6);
 
   --accent: #ff7a00;
-  --highlight: #35ff6b;
-  --main-text: #2f1b69;
+  --highlight: #2f1b69;
+  --main-text: #35ff6b;
   --button-text: #f2f1ff;
   --results-bg: rgba(30, 33, 66, 0.7);
   --results-accent: #ff7a00;
@@ -31,7 +31,6 @@
   --login-button-border: #2f1b69;
 
   --primary-color: linear-gradient(145deg, #2f1b69, #4a2c5a);
-  --secondary-color: #2f1b69;
 
   --manage-rules-button-bg: linear-gradient(145deg, #35ff6b, #4aff7e);
   --manage-rules-button-text: #0a1a0f;

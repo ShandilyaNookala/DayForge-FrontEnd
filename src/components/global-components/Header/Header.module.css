@@ -4,7 +4,7 @@
   padding: 0.9375rem !important;
   font-size: 1.5rem !important;
   position: relative !important;
-  z-index: 5;
+  z-index: 5 !important;
   overflow: hidden;
   border-bottom: 0.1875rem solid var(--table-border);
   box-shadow: none;

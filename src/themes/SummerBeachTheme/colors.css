@@ -24,7 +24,11 @@
   --header-start: rgba(255, 255, 255, 0);
   --header-end: rgba(255, 255, 255, 0);
   --header-text: #062b2b;
-
+  --primary-color: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  );
   --results-accent: #096aa7;
 
   --footer-start: rgba(255, 255, 255, 0);

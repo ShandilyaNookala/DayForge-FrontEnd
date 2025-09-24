@@ -6,6 +6,7 @@
   --header-start: #ffb02e;
   --header-end: #00c2a8;
   --header-text: #ffffff;
+  --primary-color: linear-gradient(145deg, #ffb02e, #00c2a8);
 
   --footer-start: rgba(255, 255, 255, 0.96);
   --footer-end: rgba(255, 255, 255, 0.9);
