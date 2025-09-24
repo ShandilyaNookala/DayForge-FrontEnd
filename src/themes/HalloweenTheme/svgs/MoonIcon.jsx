@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-function MoonIcon() {
+function MoonIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 160 160">
+    <SvgIcon {...props} viewBox="0 0 160 160">
       <Box component="defs">
         <Box
           component="filter"

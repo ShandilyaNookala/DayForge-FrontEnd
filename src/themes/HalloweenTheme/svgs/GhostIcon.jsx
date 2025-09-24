@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-function GhostIcon() {
+function GhostIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 120 90">
+    <SvgIcon {...props} viewBox="0 0 120 90">
       <Box
         component="path"
         fill="#fff"

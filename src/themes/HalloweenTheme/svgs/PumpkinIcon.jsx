@@ -1,8 +1,8 @@
 import { Box, SvgIcon } from "@mui/material";
 
-function PumpkinIcon() {
+function PumpkinIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 72 72">
+    <SvgIcon {...props} viewBox="0 0 72 72">
       <Box component="ellipse" cx="36" cy="42" rx="24" ry="18" fill="#ff7a00" />
       <Box component="ellipse" cx="26" cy="42" rx="14" ry="17" fill="#ff952e" />
       <Box component="ellipse" cx="46" cy="42" rx="14" ry="17" fill="#ff952e" />
