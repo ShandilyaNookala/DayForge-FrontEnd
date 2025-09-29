@@ -3,7 +3,6 @@ export const sendAPI = async function (
   url,
   data = { nothing: null }
 ) {
-  console.log(url);
   try {
     let dataReturned;
     if (typeOfRequest === "GET")

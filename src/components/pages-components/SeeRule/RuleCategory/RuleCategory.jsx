@@ -165,6 +165,9 @@ function RuleCategory({
               ruleInput={ruleInput}
               onSaveRuleInput={handleSaveRuleInput}
               key={ruleInput._id}
+              ruleId={ruleId}
+              setRule={setRule}
+              setIsLoading={setIsLoading}
             />
           ))}
         </Box>
