@@ -121,6 +121,7 @@ export default function SeeRule() {
     setRule(response.data);
   }
 
+
   return (
     <>
       {isLoading ? (

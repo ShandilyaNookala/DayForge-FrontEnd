@@ -35,6 +35,7 @@ export default function ChangedRecord({ taskId }) {
     setChangedRecordData(null);
   }
 
+  console.log("changedRecordData", changedRecordData);
   if (!changedRecordData) return null;
 
   return (
