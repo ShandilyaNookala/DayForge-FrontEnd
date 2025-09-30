@@ -18,8 +18,11 @@
 
 .backButtonAndSummary {
   display: flex;
-  align-items: center;
   gap: 1rem;
+}
+
+.backButton {
+  margin: 0.5rem 0rem !important;
 }
 
 .number {

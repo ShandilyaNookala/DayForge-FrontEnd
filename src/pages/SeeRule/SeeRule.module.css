@@ -50,3 +50,9 @@
   align-self: center;
   margin-top: 1rem !important;
 }
+
+.backButtonAndManageRulesBackButton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
