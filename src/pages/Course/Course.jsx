@@ -201,7 +201,7 @@ export default function Course() {
           </Header>
           <Container className="dataGrid">
             <Box className={styles.backButtonAndSummary}>
-              <BackButton url="/home" />
+              <BackButton url="/home" className={styles.backButton} />
               <Summary />
             </Box>
             <Box className={styles.outlet}>

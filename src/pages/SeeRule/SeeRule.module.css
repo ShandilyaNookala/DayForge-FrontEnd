@@ -56,7 +56,3 @@
   flex-direction: column;
   gap: 1rem;
 }
-
-.manageRulesBackButton {
-  margin-right: 0.5rem !important;
-}

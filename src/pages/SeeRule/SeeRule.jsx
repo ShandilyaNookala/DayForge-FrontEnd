@@ -149,7 +149,6 @@ export default function SeeRule() {
               <BackButton
                 url="/rules/manage-rules"
                 text="Back to Manage Rules"
-                className={styles.manageRulesBackButton}
               />
             </Box>
             {!user?.isAdmin ? (
