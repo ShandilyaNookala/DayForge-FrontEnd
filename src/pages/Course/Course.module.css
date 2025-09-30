@@ -50,7 +50,14 @@
   gap: 0.4rem;
   white-space: nowrap;
   min-width: max-content;
+  color: var(--login-button-text);
   padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .ruleLinks {
