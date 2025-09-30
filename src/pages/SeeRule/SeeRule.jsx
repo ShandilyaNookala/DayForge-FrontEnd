@@ -121,7 +121,6 @@ export default function SeeRule() {
     setRule(response.data);
   }
 
-
   return (
     <>
       {isLoading ? (
@@ -144,12 +143,15 @@ export default function SeeRule() {
               </Button>
             </Box>
           </Header>
-          <Container
-            maxWidth={false}
-            disableGutters
-            className={styles.seeRuleContainer}
-          >
-            <BackButton url={-1} />
+          <Container maxWidth={false} className={styles.seeRuleContainer}>
+            <Box className={styles.backButtonAndManageRulesBackButton}>
+              <BackButton url={-1} />
+              <BackButton
+                url="/rules/manage-rules"
+                text="Back to Manage Rules"
+                className={styles.manageRulesBackButton}
+              />
+            </Box>
             {!user?.isAdmin ? (
               <NotAuthorized />
             ) : (
