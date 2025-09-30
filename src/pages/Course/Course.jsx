@@ -209,29 +209,36 @@ export default function Course() {
             </Box>
 
             <Box className={styles.taskNavigation}>
-              {recordsData?.previousTask && (
+              <Button
+                disabled={!recordsData?.previousTask}
+                className={`${
+                  !recordsData?.previousTask ? styles.disabled : ""
+                }`}
+              >
                 <Link
                   to={`/course/${recordsData?.previousTask}`}
-                  className={`btn ${styles.previousTask}`}
+                  className={styles.previousTask}
                 >
                   <ArrowBackIcon />
                   Previous Task
                 </Link>
-              )}
+              </Button>
 
               {isAdmin && !changedRecordData && (
                 <Button onClick={showAddNewRecord}>Add New Record</Button>
               )}
-
-              {recordsData?.nextTask && (
+              <Button
+                disabled={!recordsData?.nextTask}
+                className={`${!recordsData?.nextTask ? styles.disabled : ""}`}
+              >
                 <Link
                   to={`/course/${recordsData?.nextTask}`}
-                  className={`btn ${styles.nextTask}`}
+                  className={styles.nextTask}
                 >
                   Next Task
                   <ArrowForwardIcon />
                 </Link>
-              )}
+              </Button>
             </Box>
 
             {changedRecordData && <ChangedRecord taskId={taskId} />}
