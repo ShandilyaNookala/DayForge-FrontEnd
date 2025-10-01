@@ -54,13 +54,12 @@
   white-space: nowrap;
   min-width: max-content;
   color: var(--login-button-text);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem !important;
   text-decoration: none;
 }
 
 .disabled {
   opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .ruleLinks {
