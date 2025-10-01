@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Header from "../../components/global-components/Header/Header";
 import { useEffect, useMemo, useState } from "react";
 import { sendAPI } from "../../utils/helpers";
@@ -10,14 +10,13 @@ import TasksRow from "../../components/pages-components/ManageRules/TasksRow/Tas
 import { Link } from "react-router";
 import BackButton from "../../components/global-components/BackButton/BackButton";
 import { useAuth } from "../../contexts/AuthContext";
-import AddNewRule from "../../components/pages-components/ManageRules/AddNewRule/AddNewRule";
+import AddNewRule from "../../components/global-components/AddNewRule/AddNewRule";
 import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized";
 
 function ManageRules() {
   const [isLoading, setIsLoading] = useState(true);
   const [ruleWithTasksDropdown, setRuleWithTasksDropdown] = useState(null);
   const [data, setData] = useState({});
-  const [isAddNewRuleShowing, setIsAddNewRuleShowing] = useState(false);
 
   const { user } = useAuth();
 
@@ -67,10 +66,6 @@ function ManageRules() {
     fetchData();
   }, []);
 
-  function showAddNewRule() {
-    setIsAddNewRuleShowing(true);
-  }
-
   return (
     <>
       {!isLoading ? (
@@ -80,17 +75,7 @@ function ManageRules() {
             <BackButton url="/home" />
             {user.isAdmin ? (
               <>
-                {!isAddNewRuleShowing ? (
-                  <Button
-                    to="add-rule"
-                    className={`btn ${styles.addRule}`}
-                    onClick={showAddNewRule}
-                  >
-                    Add New Rule
-                  </Button>
-                ) : (
-                  <AddNewRule />
-                )}
+                <AddNewRule />
                 <DataGrid
                   getRowHeight={() => "auto"}
                   columns={columns}

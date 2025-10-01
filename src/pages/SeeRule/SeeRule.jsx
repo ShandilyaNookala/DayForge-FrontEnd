@@ -14,6 +14,7 @@ import { useAuth } from "../../contexts/AuthContext.jsx";
 import NotAuthorized from "../../components/global-components/NotAuthorized/NotAuthorized.jsx";
 import ChangedRuleCategory from "../../components/pages-components/SeeRule/ChangedRuleCategory/ChangedRuleCategory.jsx";
 import { Link } from "react-router-dom";
+import AddNewRule from "../../components/global-components/AddNewRule/AddNewRule.jsx";
 
 export default function SeeRule() {
   const [rule, setRule] = useState(null);
@@ -160,15 +161,17 @@ export default function SeeRule() {
                   ref={ruleCategoriesRef}
                 >
                   <>
-                    {rule?.ruleCategories.map((ruleCategory) => (
+                    {rule?.ruleCategories?.map((ruleCategory) => (
                       <RuleCategory
                         ruleCategory={ruleCategory}
                         defaultStandardPoints={ruleCategory.standardPoints}
                         ruleId={rule._id}
-                        ruleInputs={rule?.ruleInputs.filter(
-                          (ruleInput) =>
-                            ruleInput.ruleCategoryId === ruleCategory._id
-                        )}
+                        ruleInputs={
+                          rule?.ruleInputs?.filter(
+                            (ruleInput) =>
+                              ruleInput.ruleCategoryId === ruleCategory._id
+                          ) || []
+                        }
                         key={ruleCategory._id}
                         onEditRuleCategory={handleSaveRuleCategory}
                         onSaveRuleInput={handleSaveRuleInput}
@@ -182,7 +185,9 @@ export default function SeeRule() {
                     )}
                   </>
                 </Box>
-                <Box className={styles.reorderAbsolute}>
+
+                <Box className={styles.reorderAndAddNewRule}>
+                  <AddNewRule />
                   <Link to="reorder" className="btn">
                     Reorder Rule Inputs
                   </Link>

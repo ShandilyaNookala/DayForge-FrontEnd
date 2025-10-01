@@ -210,34 +210,30 @@ export default function Course() {
 
             <Box className={styles.taskNavigation}>
               <Button
-                disabled={!recordsData?.previousTask}
-                className={`${
-                  !recordsData?.previousTask ? styles.disabled : ""
+                component={Link}
+                to={`/course/${recordsData?.previousTask}`}
+                className={`btn ${styles.previousTask} ${
+                  recordsData?.previousTask ? "" : styles.disabled
                 }`}
+                disabled={!recordsData?.previousTask}
               >
-                <Link
-                  to={`/course/${recordsData?.previousTask}`}
-                  className={styles.previousTask}
-                >
-                  <ArrowBackIcon />
-                  Previous Task
-                </Link>
+                <ArrowBackIcon />
+                Previous Task
               </Button>
 
               {isAdmin && !changedRecordData && (
                 <Button onClick={showAddNewRecord}>Add New Record</Button>
               )}
               <Button
+                component={Link}
+                to={`/course/${recordsData?.nextTask}`}
+                className={`btn ${styles.nextTask} ${
+                  recordsData?.nextTask ? "" : styles.disabled
+                }`}
                 disabled={!recordsData?.nextTask}
-                className={`${!recordsData?.nextTask ? styles.disabled : ""}`}
               >
-                <Link
-                  to={`/course/${recordsData?.nextTask}`}
-                  className={styles.nextTask}
-                >
-                  Next Task
-                  <ArrowForwardIcon />
-                </Link>
+                Next Task
+                <ArrowForwardIcon />
               </Button>
             </Box>
 
