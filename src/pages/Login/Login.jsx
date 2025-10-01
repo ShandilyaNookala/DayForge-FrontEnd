@@ -5,7 +5,7 @@ import {
   DialogTitle,
   DialogContent,
 } from "@mui/material";
-import CardFlip from "../../components/pages-components/Login/CardFlip/CardFlip";
+import LoginForm from "../../components/pages-components/Login/LoginForm/LoginForm";
 import Header from "../../components/global-components/Header/Header";
 import styles from "./Login.module.css";
 import { useNavigate, useSearchParams } from "react-router";
@@ -63,7 +63,7 @@ export default function Login() {
       </Header>
       <Container className={styles.container}>
         <Box className={styles.form}>
-          <CardFlip
+          <LoginForm
             onSubmit={handleSubmit}
             error={error}
             isLoading={isLoading}

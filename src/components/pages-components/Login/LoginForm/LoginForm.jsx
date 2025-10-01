@@ -7,12 +7,12 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import styles from "./CardFlip.module.css";
+import styles from "./LoginForm.module.css";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Spinner from "../../../global-components/Spinner/Spinner";
 
-function CardFlip({ onSubmit, error, isLoading }) {
+function LoginForm({ onSubmit, error, isLoading }) {
   const [showPassword, setShowPassword] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -82,4 +82,4 @@ function CardFlip({ onSubmit, error, isLoading }) {
   );
 }
 
-export default CardFlip;
+export default LoginForm;
