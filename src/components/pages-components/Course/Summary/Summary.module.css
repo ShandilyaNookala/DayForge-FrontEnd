@@ -77,3 +77,93 @@
     gap: 0.75rem;
   }
 }
+
+.progressContainer {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.progressWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.customProgressBar {
+  width: 100%;
+  height: 2rem !important;
+  border-radius: 1rem !important;
+  background-color: var(--accent) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.customProgressBar .MuiLinearProgress-root {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+.customProgressBar .MuiLinearProgress-bar {
+  background-color: var(--main-text) !important;
+  background: var(--main-text) !important;
+  border-radius: 1rem !important;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  border-top-left-radius: 1rem !important;
+  border-bottom-left-radius: 1rem !important;
+}
+
+.customProgressBar .MuiLinearProgress-bar[data-testid*="LinearProgress"] {
+  background-color: var(--main-text) !important;
+  background: var(--main-text) !important;
+}
+
+.customProgressBar [class*="MuiLinearProgress-bar"] {
+  background-color: var(--main-text) !important;
+  background: var(--main-text) !important;
+}
+
+.progressTextContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  min-width: 3rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.progressTextContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 87%;
+  background: var(--accent);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: 1;
+}
+
+.progressText {
+  color: var(--results-bg) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  white-space: nowrap;
+  position: relative;
+  z-index: 3;
+}

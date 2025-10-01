@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 import { useRecords } from "../../../../contexts/RecordsContext";
 import styles from "./Summary.module.css";
 import SummaryItem from "../SummaryItem/SummaryItem";
@@ -16,7 +16,11 @@ function Summary() {
     totalPoints,
     totalPointsAttempted,
     mistakePoints,
+    percentageCompleted,
   } = recordsData;
+
+  console.log("Percentage Completed:", Math.round(percentageCompleted));
+  console.log("Percentage Completed Raw:", percentageCompleted);
 
   if (
     totalAttemptedProblems === null ||
@@ -68,6 +72,20 @@ function Summary() {
                 }).format(new Date(endDate))
               : "N/A"}
           </span>
+        </Box>
+      </Box>
+      <Box className={styles.progressContainer}>
+        <Box className={styles.progressWrapper}>
+          <LinearProgress
+            variant="determinate"
+            value={percentageCompleted}
+            className={styles.customProgressBar}
+          />
+          <Box className={styles.progressTextContainer}>
+            <Typography className={styles.progressText}>
+              {Math.round(percentageCompleted)}%
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
