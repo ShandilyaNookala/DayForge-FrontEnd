@@ -20,8 +20,9 @@ export default function ChangedRecord({ taskId }) {
   useEffect(
     function () {
       setWork(changedRecordData?.work);
+      setInputDate(new Date(changedRecordData?.nextDate));
     },
-    [changedRecordData?.work]
+    [changedRecordData?.work, changedRecordData?.nextDate]
   );
 
   async function handleSaveRecord() {
