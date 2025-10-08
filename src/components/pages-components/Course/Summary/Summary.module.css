@@ -1,6 +1,5 @@
 .summaryContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -14,6 +13,7 @@
   align-items: flex-start;
   gap: 1rem;
   margin-top: 0.5rem;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   background: transparent;
@@ -48,13 +48,14 @@
   border: 1px solid var(--table-border);
   padding: 0.75rem;
   border-radius: 12px;
-  width: auto;
-  flex: 0 0 auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.75rem 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.5rem;
+  row-gap: 0.2rem;
+  box-sizing: border-box;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -81,11 +82,17 @@
 .progressContainer {
   width: 100%;
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .progressWrapper {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -117,6 +124,7 @@
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
   border-top-left-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
+  transform: none !important;
 }
 
 .customProgressBar .MuiLinearProgress-bar[data-testid*="LinearProgress"] {
@@ -127,6 +135,7 @@
 .customProgressBar [class*="MuiLinearProgress-bar"] {
   background-color: var(--main-text) !important;
   background: var(--main-text) !important;
+  transform: none !important;
 }
 
 .progressTextContainer {
@@ -140,10 +149,10 @@
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
-  min-width: 3rem;
+  min-width: 1rem;
   box-sizing: border-box;
   width: 100%;
-  padding-left: 1rem;
+  padding-left: 0.25rem;
 }
 
 .progressTextContainer::before {
@@ -152,7 +161,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 87%;
+  width: calc(100% - var(--progress-width));
   background: var(--accent);
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;

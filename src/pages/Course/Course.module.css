@@ -16,11 +16,6 @@
   margin-bottom: 0.5rem;
 }
 
-.backButtonAndSummary {
-  display: flex;
-  gap: 1rem;
-}
-
 .backButton {
   margin: 0.5rem 0rem !important;
 }
