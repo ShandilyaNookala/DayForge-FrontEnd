@@ -74,7 +74,10 @@ function Summary() {
           </span>
         </Box>
       </Box>
-      <Box className={styles.progressContainer}>
+      <Box
+        className={styles.progressContainer}
+        style={{ "--progress-width": `${percentageCompleted}%` }}
+      >
         <Box className={styles.progressWrapper}>
           <LinearProgress
             variant="determinate"
