@@ -1,0 +1,108 @@
+:root {
+  --bg1: #fff6e0;
+  --bg2: #ffbb64;
+  --bg3: #e17223;
+
+  --header-start: #e17223;
+  --header-end: #db8507;
+  --header-text: #fff6e0;
+
+  --footer-start: #db8507;
+  --footer-end: #e17223;
+  --footer-text: #fff6e0;
+
+  --border-see-rule: #db8507;
+  --table-header: linear-gradient(108deg, #e17223 65%, #db8507 98%);
+  --table-header-text: #fff6e0;
+  --table-border: #db8507;
+  --table-text-color: #6b3f12;
+  --row-odd: rgba(255, 187, 100, 0.9);
+  --row-even: rgba(255, 217, 90, 0.9);
+
+  --accent: #ffd95a;
+  --highlight: #e17223;
+  --main-text: #6b3f12;
+  --button-text: #fff6e0;
+  --results-bg: rgba(255, 245, 222, 0.9);
+  --results-accent: #db8507;
+
+  --login-button-background: linear-gradient(108deg, #e17223 65%, #db8507 98%);
+  --login-button-text: #fff6e0;
+  --login-button-border: #db8507;
+
+  --primary-color: linear-gradient(108deg, #e17223 65%, #db8507 98%);
+  --secondary-color: #db8507;
+
+  --manage-rules-btn-bg-start: #e17223;
+  --manage-rules-btn-bg-end: #db8507;
+  --manage-rules-btn-hover-start: #f08b2a;
+  --manage-rules-btn-hover-end: #ffb85d;
+  --manage-rules-btn-text: #fff6e0;
+  --manage-rules-btn-border: #db8507;
+
+  --table-row-hover: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 251, 228, 0.85) 70%,
+    #ffd95a 100%
+  );
+  --table-row-hover-shadow: 0 0.125rem 1.125rem 0.1875rem
+      rgba(255, 169, 77, 0.45),
+    0 0 0 0.25rem rgba(255, 232, 147, 0.65);
+  --table-row-hover-transform: scale(1.025) translateZ(0.1rem) rotate(-1deg);
+}
+
+:root {
+  /* Thanksgiving Turkey Icon palette */
+  --turkey-color-000: #000000;
+  --turkey-color-001: #231f20;
+  --turkey-color-002: #281916;
+  --turkey-color-003: #2d1e1b;
+  --turkey-color-004: #313234;
+  --turkey-color-005: #32883e;
+  --turkey-color-006: #334405;
+  --turkey-color-007: #351506;
+  --turkey-color-008: #365f0a;
+  --turkey-color-009: #38770e;
+  --turkey-color-010: #3f2e2b;
+  --turkey-color-011: #42312e;
+  --turkey-color-012: #513c39;
+  --turkey-color-013: #5ca2c4;
+  --turkey-color-014: #5e4d49;
+  --turkey-color-015: #606060;
+  --turkey-color-016: #63372a;
+  --turkey-color-017: #637d8b;
+  --turkey-color-018: #6e6e6e;
+  --turkey-color-019: #6f4033;
+  --turkey-color-020: #6f430d;
+  --turkey-color-021: #719f07;
+  --turkey-color-022: #796d67;
+  --turkey-color-023: #7d7d7d;
+  --turkey-color-024: #814b3c;
+  --turkey-color-025: #8b8b8b;
+  --turkey-color-026: #9a9a9a;
+  --turkey-color-027: #9c543b;
+  --turkey-color-028: #a8a8a8;
+  --turkey-color-029: #b3a097;
+  --turkey-color-030: #b6724d;
+  --turkey-color-031: #b7b7b7;
+  --turkey-color-032: #beb77f;
+  --turkey-color-033: #c2c4c6;
+  --turkey-color-034: #c5c5c5;
+  --turkey-color-035: #c9531b;
+  --turkey-color-036: #c97c53;
+  --turkey-color-037: #d1392a;
+  --turkey-color-038: #d39b1f;
+  --turkey-color-039: #d4d4d4;
+  --turkey-color-040: #d86000;
+  --turkey-color-041: #e2e2e2;
+  --turkey-color-042: #f1f1f1;
+  --turkey-color-043: #f36101;
+  --turkey-color-044: #f3f4f4;
+  --turkey-color-045: #f77600;
+  --turkey-color-046: #fbc437;
+  --turkey-color-047: #ff8e14;
+  --turkey-color-048: #ff9c1f;
+  --turkey-color-049: #ffaf30;
+  --turkey-color-050: #fffac0;
+  --turkey-color-051: #ffffff;
+}

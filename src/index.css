@@ -1,4 +1,4 @@
-@import "./themes/HalloweenTheme/colors.css";
+@import "./themes/ThanksgivingTheme/colors.css";
 
 :root {
   --bg: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
@@ -12,8 +12,8 @@
   --info-card-background: var(--primary-color);
 
   --login-button-background: var(--primary-color);
-  --login-button-text: #f2f1ff;
-  --login-button-border: var(--secondary-color);
+  --login-button-text: var(--button-text);
+  --login-button-border: var(--secondary-color, var(--accent));
 
   --info-card-text: var(--button-text);
 
@@ -179,7 +179,10 @@ body {
 .dataGrid .MuiDataGrid-root .MuiDataGrid-columnHeader {
   border-right: 2px solid var(--table-border) !important;
   background: var(--table-header) !important;
-  color: var(--table-text-color, var(--main-text)) !important;
+  color: var(
+    --table-header-text,
+    var(--table-text-color, var(--main-text))
+  ) !important;
   font-size: 20px;
 }
 
@@ -198,15 +201,17 @@ body {
 }
 
 table tbody tr:hover {
-  background: #2f1b14 !important;
+  background: var(--table-row-hover, var(--highlight)) !important;
+  box-shadow: var(--table-row-hover-shadow, none);
+  transform: var(--table-row-hover-transform, none);
 }
 
 .dataGrid .MuiDataGrid-row:hover .MuiDataGrid-cell {
-  background-color: #2f1b14 !important;
+  background-color: var(--table-row-hover, var(--highlight)) !important;
 }
 
 .MuiTableRow-root:hover .MuiTableCell-root {
-  background-color: #2f1b14 !important;
+  background-color: var(--table-row-hover, var(--highlight)) !important;
 }
 
 button,
@@ -264,7 +269,10 @@ button:focus-visible,
 
 .MuiTableHead-root .MuiTableCell-root {
   background: var(--table-header) !important;
-  color: var(--table-text-color, var(--main-text)) !important;
+  color: var(
+    --table-header-text,
+    var(--table-text-color, var(--main-text))
+  ) !important;
 }
 
 .MuiTableCell-root {

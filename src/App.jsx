@@ -10,8 +10,7 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/global-components/ProtectedRoute/ProtectedRoute.jsx";
 import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
-import Halloween from "./themes/HalloweenTheme/Halloween.jsx";
-//import Beach from "./themes/SummerBeachTheme/Beach.jsx";
+import Thanksgiving from "./themes/ThanksgivingTheme/Thanksgiving.jsx";
 import ChangeRuleOrder from "./pages/ChangeRuleOrder/ChangeRuleOrder.jsx";
 import Footer from "./components/global-components/Footer/Footer.jsx";
 
@@ -19,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Halloween />
+        <Thanksgiving />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate replace to="/home" />} />
