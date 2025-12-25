@@ -1,4 +1,11 @@
-import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { baseUrl } from "../../utils/config.js";
 import { displayTimeTaken, sendAPI } from "../../utils/helpers.js";
 
@@ -39,6 +46,7 @@ function formatTime(params) {
 export default function Course() {
   const [modalData, setModalData] = useState(null);
 
+  const containerRef = useRef(null);
   const { user } = useAuth();
   const { isLoading, recordsData, setChangedRecordData, changedRecordData } =
     useRecords();
@@ -52,6 +60,10 @@ export default function Course() {
   useEffect(() => {
     setChangedRecordData(null);
   }, [setChangedRecordData, recordsData]);
+
+  useEffect(() => {
+    containerRef.current.focus();
+  }, [recordsData]);
 
   async function showAddNewRecord() {
     const dataForAddedRecord = await sendAPI(
@@ -178,7 +190,18 @@ export default function Course() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <>
+        <Box
+          onKeyDownCapture={(e) => {
+            if (e.key === "ArrowLeft" && recordsData?.previousTask) {
+              navigate(`/course/${recordsData?.previousTask}`);
+            }
+            if (e.key === "ArrowRight" && recordsData?.nextTask) {
+              navigate(`/course/${recordsData?.nextTask}`);
+            }
+          }}
+          ref={containerRef}
+          tabIndex={-1}
+        >
           <Header>
             {isAdmin && recordsData?.rule && (
               <Box className={styles.ruleLinks}>
@@ -253,7 +276,7 @@ export default function Course() {
           >
             <Box className={styles.modalText}>{modalData}</Box>
           </Dialog>
-        </>
+        </Box>
       )}
     </>
   );

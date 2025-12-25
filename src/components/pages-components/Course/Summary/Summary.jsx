@@ -19,9 +19,6 @@ function Summary() {
     percentageCompleted,
   } = recordsData;
 
-  console.log("Percentage Completed:", Math.round(percentageCompleted));
-  console.log("Percentage Completed Raw:", percentageCompleted);
-
   if (
     totalAttemptedProblems === null ||
     totalProblems === null ||
