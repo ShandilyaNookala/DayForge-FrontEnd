@@ -36,7 +36,7 @@
   --border-color: var(--table-border);
   --progress-color: var(--results-accent);
   --selection-background: var(--selection-bg, var(--highlight));
-  --selection-text: var(--selection-fg, var(--main-text));
+  --selection-text: var(--main-text);
 
   --no-of-columns-for-grid-in-change-rule-order: 3;
 }
