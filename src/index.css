@@ -1,4 +1,4 @@
-@import "./themes/ThanksgivingTheme/colors.css";
+@import "./themes/SummerBeachTheme/colors.css";
 
 :root {
   --bg: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
@@ -227,7 +227,10 @@ button,
   letter-spacing: 0.2px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease !important;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    background 0.2s ease !important;
   text-decoration: none;
 }
 
