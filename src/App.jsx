@@ -12,13 +12,13 @@ import Homepage from "./components/global-components/Homepage/Homepage.jsx";
 import ExistingRuleCategories from "./pages/ExistingRuleCategories/ExistingRuleCategories.jsx";
 import ChangeRuleOrder from "./pages/ChangeRuleOrder/ChangeRuleOrder.jsx";
 import Footer from "./components/global-components/Footer/Footer.jsx";
-import Vibrant from "./themes/VibrantSummerTheme/Vibrant.jsx";
+import Halloween from "./themes/HalloweenTheme/Halloween.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Vibrant />
+        <Halloween />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate replace to="/home" />} />

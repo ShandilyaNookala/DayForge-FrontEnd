@@ -1,4 +1,4 @@
-@import "./themes/VibrantSummerTheme/colors.css";
+@import "./themes/HalloweenTheme/colors.css";
 
 :root {
   --bg: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%, var(--bg3) 100%);
