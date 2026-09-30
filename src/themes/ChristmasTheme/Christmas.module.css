@@ -71,130 +71,82 @@
 
 .sleigh {
   position: absolute;
-  top: 12%;
-  left: -12rem;
+  top: 7%;
+  left: -27rem;
   z-index: 2;
-  display: flex;
-  align-items: flex-end;
   animation: sleighRide 28s linear infinite;
   filter: drop-shadow(0 0.6rem 0.5rem rgba(0, 0, 0, 0.4));
 }
 
-.santa,
-.sleighBody {
-  font-size: 3.5rem !important;
-  line-height: 1 !important;
+.santaScene {
+  display: block;
+  width: 26rem;
+  height: auto;
+  overflow: visible;
 }
 
-.santa {
-  margin-right: -0.8rem !important;
+.santaFigure {
+  transform-origin: 50% 60%;
   animation: santaFloat 2s ease-in-out infinite;
 }
 
-.tree {
+.reindeer {
+  transform-origin: center;
+  animation: reindeerRun 0.8s ease-in-out infinite alternate;
+}
+
+.treeArt {
   position: absolute;
-  right: 2.5vw;
-  bottom: 1.5rem;
-  width: 13rem;
-  height: 18rem;
-  z-index: 2;
-  filter: drop-shadow(0 0 0.9rem rgba(232, 191, 114, 0.35));
-}
-
-.treeTop,
-.treeMiddle,
-.treeBottom {
-  position: absolute;
-  left: 50%;
-  width: 0;
-  height: 0;
-  transform: translateX(-50%);
-  border-left-style: solid;
-  border-left-color: transparent;
-  border-right-style: solid;
-  border-right-color: transparent;
-  border-bottom-style: solid;
-  border-bottom-color: #176142;
-}
-
-.treeTop {
-  top: 2.3rem;
-  border-left-width: 3.5rem;
-  border-right-width: 3.5rem;
-  border-bottom-width: 6rem;
-}
-
-.treeMiddle {
-  top: 5.1rem;
-  border-left-width: 5rem;
-  border-right-width: 5rem;
-  border-bottom-width: 7.7rem;
-  border-bottom-color: #14553b;
-}
-
-.treeBottom {
-  top: 8.2rem;
-  border-left-width: 6.4rem;
-  border-right-width: 6.4rem;
-  border-bottom-width: 8.5rem;
-  border-bottom-color: #0f4933;
-}
-
-.treeStar {
-  position: absolute !important;
-  top: 0 !important;
-  left: 50% !important;
-  z-index: 4 !important;
-  color: #ffd353 !important;
-  font-size: 3.2rem !important;
-  transform: translateX(-50%);
-  filter: drop-shadow(0 0 0.55rem #ffd353);
-  animation: starGlow 1.8s ease-in-out infinite alternate;
-}
-
-.trunk {
-  position: absolute;
-  left: 50%;
+  right: 1.5vw;
   bottom: 0;
-  width: 2.2rem;
-  height: 3.5rem;
-  transform: translateX(-50%);
-  background: #74442b;
+  width: 19rem;
+  height: 23rem;
+  z-index: 2;
+  filter: drop-shadow(0 0 0.75rem rgba(232, 191, 114, 0.3));
 }
 
-.ornamentOne,
-.ornamentTwo,
-.ornamentThree {
+.treeDrawing {
   position: absolute;
+  inset: 0 0 2.5rem;
+  width: 100%;
+  height: calc(100% - 2.5rem);
+  overflow: visible;
+}
+
+.treeLine {
+  fill: none;
+  stroke: #d5a15f;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1160;
+  stroke-dashoffset: 1160;
+  filter: drop-shadow(0 0 0.3rem rgba(255, 211, 83, 0.85));
+  animation: drawTree 10s ease-in-out infinite;
+}
+
+.snowman {
+  position: absolute !important;
+  right: -0.3rem;
+  bottom: 2rem;
   z-index: 3;
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  box-shadow: 0 0 0.65rem currentColor;
-  animation: ornamentGlow 1.4s ease-in-out infinite alternate;
+  font-size: 4.7rem !important;
+  line-height: 1 !important;
+  filter: drop-shadow(0 0.4rem 0.35rem rgba(0, 0, 0, 0.35));
+  animation: snowmanWave 2.5s ease-in-out infinite;
 }
 
-.ornamentOne {
-  top: 6.5rem;
-  left: 5.8rem;
-  color: #e7354f;
-  background: #e7354f;
-}
-
-.ornamentTwo {
-  top: 10.2rem;
-  left: 3.6rem;
-  color: #70bafa;
-  background: #70bafa;
-  animation-delay: -0.5s;
-}
-
-.ornamentThree {
-  top: 12rem;
-  right: 3.4rem;
-  color: #ffd353;
-  background: #ffd353;
-  animation-delay: -0.9s;
+.christmasGreeting {
+  position: absolute !important;
+  right: 3.8rem;
+  bottom: 0;
+  z-index: 4;
+  width: max-content;
+  color: #173f36;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+  font-style: italic;
 }
 
 .snowbank {
@@ -241,26 +193,41 @@
 
 @keyframes santaFloat {
   50% {
-    transform: translateY(-0.4rem) rotate(-3deg);
+    transform: translateY(-0.3rem) rotate(-1deg);
   }
 }
 
-@keyframes starGlow {
+@keyframes reindeerRun {
   to {
-    opacity: 0.72;
-    filter: drop-shadow(0 0 1rem #ffd353);
+    transform: translateY(-0.35rem) rotate(-1deg);
   }
 }
 
-@keyframes ornamentGlow {
-  to {
-    filter: brightness(1.45);
-    transform: scale(1.2);
+@keyframes drawTree {
+  0%,
+  8% {
+    stroke-dashoffset: 1160;
+    opacity: 0.25;
+  }
+  62%,
+  86% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -1160;
+    opacity: 0.25;
+  }
+}
+
+@keyframes snowmanWave {
+  50% {
+    transform: rotate(4deg) translateY(-0.2rem);
   }
 }
 
 @media (max-width: 48rem) {
-  .tree {
+  .treeArt {
     right: -2.5rem;
     bottom: 0;
     transform: scale(0.7);
@@ -282,12 +249,15 @@
   .glow,
   .snowflake,
   .sleigh,
-  .santa,
-  .treeStar,
-  .ornamentOne,
-  .ornamentTwo,
-  .ornamentThree {
+  .santaFigure,
+  .reindeer,
+  .treeLine,
+  .snowman {
     animation: none;
+  }
+
+  .treeLine {
+    stroke-dashoffset: 0;
   }
 
   .sleigh {
