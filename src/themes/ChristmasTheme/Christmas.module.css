@@ -82,17 +82,6 @@
   display: block;
   width: 26rem;
   height: auto;
-  overflow: visible;
-}
-
-.santaFigure {
-  transform-origin: 50% 60%;
-  animation: santaFloat 2s ease-in-out infinite;
-}
-
-.reindeer {
-  transform-origin: center;
-  animation: reindeerRun 0.8s ease-in-out infinite alternate;
 }
 
 .treeArt {
@@ -191,18 +180,6 @@
   }
 }
 
-@keyframes santaFloat {
-  50% {
-    transform: translateY(-0.3rem) rotate(-1deg);
-  }
-}
-
-@keyframes reindeerRun {
-  to {
-    transform: translateY(-0.35rem) rotate(-1deg);
-  }
-}
-
 @keyframes drawTree {
   0%,
   8% {
@@ -249,8 +226,6 @@
   .glow,
   .snowflake,
   .sleigh,
-  .santaFigure,
-  .reindeer,
   .treeLine,
   .snowman {
     animation: none;
