@@ -71,10 +71,9 @@
 
 .sleigh {
   position: absolute;
-  top: 7%;
-  left: -27rem;
+  top: 5.5rem;
+  right: 16vw;
   z-index: 2;
-  animation: sleighRide 28s linear infinite;
   filter: drop-shadow(0 0.6rem 0.5rem rgba(0, 0, 0, 0.4));
 }
 
@@ -170,16 +169,6 @@
   }
 }
 
-@keyframes sleighRide {
-  45%,
-  55% {
-    transform: translateX(120vw) translateY(3rem);
-  }
-  100% {
-    transform: translateX(120vw) translateY(3rem);
-  }
-}
-
 @keyframes drawTree {
   0%,
   8% {
@@ -225,7 +214,6 @@
   .bulb,
   .glow,
   .snowflake,
-  .sleigh,
   .treeLine,
   .snowman {
     animation: none;
