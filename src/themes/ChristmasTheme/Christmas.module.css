@@ -7,7 +7,7 @@
 }
 
 .lightrope {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -17,7 +17,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  z-index: 5;
+  z-index: 6;
+  pointer-events: none;
   border-top: 0.15rem solid #223d37;
 }
 
@@ -72,8 +73,8 @@
 .santaOverlay {
   position: fixed;
   top: 0.75rem;
-  right: 16vw;
-  z-index: 6;
+  right: 12vw;
+  z-index: 7;
   pointer-events: none;
   filter: drop-shadow(0 0.6rem 0.5rem rgba(0, 0, 0, 0.4));
 }

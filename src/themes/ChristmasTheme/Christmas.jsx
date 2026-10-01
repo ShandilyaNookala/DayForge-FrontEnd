@@ -41,21 +41,6 @@ export default function Christmas() {
   return (
     <>
       <Box className={styles.christmasContainer} aria-hidden="true">
-      <Box component="ul" className={styles.lightrope}>
-        {Array.from({ length: lightsCount }, (_, index) => (
-          <Box
-            component="li"
-            key={`christmas-light-${index}`}
-            className={styles.bulb}
-            sx={{
-              backgroundColor: lightColors[index % lightColors.length],
-              color: lightColors[index % lightColors.length],
-              animationDelay: `${(index % 5) * -0.35}s`,
-            }}
-          />
-        ))}
-      </Box>
-
       <Box className={styles.bokeh}>
         {decorations.bokeh.map((light) => (
           <Box
@@ -112,6 +97,21 @@ export default function Christmas() {
         </Box>
 
         <Box className={styles.snowbank} />
+      </Box>
+
+      <Box component="ul" className={styles.lightrope} aria-hidden="true">
+        {Array.from({ length: lightsCount }, (_, index) => (
+          <Box
+            component="li"
+            key={`christmas-light-${index}`}
+            className={styles.bulb}
+            sx={{
+              backgroundColor: lightColors[index % lightColors.length],
+              color: lightColors[index % lightColors.length],
+              animationDelay: `${(index % 5) * -0.35}s`,
+            }}
+          />
+        ))}
       </Box>
 
       <Box className={styles.santaOverlay} aria-hidden="true">
