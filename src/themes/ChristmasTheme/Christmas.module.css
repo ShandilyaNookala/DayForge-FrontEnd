@@ -106,13 +106,27 @@
 .treeLine {
   fill: none;
   stroke: #d5a15f;
-  stroke-width: 6;
+  stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1160;
   stroke-dashoffset: 1160;
-  filter: drop-shadow(0 0 0.3rem rgba(255, 211, 83, 0.85));
+  filter: drop-shadow(0 0 0.2rem rgba(255, 211, 83, 0.65));
   animation: drawTree 10s ease-in-out infinite;
+}
+
+.treeStar {
+  fill: #d5a15f;
+  stroke: #31515a;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.treeBase {
+  fill: none;
+  stroke: #d5a15f;
+  stroke-width: 4;
+  stroke-linecap: round;
 }
 
 .snowman {
