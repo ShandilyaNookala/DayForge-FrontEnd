@@ -1,4 +1,4 @@
-import { Box, LinearProgress, Typography } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import { useRecords } from "../../../../contexts/RecordsContext";
 import styles from "./Summary.module.css";
 import SummaryItem from "../SummaryItem/SummaryItem";
@@ -71,21 +71,13 @@ function Summary() {
           </span>
         </Box>
       </Box>
-      <Box
-        className={styles.progressContainer}
-        style={{ "--progress-width": `${percentageCompleted}%` }}
-      >
+      <Box className={styles.progressContainer}>
         <Box className={styles.progressWrapper}>
           <LinearProgress
             variant="determinate"
             value={percentageCompleted}
             className={styles.customProgressBar}
           />
-          <Box className={styles.progressTextContainer}>
-            <Typography className={styles.progressText}>
-              {Math.round(percentageCompleted)}%
-            </Typography>
-          </Box>
         </Box>
       </Box>
     </Box>

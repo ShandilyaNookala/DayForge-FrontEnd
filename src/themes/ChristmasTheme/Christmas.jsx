@@ -39,22 +39,8 @@ export default function Christmas() {
   }, []);
 
   return (
-    <Box className={styles.christmasContainer} aria-hidden="true">
-      <Box component="ul" className={styles.lightrope}>
-        {Array.from({ length: lightsCount }, (_, index) => (
-          <Box
-            component="li"
-            key={`christmas-light-${index}`}
-            className={styles.bulb}
-            sx={{
-              backgroundColor: lightColors[index % lightColors.length],
-              color: lightColors[index % lightColors.length],
-              animationDelay: `${(index % 5) * -0.35}s`,
-            }}
-          />
-        ))}
-      </Box>
-
+    <>
+      <Box className={styles.christmasContainer} aria-hidden="true">
       <Box className={styles.bokeh}>
         {decorations.bokeh.map((light) => (
           <Box
@@ -90,69 +76,61 @@ export default function Christmas() {
         ))}
       </Box>
 
-      <Box className={styles.sleigh}>
-        <Box
-          component="svg"
-          className={styles.santaScene}
-          viewBox="0 0 420 190"
-          role="presentation"
-        >
-          <g className={styles.reindeer}>
-            <path d="M305 89c18-19 46-13 52 7 5 17-5 34-24 38-21 4-42-13-40-31 1-6 5-11 12-14Z" fill="#9a542f" />
-            <ellipse cx="365" cy="91" rx="28" ry="22" fill="#a96137" />
-            <ellipse cx="391" cy="90" rx="12" ry="10" fill="#40271d" />
-            <circle cx="374" cy="83" r="5" fill="#fff" />
-            <circle cx="376" cy="83" r="2.5" fill="#171a1c" />
-            <path d="M352 69c-2-18-11-27-25-31m27 28c10-16 20-23 34-24M326 38l-8-11m12 14 2-15m56 16 8-11m-12 13-1-15" fill="none" stroke="#6b3e29" strokeWidth="7" strokeLinecap="round" />
-            <path d="M319 124l-18 37m40-31 18 33m-59-2-13 2m72 0 14-2" fill="none" stroke="#6b3e29" strokeWidth="8" strokeLinecap="round" />
-            <path d="M287 98c-32 8-49 20-67 31" fill="none" stroke="#e2b464" strokeWidth="3" />
-          </g>
-          <g className={styles.santaFigure}>
-            <path d="M28 142h218l-18 32H54c-17 0-26-12-26-32Z" fill="#a94a24" />
-            <path d="M35 146h201M55 164h155" fill="none" stroke="#e8a35b" strokeWidth="5" strokeLinecap="round" />
-            <path d="M48 173c13 15 32 14 48 1m76 0c13 15 31 14 45 0" fill="none" stroke="#d5ad61" strokeWidth="6" strokeLinecap="round" />
-            <path d="M39 68c5-22 27-39 56-39 31 0 53 17 57 42l9 73H31Z" fill="#d3ae55" />
-            <path d="M39 72h112v69H36Z" fill="#ad552a" stroke="#e1954f" strokeWidth="5" />
-            <path d="M50 85h88v42H50Z" fill="#bb6233" stroke="#df8d49" strokeWidth="4" />
-            <ellipse cx="205" cy="93" rx="37" ry="43" fill="#d72d30" />
-            <circle cx="202" cy="58" r="27" fill="#f5c88f" />
-            <path d="M172 55c4 31 17 48 35 48 20 0 31-18 29-47-8 9-17 13-31 13-13 0-23-5-33-14Z" fill="#fffaf1" />
-            <circle cx="193" cy="58" r="3" fill="#253133" />
-            <circle cx="211" cy="58" r="3" fill="#253133" />
-            <path d="M195 74c7 5 14 5 20-1" fill="none" stroke="#a84a34" strokeWidth="3" strokeLinecap="round" />
-            <path d="M175 43c8-27 38-35 56-12l-3 12Z" fill="#d72d30" />
-            <path d="M174 43h57" stroke="#fff" strokeWidth="9" strokeLinecap="round" />
-            <circle cx="231" cy="28" r="9" fill="#fff" />
-            <path d="M225 91c19 2 28-3 40-17" fill="none" stroke="#d72d30" strokeWidth="15" strokeLinecap="round" />
-            <circle cx="267" cy="71" r="8" fill="#fffaf1" />
-            <path d="M264 67l2-13m1 13 10-9m-10 10 13 1" fill="none" stroke="#f5c88f" strokeWidth="4" strokeLinecap="round" />
-            <path d="M181 129h48" stroke="#222" strokeWidth="9" strokeLinecap="round" />
-            <rect x="199" y="122" width="13" height="14" rx="2" fill="#ffd353" />
-          </g>
+        <Box className={styles.treeArt}>
+          <Box
+            component="svg"
+            className={styles.treeDrawing}
+            viewBox="0 0 300 350"
+            role="presentation"
+          >
+            <path
+              className={styles.treeStar}
+              d="m150 18 8.5 17.2 19 2.8-13.8 13.4 3.3 18.9-17-8.9-17 8.9 3.3-18.9L122.5 38l19-2.8Z"
+            />
+            <path
+              className={styles.treeLine}
+              d="M150 78C135 103 126 128 106 151 95 164 83 172 70 178c-8 4-8 9 1 12l30 10c9 3 10 8 2 14-13 10-36 18-50 29-9 7-8 13 2 17l36 13c10 4 11 10 2 16-12 8-25 15-34 24m182 0c-9-9-22-16-34-24-9-6-8-12 2-16l36-13c10-4 11-10 2-17-14-11-37-19-50-29-8-6-7-11 2-14l30-10c9-3 9-8 1-12-13-6-25-14-36-27-20-23-29-48-44-73"
+            />
+            <path
+              className={styles.treeBase}
+              d="M58 317c31-12 62-9 91-2 29 8 58 14 93 2M136 322c0 17 28 17 28 0"
+            />
+          </Box>
+          <Typography component="span" className={styles.snowman}>
+            ⛄
+          </Typography>
+          <Typography component="span" className={styles.christmasGreeting}>
+            Merry Christmas
+          </Typography>
         </Box>
+
+        <Box className={styles.snowbank} />
       </Box>
 
-      <Box className={styles.treeArt}>
-        <Box
-          component="svg"
-          className={styles.treeDrawing}
-          viewBox="0 0 300 350"
-          role="presentation"
-        >
-          <path
-            className={styles.treeLine}
-            d="M18 318C34 300 75 309 98 314M121 320c-17 0-25-4-25-16 0-11 14-18 22-25 15-13 12-24-8-31-24-9-48-16-45-30 2-11 23-18 39-26 22-11 23-24 2-35-17-9-37-16-34-28 2-10 18-17 30-28 23-20 42-60 55-89 5-11 11-11 17 0 18 37 35 68 62 89 13 10 28 17 30 27 3 13-17 20-34 29-21 11-20 24 2 35 17 8 37 15 40 26 3 14-21 21-45 30-20 7-23 18-8 31 8 7 22 14 22 25 0 12-9 16-25 16"
+      <Box component="ul" className={styles.lightrope} aria-hidden="true">
+        {Array.from({ length: lightsCount }, (_, index) => (
+          <Box
+            component="li"
+            key={`christmas-light-${index}`}
+            className={styles.bulb}
+            sx={{
+              backgroundColor: lightColors[index % lightColors.length],
+              color: lightColors[index % lightColors.length],
+              animationDelay: `${(index % 5) * -0.35}s`,
+            }}
           />
-        </Box>
-        <Typography component="span" className={styles.snowman}>
-          ⛄
-        </Typography>
-        <Typography component="span" className={styles.christmasGreeting}>
-          Merry Christmas
-        </Typography>
+        ))}
       </Box>
 
-      <Box className={styles.snowbank} />
-    </Box>
+      <Box className={styles.santaOverlay} aria-hidden="true">
+        <Box
+          component="img"
+          className={styles.santaScene}
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/santas.gif"
+          alt=""
+          role="presentation"
+        />
+      </Box>
+    </>
   );
 }

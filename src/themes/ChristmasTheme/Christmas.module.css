@@ -7,7 +7,7 @@
 }
 
 .lightrope {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -17,7 +17,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  z-index: 5;
+  z-index: 6;
+  pointer-events: none;
   border-top: 0.15rem solid #223d37;
 }
 
@@ -69,12 +70,12 @@
   animation: snowfall 14s linear infinite;
 }
 
-.sleigh {
-  position: absolute;
-  top: 7%;
-  left: -27rem;
-  z-index: 2;
-  animation: sleighRide 28s linear infinite;
+.santaOverlay {
+  position: fixed;
+  top: 0.75rem;
+  right: 12vw;
+  z-index: 7;
+  pointer-events: none;
   filter: drop-shadow(0 0.6rem 0.5rem rgba(0, 0, 0, 0.4));
 }
 
@@ -82,17 +83,6 @@
   display: block;
   width: 26rem;
   height: auto;
-  overflow: visible;
-}
-
-.santaFigure {
-  transform-origin: 50% 60%;
-  animation: santaFloat 2s ease-in-out infinite;
-}
-
-.reindeer {
-  transform-origin: center;
-  animation: reindeerRun 0.8s ease-in-out infinite alternate;
 }
 
 .treeArt {
@@ -116,13 +106,27 @@
 .treeLine {
   fill: none;
   stroke: #d5a15f;
-  stroke-width: 6;
+  stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1160;
   stroke-dashoffset: 1160;
-  filter: drop-shadow(0 0 0.3rem rgba(255, 211, 83, 0.85));
+  filter: drop-shadow(0 0 0.2rem rgba(255, 211, 83, 0.65));
   animation: drawTree 10s ease-in-out infinite;
+}
+
+.treeStar {
+  fill: #d5a15f;
+  stroke: #31515a;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.treeBase {
+  fill: none;
+  stroke: #d5a15f;
+  stroke-width: 4;
+  stroke-linecap: round;
 }
 
 .snowman {
@@ -181,28 +185,6 @@
   }
 }
 
-@keyframes sleighRide {
-  45%,
-  55% {
-    transform: translateX(120vw) translateY(3rem);
-  }
-  100% {
-    transform: translateX(120vw) translateY(3rem);
-  }
-}
-
-@keyframes santaFloat {
-  50% {
-    transform: translateY(-0.3rem) rotate(-1deg);
-  }
-}
-
-@keyframes reindeerRun {
-  to {
-    transform: translateY(-0.35rem) rotate(-1deg);
-  }
-}
-
 @keyframes drawTree {
   0%,
   8% {
@@ -227,6 +209,15 @@
 }
 
 @media (max-width: 48rem) {
+  .santaOverlay {
+    top: 0.5rem;
+    right: 0.75rem;
+  }
+
+  .santaScene {
+    width: 18rem;
+  }
+
   .treeArt {
     right: -2.5rem;
     bottom: 0;
@@ -248,9 +239,6 @@
   .bulb,
   .glow,
   .snowflake,
-  .sleigh,
-  .santaFigure,
-  .reindeer,
   .treeLine,
   .snowman {
     animation: none;
@@ -260,7 +248,7 @@
     stroke-dashoffset: 0;
   }
 
-  .sleigh {
+  .santaOverlay {
     display: none;
   }
 }
