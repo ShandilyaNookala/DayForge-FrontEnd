@@ -1,0 +1,46 @@
+:root {
+  --bg1: #315467;
+  --bg2: #152d39;
+  --bg3: #101c28;
+
+  --header-start: #174c3d;
+  --header-end: #0f312b;
+  --header-text: #fffaf1;
+
+  --footer-start: #0f312b;
+  --footer-end: #173f36;
+  --footer-text: #fffaf1;
+
+  --border-see-rule: #d5ad61;
+  --table-header: linear-gradient(145deg, #174c3d, #246b55);
+  --table-header-text: #fffaf1;
+  --table-border: #d5ad61;
+  --table-text-color: #17312f;
+  --row-odd: rgba(255, 250, 241, 0.94);
+  --row-even: rgba(241, 232, 215, 0.94);
+
+  --accent: #e8bf72;
+  --highlight: #f4dfb1;
+  --main-text: #fffaf1;
+  --button-text: #fffaf1;
+  --results-bg: rgba(255, 250, 241, 0.94);
+  --results-accent: #b4313b;
+
+  --login-button-background: linear-gradient(145deg, #b4313b, #8e202e);
+  --login-button-text: #ffffff;
+  --login-button-border: #e8bf72;
+
+  --primary-color: linear-gradient(145deg, #b4313b, #8e202e);
+  --secondary-color: #e8bf72;
+
+  --manage-rules-btn-bg-start: #b4313b;
+  --manage-rules-btn-bg-end: #8e202e;
+  --manage-rules-btn-hover-start: #c94750;
+  --manage-rules-btn-hover-end: #a52a38;
+  --manage-rules-btn-text: #ffffff;
+  --manage-rules-btn-border: #e8bf72;
+
+  --table-row-hover: #f4dfb1;
+  --table-row-hover-shadow: 0 0.125rem 1.125rem rgba(232, 191, 114, 0.4);
+  --table-row-hover-transform: scale(1.015) translateZ(0.1rem);
+}

@@ -45,6 +45,7 @@
 
 .summaryBox {
   background: var(--results-bg);
+  color: var(--table-text-color);
   border: 1px solid var(--table-border);
   padding: 0.75rem;
   border-radius: 12px;
@@ -136,6 +137,11 @@
   background-color: var(--main-text) !important;
   background: var(--main-text) !important;
   transform: none !important;
+}
+
+.customProgressBar :global(.MuiLinearProgress-bar) {
+  background-color: var(--results-accent) !important;
+  background: var(--results-accent) !important;
 }
 
 .progressTextContainer {
