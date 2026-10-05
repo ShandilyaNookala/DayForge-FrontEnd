@@ -6,33 +6,24 @@ import { bokehCount, lightsCount, snowflakesCount } from "./itemsCount";
 
 const lightColors = ["#ffd353", "#e7354f", "#70e878", "#70bafa"];
 
-const createRandom = () => {
-  let seed = 93721;
-  return () => {
-    seed = (seed * 1664525 + 1013904223) >>> 0;
-    return seed / 4294967296;
-  };
-};
-
 export default function Christmas() {
   const decorations = useMemo(() => {
-    const random = createRandom();
     const snowflakes = Array.from({ length: snowflakesCount }, (_, index) => ({
       id: `snowflake-${index}`,
-      left: random() * 100,
-      size: 0.6 + random() * 1.15,
-      opacity: 0.25 + random() * 0.55,
-      duration: 9 + random() * 12,
-      delay: -(random() * 20),
-      drift: (random() - 0.5) * 12,
+      left: Math.random() * 100,
+      size: 0.6 + Math.random() * 1.15,
+      opacity: 0.25 + Math.random() * 0.55,
+      duration: 9 + Math.random() * 12,
+      delay: -(Math.random() * 20),
+      drift: (Math.random() - 0.5) * 12,
     }));
     const bokeh = Array.from({ length: bokehCount }, (_, index) => ({
       id: `bokeh-${index}`,
-      left: random() * 100,
-      top: random() * 100,
-      size: 2 + random() * 4,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: 2 + Math.random() * 4,
       color: lightColors[index % lightColors.length],
-      delay: -(random() * 8),
+      delay: -(Math.random() * 8),
     }));
 
     return { snowflakes, bokeh };
