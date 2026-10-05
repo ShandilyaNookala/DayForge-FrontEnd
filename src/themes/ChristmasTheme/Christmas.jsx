@@ -41,40 +41,40 @@ export default function Christmas() {
   return (
     <>
       <Box className={styles.christmasContainer} aria-hidden="true">
-      <Box className={styles.bokeh}>
-        {decorations.bokeh.map((light) => (
-          <Box
-            key={light.id}
-            className={styles.glow}
-            sx={{
-              left: `${light.left}%`,
-              top: `${light.top}%`,
-              width: `${light.size}rem`,
-              height: `${light.size}rem`,
-              backgroundColor: light.color,
-              color: light.color,
-              animationDelay: `${light.delay}s`,
-            }}
-          />
-        ))}
-      </Box>
+        <Box className={styles.bokeh}>
+          {decorations.bokeh.map((light) => (
+            <Box
+              key={light.id}
+              className={styles.glow}
+              sx={{
+                left: `${light.left}%`,
+                top: `${light.top}%`,
+                width: `${light.size}rem`,
+                height: `${light.size}rem`,
+                backgroundColor: light.color,
+                color: light.color,
+                animationDelay: `${light.delay}s`,
+              }}
+            />
+          ))}
+        </Box>
 
-      <Box className={styles.snow}>
-        {decorations.snowflakes.map((flake) => (
-          <AcUnitIcon
-            key={flake.id}
-            className={styles.snowflake}
-            sx={{
-              left: `${flake.left}%`,
-              fontSize: `${flake.size}rem`,
-              opacity: flake.opacity,
-              animationDuration: `${flake.duration}s`,
-              animationDelay: `${flake.delay}s`,
-              marginLeft: `${flake.drift}vw`,
-            }}
-          />
-        ))}
-      </Box>
+        <Box className={styles.snow}>
+          {decorations.snowflakes.map((flake) => (
+            <AcUnitIcon
+              key={flake.id}
+              className={styles.snowflake}
+              sx={{
+                left: `${flake.left}%`,
+                fontSize: `${flake.size}rem`,
+                opacity: flake.opacity,
+                animationDuration: `${flake.duration}s`,
+                animationDelay: `${flake.delay}s`,
+                marginLeft: `${flake.drift}vw`,
+              }}
+            />
+          ))}
+        </Box>
 
         <Box className={styles.treeArt}>
           <Box
