@@ -1,0 +1,107 @@
+:root {
+  color-scheme: dark;
+  --bg1: #100d16;
+  --bg2: #17111e;
+  --bg3: #100d16;
+  --header-start: rgba(21, 16, 28, 0.9);
+  --header-end: rgba(29, 20, 35, 0.85);
+  --header-text: #f3e9dc;
+  --footer-start: #100d16;
+  --footer-end: #17111e;
+  --footer-text: #b8a99c;
+  --border-see-rule: #64452f;
+  --table-header: transparent;
+  --table-header-text: #e5b77f;
+  --table-border: #64452f;
+  --table-text-color: #f3e9dc;
+  --row-odd: transparent;
+  --row-even: transparent;
+  --table-row-hover: rgba(60, 41, 61, 0.3);
+  --accent: #fe952e;
+  --highlight: #473045;
+  --selection-bg: #754322;
+  --main-text: #f3e9dc;
+  --button-text: #f3e9dc;
+  --results-bg: transparent;
+  --results-accent: #fe952e;
+  --primary-color: linear-gradient(145deg, #b85d1d, #87401e);
+  --manage-rules-button-bg: #fe952e;
+  --manage-rules-button-text: #1b1010;
+  --manage-rules-button-border: #fe952e;
+  --manage-rules-btn-bg-start: #b85d1d;
+  --manage-rules-btn-bg-end: #87401e;
+  --manage-rules-btn-hover-start: #d77729;
+  --manage-rules-btn-hover-end: #a95324;
+  --manage-rules-btn-text: #fff3e1;
+  --manage-rules-btn-border: #d18442;
+}
+/* Body overrides the shared root aliases without changing other themes. */
+body {
+  --info-card-background: rgba(21, 16, 28, 0.92);
+  --login-modal-background: linear-gradient(145deg, #211729, #100d16);
+  --login-button-background: linear-gradient(135deg, #feaa48, #ef8126);
+  --login-button-text: #23120c;
+  --login-heading-text: #feaa48;
+  --student-tasks-header-text: #f3e9dc;
+  font-family: "DM Sans", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.MuiTypography-h1,
+.MuiTypography-h2,
+.MuiTypography-h3,
+.MuiTypography-h4,
+.MuiTypography-h5,
+.MuiTypography-h6 {
+  font-family: "Cinzel", Georgia, serif !important;
+}
+.MuiTypography-root,
+.MuiButton-root,
+.MuiInputBase-root,
+.MuiDataGrid-root,
+.MuiTableCell-root {
+  font-family: "DM Sans", sans-serif;
+}
+.MuiDataGrid-root {
+  color: var(--main-text) !important;
+  background: var(--results-bg);
+  border: 1px solid var(--table-border) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.MuiDataGrid-root .MuiDataGrid-columnHeaders,
+.MuiDataGrid-root .MuiDataGrid-footerContainer {
+  background: var(--table-header);
+  color: var(--main-text);
+}
+.MuiTablePagination-root,
+.MuiDataGrid-root .MuiSvgIcon-root {
+  color: var(--main-text);
+}
+.MuiCheckbox-root.Mui-checked {
+  color: var(--accent) !important;
+}
+button:disabled,
+.MuiButton-root.Mui-disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+/* MUI gives the header row and scroll filler their own opaque surfaces. */
+.MuiDataGrid-root .MuiDataGrid-container--top,
+.MuiDataGrid-root .MuiDataGrid-container--bottom,
+.MuiDataGrid-root .MuiDataGrid-columnHeaders,
+.MuiDataGrid-root .MuiDataGrid-columnHeaders [role="row"],
+.MuiDataGrid-root .MuiDataGrid-filler,
+.MuiDataGrid-root .MuiDataGrid-scrollbarFiller {
+  background: transparent !important;
+}
+.MuiDataGrid-root .MuiDataGrid-row.Mui-selected .MuiDataGrid-cell {
+  background-color: rgba(254, 149, 46, 0.16) !important;
+}
