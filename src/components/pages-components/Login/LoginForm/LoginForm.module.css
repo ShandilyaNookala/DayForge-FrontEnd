@@ -1,5 +1,5 @@
 .heading {
-  color: var(--login-button-text) !important;
+  color: var(--login-heading-text, var(--login-button-text)) !important;
   font-weight: bold;
   text-align: center;
   margin-top: 2rem;
